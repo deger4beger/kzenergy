@@ -1,0 +1,9 @@
+.wrapper {
+	background-color: var(--secBg);
+	border-top: 1px solid var(--additional);
+	color: var(--forText);
+	height: 50px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}

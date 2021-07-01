@@ -1,0 +1,35 @@
+.inputBlock {
+	margin-bottom: 30px;
+	position: relative;
+}
+
+.inputBlock.last {
+	margin-bottom: 40px;
+	display: flex;
+	flex-direction: column;
+}
+
+.inputBlock.last .info {
+	align-self: flex-end;
+	margin-top: 3px;
+}
+
+.infoReg {
+	color: var(--main);
+	display: inline-block;
+}
+
+.infoReg:hover {
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.inputBlock .error {
+	color: var(--error);
+	position: absolute;
+	bottom: -26px;
+}
+
+.inputBlock.last .error.shifted {
+	bottom: 0px;
+}

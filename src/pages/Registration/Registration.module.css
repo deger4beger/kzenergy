@@ -1,0 +1,30 @@
+.wrapper {
+	margin-top: 160px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title {
+	padding: 0px 4px;
+	margin-bottom: 30px;
+	font-size: 44px;
+	border-bottom: 1px solid var(--additional);
+}
+
+.loginForm {
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	width: 500px;
+}
+
+.margin {
+	margin-bottom: 16px;
+}
+
+.globalError {
+	color: var(--error);
+	position: absolute;
+	bottom: 44px;
+}

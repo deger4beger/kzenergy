@@ -1,0 +1,90 @@
+.settingsBlock {
+	position: relative;
+}
+
+.dropdown {
+	position: absolute;
+	top: -106px;
+	left: -160px;
+	border-bottom-left-radius: 8px;
+	border-bottom-right-radius: 8px;
+	border: 1px solid var(--additional);
+	width: 220px;
+	background-color: var(--secBg);
+	transform: translateZ(-10px);
+	transition: 0.23s ease-in;
+	font-weight: 400;
+}
+
+.dropdown.active {
+	top: 36px;
+}
+
+.menuItems {
+	padding: 20px 16px 4px;
+}
+
+.menuItem:first-child {
+	margin-bottom: 6px;
+}
+
+.menuItem {
+	padding: 4px 10px;
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	opacity: 0.85;
+}
+
+.menuItem:hover {
+	/*background-color: var(--additional);*/
+	opacity: 1;
+	cursor: pointer;
+}
+
+.menuItem > img {
+	margin-right: 20px;
+}
+
+.menuItem > span {
+	position: relative;
+	top: 2px;
+	font-size: 16px;
+}
+
+.lang {
+	margin-right: 14px;
+}
+
+.lang:hover {
+	color: var(--main);
+}
+
+.lang.active {
+	color: var(--main);
+}
+
+.settingsIcon {
+	height: 100%;
+	padding: 0px 13px;
+	cursor: pointer;
+	transition: 0.23s ease-out;
+}
+
+.settingsIcon.active {
+	transform: rotate(-68deg);
+}
+
+.info {
+	display: block;
+	color: var(--forLinks);
+	font-size: 16px;
+	text-align: center;
+	border-top: 1px solid var(--additional);
+	margin-top: 16px;
+	padding-top: 6px;
+}
+
+.info:hover {
+	text-decoration: underline;
+}

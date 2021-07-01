@@ -1,0 +1,19 @@
+{
+    "header": {
+        "route1": "Profile",
+        "route2": "Guide",
+        "switchTheme": "Switch theme",
+        "optionInfo": "If you need more help"
+    },
+    "login": {
+        "notFound": "404 Not found",
+        "login": "Sign in",
+        "logout": "Sign out",
+        "email": "Email",
+        "password": "Password",
+        "logInfo": "Don't have an account ?",
+        "signUp": "Sign up",
+        "logInfoGoogle": "Or sign in with Google",
+        "confPass": "Confirm password"
+    }
+}

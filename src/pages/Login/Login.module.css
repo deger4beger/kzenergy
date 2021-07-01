@@ -1,0 +1,35 @@
+.wrapper {
+	margin-top: 160px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.title {
+	padding: 0px 4px;
+	margin-bottom: 30px;
+	font-size: 44px;
+	border-bottom: 1px solid var(--additional);
+}
+
+.loginForm {
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	width: 500px;
+}
+
+.globalError {
+	color: var(--error);
+	position: absolute;
+	bottom: 44px;
+}
+
+.or {
+	font-size: 22px;
+	text-align: center;
+	margin-top: 40px;
+	margin-bottom: 8px;
+	padding-top: 10px;
+	border-top: 1px solid var(--additional);
+}

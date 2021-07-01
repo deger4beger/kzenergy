@@ -1,0 +1,19 @@
+{
+    "header": {
+        "route1": "Profıl",
+        "route2": "Basshylyq",
+        "switchTheme": "Túsin ózgertý",
+        "optionInfo": "Kóp aqparat úshin"
+    },
+    "login": {
+        "notFound": "404 Bet tabylmady",
+        "login": "Kirý",
+        "logout": "Shyǵý",
+        "email": "Email",
+        "password": "Paról",
+        "logInfo": "Sizde tirkelgi joq pa ?",
+        "signUp": "Tirkelý",
+        "logInfoGoogle": "Nemese Google eseptik jazbasynan kirińiz",
+        "confPass": "Paróldi rastaý"
+    }
+}
