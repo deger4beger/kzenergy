@@ -24,12 +24,3 @@
 	position: absolute;
 	bottom: 44px;
 }
-
-.or {
-	font-size: 22px;
-	text-align: center;
-	margin-top: 40px;
-	margin-bottom: 8px;
-	padding-top: 10px;
-	border-top: 1px solid var(--additional);
-}

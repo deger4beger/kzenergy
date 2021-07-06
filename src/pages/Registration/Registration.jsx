@@ -4,11 +4,12 @@ import { useTranslation } from "react-i18next";
 import cn from "classnames"
 import { observer } from "mobx-react-lite"
 import { MainButton } from '../../components/Button/Button';
-import { FormLogic } from '../Login/FormLogic';
-import { hasError } from '../../validators/Validator';
+import { FormLogicRegister } from './FormLogicRegister';
+import { hasErrorReg } from '../../validators/Validator';
 import { withAuthRedirect } from '../../hocs/withAuthRedirect';
 import auth from "../../store/authStore"
 import InputBlock from "../../components/InputBlock/InputBlock"
+import SelectReg from "./SelectReg/SelectReg"
 import s from "./Registration.module.css"
 
 
@@ -17,11 +18,11 @@ const Registration = () => {
 	const history = useHistory()
 
 	const {
-		email, password, confPass, error,
+		email, password, role, confPass, name, error,
 		setError,
-		onEmailChange, onPasswordChange, onConfPassChange,
+		onEmailChange, onNameChange, onRoleChange, onPasswordChange, onConfPassChange,
 		errorReset
-	} = FormLogic()
+	} = FormLogicRegister()
 
 	useEffect(() => {
 		return () => {
@@ -30,12 +31,16 @@ const Registration = () => {
 	}, [])
 
 	const onSubmit = () => {
-		if (hasError(email, password, setError)) return
+		if (hasErrorReg(email, password, name, setError)) return
+		if (role === "") {
+			errorReset({role: "You must choose the role"})
+			return
+		}
 		if (password !== confPass) {
 			errorReset({confirmPassword: "Password doesn't match"})
 			return
 		}
-		auth.register({email, password}, history)
+		auth.register({email, password, fullName: name, role}, history)
 	}
 	return (
 		<div className={s.wrapper}>
@@ -52,6 +57,24 @@ const Registration = () => {
 					onChange={onEmailChange}
 					error={error?.email}
 				/>
+				<InputBlock
+					last={false}
+					title={t("login.name")}
+					inputType="text"
+					placeholder={t("login.name")}
+					value={name}
+					onChange={onNameChange}
+					error={error?.name}
+				/>
+				<InputBlock
+					title={t("login.role")}
+					error={error?.role}
+					>
+					<SelectReg
+						value={role}
+						onChange={onRoleChange}
+					/>
+				</InputBlock>
 				<InputBlock
 					last={false}
 					title={t("login.password")}

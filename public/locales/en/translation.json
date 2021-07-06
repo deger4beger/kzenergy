@@ -1,12 +1,12 @@
 {
     "header": {
-        "route1": "Profile",
-        "route2": "Guide",
+        "route1": "Working area",
+        "route2": "Profile",
+        "route3": "Guide",
         "switchTheme": "Switch theme",
         "optionInfo": "If you need more help"
     },
     "login": {
-        "notFound": "404 Not found",
         "login": "Sign in",
         "logout": "Sign out",
         "email": "Email",
@@ -14,6 +14,22 @@
         "logInfo": "Don't have an account ?",
         "signUp": "Sign up",
         "logInfoGoogle": "Or sign in with Google",
-        "confPass": "Confirm password"
+        "confPass": "Confirm password",
+        "role": "Department",
+        "name": "Full name"
+    },
+    "other": {
+        "notFound": "404 Not found",
+        "selectRole": "Select your department",
+        "role1": "Facility worker",
+        "role2": "Сhemical laboratory",
+        "role3": "Mining Department",
+        "role4": "EP department"
+    },
+    "work": {
+        "selectObj": "Select a production facility",
+        "obj1": "Gas turbines of reverse gas injection compressors",
+        "obj2": "Gas turbine power plant",
+        "obj3": "High pressure boilers"
     }
 }

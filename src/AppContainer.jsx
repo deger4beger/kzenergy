@@ -20,21 +20,6 @@ const AppContainer = () => {
 		}
 	}, [])
 
-	// const setLanguage = (language) => {
-	// 	i18next.init({
-	//     	lng: language,
-	//     	resources: require(`./${language}.json`)
-	//   	})
-	//   	setLang(language)
-	//   	if (language === "ru") {
-	//   		document.documentElement.style.setProperty('--mainFont', "Montserrat");
-	//   	} else if (language === "kz") {
-	//   		document.documentElement.style.setProperty('--mainFont', "Josefin Sans");
-	//   	} else {
-	//   		document.documentElement.style.setProperty('--mainFont', "Josefin Sans");
-	//   	}
-	// }
-
 	const colors = {
 		light: {
 		  	firstBg: "rgb(240, 242, 245)",

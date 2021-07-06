@@ -1,10 +1,11 @@
 import s from "./NotFound.module.css"
-import i18next from 'i18next';
+import { useTranslation } from "react-i18next";
 
 export function NotFound() {
+	const { t, i18n } = useTranslation();
     return (
     	<div className={s.wrapper}>
-    		{i18next.t("notFound")}
+    		{t("other.notFound")}
     	</div>
  	);
 }

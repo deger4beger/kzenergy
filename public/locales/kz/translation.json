@@ -1,12 +1,12 @@
 {
     "header": {
-        "route1": "Profıl",
-        "route2": "Basshylyq",
+        "route1": "Jumys aımaǵy",
+        "route2": "Profıl",
+        "route3": "Basshylyq",
         "switchTheme": "Túsin ózgertý",
         "optionInfo": "Kóp aqparat úshin"
     },
     "login": {
-        "notFound": "404 Bet tabylmady",
         "login": "Kirý",
         "logout": "Shyǵý",
         "email": "Email",
@@ -14,6 +14,22 @@
         "logInfo": "Sizde tirkelgi joq pa ?",
         "signUp": "Tirkelý",
         "logInfoGoogle": "Nemese Google eseptik jazbasynan kirińiz",
-        "confPass": "Paróldi rastaý"
+        "confPass": "Paróldi rastaý",
+        "role": "Bólimi",
+        "name": "Aty-jóni"
+    },
+    "other": {
+        "notFound": "404 Bet tabylmady",
+        "selectRole": "Róldi tańdańyz",
+        "role1": "Obektidegi qyzmetker",
+        "role2": "Hımıalyq zerthana",
+        "role3": "Óndirý bólimi",
+        "role4": "QOQ bólimi"
+    },
+    "work": {
+        "selectObj": "Óndiris nysanyn tańdańyz",
+        "obj1": "Gazdy keri aıdaý kompresorlarynyń gaz týrbınalary",
+        "obj2": "Gaztýrbınalyq energetıkalyq qondyrǵy",
+        "obj3": "Joǵary qysymdy qazandar"
     }
 }

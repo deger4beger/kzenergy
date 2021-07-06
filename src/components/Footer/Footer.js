@@ -5,7 +5,7 @@ const Footer = () => {
 
 	return (
 		<div className={s.wrapper}>
-			Ugarel, 2021
+			Shoqan, 2021
 		</div>
 	)
 }

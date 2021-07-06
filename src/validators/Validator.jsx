@@ -30,9 +30,47 @@ export const isEmail = value => {
 }
 
 const validatorsPass = [minLengthCreator(5), maxLenghtCreator(20), required]
-const validatorsEmail = [minLengthCreator(5), maxLenghtCreator(20), required, isEmail]
+const validatorsEmail = [minLengthCreator(5), maxLenghtCreator(40), required, isEmail]
+const validatorsName = [minLengthCreator(5), maxLenghtCreator(50), required]
 
-export const hasError = (email, password, setError) => {
+export const hasErrorReg = (email, password, name, setError) => {
+	let emailError, passwordError, nameError
+	for (let i of validatorsEmail) {
+		if (i(email)) {
+			setError(prev => ({
+				...prev,
+				email: i(email)
+			}))
+			emailError = true
+			break
+		}
+	}
+	for (let i of validatorsPass) {
+		if (i(password)) {
+			setError(prev => ({
+				...prev,
+				password: i(password)
+			}))
+			passwordError = true
+			break
+		}
+	}
+	for (let i of validatorsName) {
+		if (i(name)) {
+			setError(prev => ({
+				...prev,
+				name: i(name)
+			}))
+			nameError = true
+			break
+		}
+	}
+
+	if (emailError || passwordError || nameError) return {emailError, passwordError, nameError}
+	return false
+}
+
+export const hasErrorLog = (email, password, setError) => {
 	let emailError, passwordError
 	for (let i of validatorsEmail) {
 		if (i(email)) {
@@ -54,6 +92,7 @@ export const hasError = (email, password, setError) => {
 			break
 		}
 	}
+
 	if (emailError || passwordError) return {emailError, passwordError}
 	return false
 }

@@ -45,7 +45,7 @@ class Auth {
 
 	errorHandler(err) {
 		this.loading = false
-		if (!err.response) {
+		if (!err.response || !err.response?.data?.error) {
 			this.error = "Server error"
 		} else {
 			this.error = err.response.data.error

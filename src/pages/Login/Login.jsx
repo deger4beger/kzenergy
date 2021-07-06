@@ -4,12 +4,11 @@ import { observer } from "mobx-react-lite"
 import i18next from "i18next"
 import cn from "classnames"
 import { MainButton } from '../../components/Button/Button';
-import { hasError } from '../../validators/Validator';
-import { FormLogic } from './FormLogic';
+import { hasErrorLog } from '../../validators/Validator';
+import { FormLogicLogin } from './FormLogicLogin';
 import { withAuthRedirect } from '../../hocs/withAuthRedirect';
 import auth from "../../store/authStore"
 import InputBlock from "../../components/InputBlock/InputBlock"
-import GoogleLogin from "./GoogleLogin/GoogleLogin"
 import s from "./Login.module.css"
 import { useTranslation } from "react-i18next";
 
@@ -21,10 +20,10 @@ const Login = () => {
 		email, password, error,
 		setError,
 		onEmailChange, onPasswordChange
-	} = FormLogic()
+	} = FormLogicLogin()
 
 	const onSubmit = () => {
-		if (hasError(email, password, setError)) return
+		if (hasErrorLog(email, password, setError)) return
 		auth.auth({email, password}, history)
 	}
 
@@ -75,10 +74,6 @@ const Login = () => {
 						fontSize: "26px",
 						color: "var(--color)"
 					}}
-				/>
-				<div className={s.or}>{t("login.logInfoGoogle")}</div>
-				<GoogleLogin
-					auth={auth}
 				/>
 			</div>
 		</div>

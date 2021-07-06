@@ -1,0 +1,33 @@
+
+.item {
+	width: 400px;
+	height: 210px;
+	padding: 32px 55px;
+	border-radius: 8px;
+	border: 1px solid var(--additional);
+	background-color: var(--secBg);
+	margin: 20px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+
+	-ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+}
+
+.item:hover {
+	cursor: pointer;
+}
+
+.item.active {
+	background-color: var(--main);
+}
+
+.info {
+	font-size: 16px;
+	position: relative;
+	bottom: 4px;
+}

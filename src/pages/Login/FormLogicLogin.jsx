@@ -1,15 +1,13 @@
 import { useState } from "react"
-import { hasError } from '../../validators/Validator';
+import { hasErrorLog } from '../../validators/Validator';
 
-export const FormLogic = () => {
+export const FormLogicLogin = () => {
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
-	const [confPass, setConfPass] = useState("")
 	const [error, setError] = useState({
 		email: null,
 		password: null,
-		confirmPassword: null,
 	})
 
 	const onEmailChange = (e) => {
@@ -19,23 +17,13 @@ export const FormLogic = () => {
 	const onPasswordChange = (e) => {
 		setPassword(e.currentTarget.value)
 		checkErrorHelper(email, e.currentTarget.value)
-		if ((e.currentTarget.value === confPass) && error.confirmPassword !== null) {
-			errorReset({confirmPassword: null})
-		}
-	}
-
-	const onConfPassChange = (e) => {
-		setConfPass(e.currentTarget.value)
-		if ((password === e.currentTarget.value) && error.confirmPassword !== null) {
-			errorReset({confirmPassword: null})
-		}
 	}
 
 	const checkErrorHelper = (email, password) => {
-		if (!error.username && !error.password) {
+		if (!error.email && !error.password) {
 			return
 		}
-		const { emailError, passwordError } = hasError(email, password, setError)
+		const { emailError, passwordError} = hasErrorLog(email, password, setError)
 		if (!emailError) {
 			errorReset({email: null})
 		}
@@ -51,9 +39,9 @@ export const FormLogic = () => {
 	}))}
 
 	return {
-		email, password, confPass, error,
-		setEmail, setPassword, setConfPass, setError,
-		onEmailChange, onPasswordChange, onConfPassChange,
+		email, password, error,
+		setError,
+		onEmailChange, onPasswordChange,
 		errorReset
 	}
 }

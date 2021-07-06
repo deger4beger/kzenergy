@@ -4,18 +4,23 @@ import s from "./InputBlock.module.css"
 import Input from "../Input/Input"
 
 const InputBlock = ({last, title, inputType, placeholder, value, onChange,
-	error, info, infoLink, linkTo }) => {
+	error, info, infoLink, linkTo, children }) => {
 
 
 	return (
 		<div className={last ? cn(s.inputBlock, s.last) : s.inputBlock}>
 			{title && <div className={s.inputTitle}>*{title}</div> }
-			<Input
-				inputType={inputType}
-				placeholder={placeholder}
-				value={value}
-				onChange={onChange}
-			/>
+			{!children && (
+				<Input
+					inputType={inputType}
+					placeholder={placeholder}
+					value={value}
+					onChange={onChange}
+				/>
+			)}
+			{children && (
+				{...children}
+			)}
 			{error && <div className={info ? cn(s.error, s.shifted) : s.error}>
 				{error}
 			</div>}

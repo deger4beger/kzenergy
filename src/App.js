@@ -5,7 +5,7 @@ import Footer from "./components/Footer/Footer"
 import HomePage from "./pages/Homepage/Homepage"
 import Registration from "./pages/Registration/Registration"
 import Login from "./pages/Login/Login"
-import Game from "./pages/Game/Game"
+import Work from "./pages/Work/Work"
 import './App.css'
 
 const App = ({setLanguage, lang}) => {
@@ -27,8 +27,8 @@ const App = ({setLanguage, lang}) => {
                             <Registration />}/>
                         <Route path="/login" render={() =>
                             <Login />}/>
-                        <Route path="/game/:gameMode/:length?" render={() =>
-                            <Game />}/>
+                        <Route path="/work" render={() =>
+                            <Work />}/>
                         <Route path="*" render={() =>
                             <NotFound />}/>
                     </Switch>

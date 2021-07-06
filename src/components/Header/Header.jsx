@@ -23,8 +23,12 @@ const Header = () => {
 	}
 
 	const changeLanguage = (language) => {
+		// if (language === "ru") {
+	 //  		document.documentElement.style.setProperty('--mainFont', "Raleway")
+	 //  	} else {
+	 //  		document.documentElement.style.setProperty('--mainFont', "Josefin Sans")
+	 //  	}
     	i18n.changeLanguage(language);
-    	console.log(i18n)
   	}
 
 	return (
@@ -41,11 +45,14 @@ const Header = () => {
 							qan
 						</Link>
 					</div>
-					<Link to="/profile" className={s.route}>
+					<Link to="/work" className={s.route}>
 						{t("header.route1")}
 					</Link>
-					<Link to="/about" className={s.route}>
+					<Link to="/profile" className={s.route}>
 						{t("header.route2")}
+					</Link>
+					<Link to="/about" className={s.route}>
+						{t("header.route3")}
 					</Link>
 				</div>
 				<div className={s.right}>

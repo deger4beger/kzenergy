@@ -12,8 +12,9 @@ import themeIconWhite from "assets/themeIconWhite.png"
 import langIconWhite from "assets/langIconWhite.png"
 
 const Settings = ({theme, themeSwitch, setLanguage}) => {
-	const { t, i18n } = useTranslation();
+	const { t, i18n } = useTranslation()
 	const [settingsActive, setSettingsActive] = useState(false)
+	console.log(i18n)
 
 	const localMiddleware = (func, lang=false) => {
 		lang && localStorage.setItem("language", lang)
@@ -47,17 +48,17 @@ const Settings = ({theme, themeSwitch, setLanguage}) => {
 								alt=""
 							/>
 							<span
-								className={"myLanguage" === "en" ? cn(s.lang, s.active) : s.lang}
+								className={i18n.language === "en" ? cn(s.lang, s.active) : s.lang}
 								onClick={() => localMiddleware(() => setLanguage("en"))}>
 								EN
 							</span>
 							<span
-								className={"myLanguage" === "kz" ? cn(s.lang, s.active) : s.lang}
+								className={i18n.language === "kz" ? cn(s.lang, s.active) : s.lang}
 								onClick={() => localMiddleware(() => setLanguage("kz"))}>
 								KZ
 							</span>
 							<span
-								className={"myLanguage" === "ru" ? cn(s.lang, s.active) : s.lang}
+								className={i18n.language === "ru" ? cn(s.lang, s.active) : s.lang}
 								onClick={() => localMiddleware(() => setLanguage("ru"))}>
 								RU
 							</span>

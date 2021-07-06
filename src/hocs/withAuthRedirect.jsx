@@ -4,12 +4,10 @@ import auth from "../store/authStore"
 import { observer } from 'mobx-react-lite';
 
 export const withAuthRedirect = (Component) => {
-	class RedirectComponent extends React.Component {
-		render() {
-			if (auth.isAuth) return <Redirect to="/homepage" />
-				return <Component {...this.props} />
-		}
+	const RedirectComponent = (props) => {
+		if (auth.isAuth) return <Redirect to="/homepage" />
+		return <Component {...props} />
 	}
 
-	return RedirectComponent
+	return observer(RedirectComponent)
 }
