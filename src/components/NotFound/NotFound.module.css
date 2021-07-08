@@ -1,5 +1,5 @@
 .wrapper {
-	font-size: 100px;
+	font-size: var(--fsz100);
 	text-align: center;
 	padding-top: 350px;
 }

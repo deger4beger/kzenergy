@@ -8,7 +8,7 @@
 .title {
 	padding: 0px 4px;
 	margin-bottom: 30px;
-	font-size: 44px;
+	font-size: var(--fsz38);
 	border-bottom: 1px solid var(--additional);
 }
 

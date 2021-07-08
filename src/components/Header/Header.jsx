@@ -1,18 +1,19 @@
-import { Link } from "react-router-dom"
+import { Link, useLocation } from "react-router-dom"
 import { observer } from "mobx-react-lite"
 import { useTranslation } from "react-i18next";
+import cn from "classnames"
 import auth from "../../store/authStore"
 import s from "./Header.module.css"
 import { MainButton } from '../Button/Button';
 import logoIconDark from "assets/logoIconDark.png"
 import logoIconWhite from "assets/logoIconWhite.png"
 import Settings from "./Settings/Settings"
-import { getThemeIcon } from '../../helpers/helpers';
 import { useTheme } from '../../hooks/useTheme';
 
 const Header = () => {
-	const { t, i18n } = useTranslation();
+	const { t, i18n } = useTranslation()
 	const [theme, setTheme] = useTheme()
+	const url = useLocation().pathname.substr(1)
 
 	const themeSwitch = () => {
 		if (theme === "dark") {
@@ -45,13 +46,15 @@ const Header = () => {
 							qan
 						</Link>
 					</div>
-					<Link to="/work" className={s.route}>
+					<Link to="/work" className={!auth.isAuth ? cn(s.route, s.disabled) : (
+						url === "work" ? cn(s.route, s.active) : s.route)}>
 						{t("header.route1")}
 					</Link>
-					<Link to="/profile" className={s.route}>
+					<Link to="/archive" className={!auth.isAuth ? cn(s.route, s.disabled) : (
+						url === "archive" ? cn(s.route, s.active) : s.route)}>
 						{t("header.route2")}
 					</Link>
-					<Link to="/about" className={s.route}>
+					<Link to="/guide" className={url === "guide" ? cn(s.route, s.active) : s.route}>
 						{t("header.route3")}
 					</Link>
 				</div>
@@ -78,7 +81,6 @@ const Header = () => {
 						theme={theme}
 						themeSwitch={themeSwitch}
 						setLanguage={changeLanguage}
-						// myLanguage={lang}
 					/>
 				</div>
 			</div>

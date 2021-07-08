@@ -1,7 +1,7 @@
 {
     "header": {
         "route1": "Jumys aımaǵy",
-        "route2": "Profıl",
+        "route2": "Arhıv",
         "route3": "Basshylyq",
         "switchTheme": "Túsin ózgertý",
         "optionInfo": "Kóp aqparat úshin"
@@ -16,7 +16,8 @@
         "logInfoGoogle": "Nemese Google eseptik jazbasynan kirińiz",
         "confPass": "Paróldi rastaý",
         "role": "Bólimi",
-        "name": "Aty-jóni"
+        "name": "Aty-jóni",
+        "secretKey": "Qupıa kilt"
     },
     "other": {
         "notFound": "404 Bet tabylmady",

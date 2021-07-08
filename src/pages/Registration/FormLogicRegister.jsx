@@ -8,12 +8,14 @@ export const FormLogicRegister = () => {
 	const [role, setRole] = useState("")
 	const [password, setPassword] = useState("")
 	const [confPass, setConfPass] = useState("")
+	const [secretKey, setSecretKey] = useState("")
 	const [error, setError] = useState({
 		email: null,
 		name: null,
 		role: null,
 		password: null,
 		confirmPassword: null,
+		secretKey: null
 	})
 
 	const onEmailChange = (e) => {
@@ -45,6 +47,13 @@ export const FormLogicRegister = () => {
 		}
 	}
 
+	const onSecretKeyChange = (e) => {
+		setSecretKey(e.currentTarget.value)
+		if ((e.currentTarget.value.length !== 0) && error.secretKey !== null) {
+			errorReset({secretKey: null})
+		}
+	}
+
 	const checkErrorHelper = (email, password, name) => {
 		if (!error.email && !error.password && !error.name) {
 			return
@@ -68,9 +77,9 @@ export const FormLogicRegister = () => {
 	}))}
 
 	return {
-		email, password, role, confPass, name, error,
+		email, password, role, confPass, name, secretKey, error,
 		setError,
-		onEmailChange, onNameChange, onRoleChange, onPasswordChange, onConfPassChange,
+		onEmailChange, onNameChange, onRoleChange, onPasswordChange, onConfPassChange, onSecretKeyChange,
 		errorReset
 	}
 }

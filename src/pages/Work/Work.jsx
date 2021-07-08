@@ -1,7 +1,6 @@
-import { useState } from "react"
-import s from "./Work.module.css"
 import { NotFound } from '../../components/NotFound/NotFound';
 import OneTwo from "./OneTwo/OneTwo"
+import { withoutAuthRedirect } from '../../hocs/withoutAuthRedirect';
 
 const Work = () => {
 
@@ -14,4 +13,4 @@ const Work = () => {
 	}
 }
 
-export default Work
+export default withoutAuthRedirect(Work)

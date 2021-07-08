@@ -1,23 +1,21 @@
 import { ThemeProvider } from "react-switch-theme"
-import { useEffect, useState } from 'react'
-import decode from "jwt-decode"
+import { useEffect } from 'react'
+import { useHistory } from "react-router-dom"
 import auth from "./store/authStore"
 import App from "./App"
-import i18next from 'i18next';
+import { validateToken } from './helpers/helpers';
+import { observer } from 'mobx-react-lite';
 
 const AppContainer = () => {
-
-	const [lang, setLang] = useState(null)
+	const history = useHistory()
 
 	useEffect(() => {
-		const myData = JSON.parse(localStorage.getItem("access"))
+		const myData = validateToken()
 		if (myData) {
-			const decodedToken = decode(myData.access)
-
-			if (decodedToken.exp * 1000 < new Date().getTime()) return null
-
 			auth.setMyData(myData, false)
+			return
 		}
+		auth.logout()
 	}, [])
 
 	const colors = {
@@ -47,18 +45,17 @@ const AppContainer = () => {
 	const activeMode = "dark"
 	const offlineStorageKey = "colorScheme"
 
-
+	if (auth.isAuth === undefined) {
+		return <div className="loading">Loading...</div>
+	}
 	return (
 		<ThemeProvider
 			colors={colors}
 			activeMode={activeMode}
 			offlineStorageKey={offlineStorageKey}>
-				<App
-					// setLanguage={setLanguage}
-					// lang={lang}
-				/>
+				<App />
 		</ThemeProvider>
 	)
 }
 
-export default AppContainer
+export default observer(AppContainer)

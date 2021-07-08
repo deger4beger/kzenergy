@@ -1,7 +1,6 @@
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { useTranslation } from "react-i18next";
-import cn from "classnames"
 import { observer } from "mobx-react-lite"
 import { MainButton } from '../../components/Button/Button';
 import { FormLogicRegister } from './FormLogicRegister';
@@ -11,16 +10,17 @@ import auth from "../../store/authStore"
 import InputBlock from "../../components/InputBlock/InputBlock"
 import SelectReg from "./SelectReg/SelectReg"
 import s from "./Registration.module.css"
-
+import { useTheme } from '../../hooks/useTheme';
 
 const Registration = () => {
-	const { t, i18n } = useTranslation();
+	const { t } = useTranslation()
+	const [theme] = useTheme()
 	const history = useHistory()
 
 	const {
-		email, password, role, confPass, name, error,
+		email, password, role, confPass, name, secretKey, error,
 		setError,
-		onEmailChange, onNameChange, onRoleChange, onPasswordChange, onConfPassChange,
+		onEmailChange, onNameChange, onRoleChange, onPasswordChange, onConfPassChange, onSecretKeyChange,
 		errorReset
 	} = FormLogicRegister()
 
@@ -40,7 +40,11 @@ const Registration = () => {
 			errorReset({confirmPassword: "Password doesn't match"})
 			return
 		}
-		auth.register({email, password, fullName: name, role}, history)
+		if (secretKey === "") {
+			errorReset({secretKey: "Field is required"})
+			return
+		}
+		auth.register({email, password, fullName: name, role, identificationKey: secretKey}, history)
 	}
 	return (
 		<div className={s.wrapper}>
@@ -69,6 +73,8 @@ const Registration = () => {
 				<InputBlock
 					title={t("login.role")}
 					error={error?.role}
+					questionMark={true}
+					questionText={"The department where you working at"}
 					>
 					<SelectReg
 						value={role}
@@ -85,13 +91,24 @@ const Registration = () => {
 					error={error?.password}
 				/>
 				<InputBlock
-					last={true}
+					last={false}
 					title={t("login.confPass")}
 					inputType="password"
 					placeholder={t("login.confPass")}
 					value={confPass}
 					onChange={onConfPassChange}
 					error={error?.confirmPassword}
+				/>
+				<InputBlock
+					last={true}
+					title={t("login.secretKey")}
+					inputType="text"
+					placeholder={t("login.secretKey")}
+					value={secretKey}
+					onChange={onSecretKeyChange}
+					error={error?.secretKey}
+					questionMark={true}
+					questionText={"The company's secret key, find out in the administration"}
 				/>
 				<div className={s.globalError}>
 					{auth.error}
@@ -102,10 +119,10 @@ const Registration = () => {
 					onClick={onSubmit}
 					isLoading={auth.loading}
 					disabled={false}
-					preloaderWhite={true}
+					preloaderWhite={theme === "dark" ? true : false}
 					styles={{
-						padding: "2px 14px",
-						fontSize: "26px",
+						padding: "3px 14px",
+						fontSize: "var(--fsz24)",
 					}}
 				/>
 			</div>

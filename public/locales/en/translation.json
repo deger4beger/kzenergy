@@ -1,7 +1,7 @@
 {
     "header": {
         "route1": "Working area",
-        "route2": "Profile",
+        "route2": "Archive",
         "route3": "Guide",
         "switchTheme": "Switch theme",
         "optionInfo": "If you need more help"
@@ -16,7 +16,8 @@
         "logInfoGoogle": "Or sign in with Google",
         "confPass": "Confirm password",
         "role": "Department",
-        "name": "Full name"
+        "name": "Full name",
+        "secretKey": "Secret key"
     },
     "other": {
         "notFound": "404 Not found",

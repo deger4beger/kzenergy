@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Link } from "react-router-dom"
 import { useTranslation } from "react-i18next";
-import i18next from "i18next"
 import cn from "classnames"
 import s from "./Settings.module.css"
 import settingsIconDark from "assets/settingsIconDark.png"
@@ -14,7 +13,6 @@ import langIconWhite from "assets/langIconWhite.png"
 const Settings = ({theme, themeSwitch, setLanguage}) => {
 	const { t, i18n } = useTranslation()
 	const [settingsActive, setSettingsActive] = useState(false)
-	console.log(i18n)
 
 	const localMiddleware = (func, lang=false) => {
 		lang && localStorage.setItem("language", lang)

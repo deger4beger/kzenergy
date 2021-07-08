@@ -1,8 +1,6 @@
 import { useEffect } from "react"
-import { Link, useHistory } from "react-router-dom"
+import { useHistory } from "react-router-dom"
 import { observer } from "mobx-react-lite"
-import i18next from "i18next"
-import cn from "classnames"
 import { MainButton } from '../../components/Button/Button';
 import { hasErrorLog } from '../../validators/Validator';
 import { FormLogicLogin } from './FormLogicLogin';
@@ -11,9 +9,11 @@ import auth from "../../store/authStore"
 import InputBlock from "../../components/InputBlock/InputBlock"
 import s from "./Login.module.css"
 import { useTranslation } from "react-i18next";
+import { useTheme } from '../../hooks/useTheme';
 
 const Login = () => {
-	const { t, i18n } = useTranslation()
+	const [theme] = useTheme()
+	const { t } = useTranslation()
 
 	const history = useHistory()
 	const {
@@ -68,7 +68,7 @@ const Login = () => {
 					onClick={onSubmit}
 					isLoading={auth.loading}
 					disabled={false}
-					preloaderWhite={true}
+					preloaderWhite={theme === "dark" ? true : false}
 					styles={{
 						padding: "2px 14px",
 						fontSize: "26px",

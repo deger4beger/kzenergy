@@ -33,3 +33,30 @@
 .inputBlock.last .error.shifted {
 	bottom: 0px;
 }
+
+.questionMark {
+	position: absolute;
+	border: 1px solid var(--additional);
+	border-radius: 40px;
+	padding: 2px 9.5px 0px;
+	top: 31px;
+	right: -40px;
+	-ms-user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    cursor: help;
+}
+
+.questionText {
+	position: absolute;
+	/*left: 4px;*/
+	right: 10px;
+	bottom: -26px;
+	display: none;
+	color: var(--forText);
+}
+
+.questionMark:hover + .questionText {
+	display: block;
+}

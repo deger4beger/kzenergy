@@ -18,7 +18,6 @@
 	height: 100%;
 	justify-content: space-between;
 	align-items: center;
-	font-size: 18px;
 	-ms-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
@@ -55,7 +54,7 @@
 
 .logo {
 	color: var(--main);
-	font-size: 28px;
+	font-size: var(--fszLogo);
 	display: flex;
 	align-items: center;
 	cursor: pointer;
@@ -67,9 +66,18 @@
 	display: block;
 	color: var(--color);
 	margin-left: 26px;
-	font-size: 20px;
+	font-size: var(--fsz19);
 	position: relative;
 	top: 2px;
+}
+
+.route.disabled {
+	opacity: 0.8;
+	pointer-events: none;
+}
+
+.route.active {
+	color: var(--main);
 }
 
 .route:hover {

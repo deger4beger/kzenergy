@@ -7,7 +7,7 @@ class Auth {
 		email: null,
 		access: null
 	}
-	isAuth = false
+	isAuth = undefined
 	loading = false
 	error = ""
 
@@ -22,7 +22,7 @@ class Auth {
 			this.loading = true
 			const data = yield authApi.register(payload)
 			this.setMyData(data)
-			history.push("/homepage")
+			history.push("/work")
 			// this.error && this.errorReset()
 			this.loading = false
 		} catch (err) {
@@ -35,7 +35,7 @@ class Auth {
 			this.loading = true
 			const data = yield authApi.auth(payload)
 			this.setMyData(data)
-			history.push("/homepage")
+			history.push("/work")
 			// this.error && this.errorReset()
 			this.loading = false
 		} catch (err) {

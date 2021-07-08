@@ -1,13 +1,24 @@
-import axios from "axios"
+import axios, { CancelToken } from "axios"
+import { validateToken } from '../helpers/helpers';
+import auth from "../store/authStore"
 
 const instance = axios.create({
+	withCredentials: true,
 	baseURL: "https://kzenergy.herokuapp.com/",
 })
 
 instance.interceptors.request.use((req) => {
-	if (localStorage.getItem("token")) {
-		req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem("token"))}`
+	const myData = validateToken()
+	if (myData) {
+		req.headers.Authorization = `Bearer ${JSON.parse(myData.access)}`
 	}
+	// if (myData === null) {
+	// 	auth.logout()
+	// 	return {
+	//     	...req,
+	//     	cancelToken: new CancelToken((cancel) => cancel('Cancel repeated request'))
+	//    	}
+	// }
 	return req
 })
 

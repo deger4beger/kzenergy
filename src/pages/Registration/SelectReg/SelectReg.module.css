@@ -1,10 +1,10 @@
 .select {
-	padding: 8px 10px;
-	font-size: 22px;
+	padding: 10px 10px;
+	font-size: var(--fsz19);
 	border-radius: 4px;
-	background-color: var(--color);
-	color: var(--firstBg);
-	border: 1px solid var(--color);
+	background-color: var(--secBg);
+	color: var(--color);
+	border: 1px solid var(--additional);
 	width: 100%;
 	cursor: pointer;
 }

@@ -6,6 +6,8 @@ import HomePage from "./pages/Homepage/Homepage"
 import Registration from "./pages/Registration/Registration"
 import Login from "./pages/Login/Login"
 import Work from "./pages/Work/Work"
+import Archive from "./pages/Archive/Archive"
+import Guide from "./pages/Guide/Guide"
 import './App.css'
 
 const App = ({setLanguage, lang}) => {
@@ -29,6 +31,10 @@ const App = ({setLanguage, lang}) => {
                             <Login />}/>
                         <Route path="/work" render={() =>
                             <Work />}/>
+                        <Route path="/archive" render={() =>
+                            <Archive />}/>
+                        <Route path="/guide" render={() =>
+                            <Guide />}/>
                         <Route path="*" render={() =>
                             <NotFound />}/>
                     </Switch>

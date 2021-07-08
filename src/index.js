@@ -7,7 +7,7 @@ import './i18n';
 
 ReactDOM.render(
 	<BrowserRouter>
-		<Suspense fallback={<div>Loading...</div>}>
+		<Suspense fallback={<div className="loading">Loading...</div>}>
 			<AppContainer />
     	</Suspense>
 	</BrowserRouter>,

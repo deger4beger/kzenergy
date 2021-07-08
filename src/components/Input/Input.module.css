@@ -1,15 +1,15 @@
 .input {
-	padding: 9px 10px;
-	font-size: 22px;
+	padding: 11px 14px;
+	font-size: var(--fsz19);
 	border-radius: 4px;
-	background-color: var(--color);
-	color: var(--firstBg);
-	border: 1px solid var(--color);
+	background-color: var(--secBg);
+	color: var(--color);
+	border: 1px solid var(--additional);
 	width: 100%;
 }
 
 .input:focus {
-	-moz-box-shadow: 0 0 5px var(--color);
-	-webkit-box-shadow: 0 0 5px var(--color);
-	box-shadow: 0 0 5px var(--color);
+	-moz-box-shadow: 0 0 1px var(--color);
+	-webkit-box-shadow: 0 0 1px var(--color);
+	box-shadow: 0 0 1px var(--color);
 }

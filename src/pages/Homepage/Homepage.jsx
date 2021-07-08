@@ -1,14 +1,14 @@
 import s from "./Homepage.module.css"
-import { MainButton } from '../../components/Button/Button';
+import { withoutAuthRedirect } from '../../hocs/withoutAuthRedirect';
 
 const Homepage = () => {
 
 
 	return (
 		<div className={s.wrapper}>
-
+			Homepage
 		</div>
 	)
 }
 
-export default Homepage
+export default withoutAuthRedirect(Homepage)
