@@ -1,33 +1,69 @@
 
 .item {
-	width: 400px;
-	height: 210px;
-	padding: 32px 55px;
+	width: 320px;
+	height: 180px;
 	border-radius: 8px;
 	border: 1px solid var(--additional);
 	background-color: var(--secBg);
 	margin: 20px;
 	display: flex;
-	justify-content: center;
-	align-items: center;
 	flex-direction: column;
+	cursor: pointer;
 
 	-ms-user-select: none;
     -moz-user-select: none;
     -khtml-user-select: none;
     -webkit-user-select: none;
+
+    position: relative;
 }
 
-.item:hover {
-	cursor: pointer;
+.imageBlock {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 130px;
 }
 
-.item.active {
-	background-color: var(--main);
+.image {
+	width: 100px;
+
+	border-top-left-radius: 8px;
+	border-top-right-radius: 8px;
+
+	filter: brightness(0.87);
+	-webkit-user-drag: none;
+  	-khtml-user-drag: none;
+  	-moz-user-drag: none;
+  	-o-user-drag: none;
+  	user-drag: none;
+}
+
+.checkMark {
+	display: none;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+	color: var(--main);
+	font-size: 24px;
+}
+
+.item.active .checkMark {
+	display: block;
 }
 
 .info {
-	font-size: 16px;
-	position: relative;
-	bottom: 4px;
+	font-size: var(--fsz19);
+	border-top: 1px solid var(--additional);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	height: 58px;
+	width: 100%;
+	padding: 2px 6px;
+	line-height: 1.2;
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
 }
+

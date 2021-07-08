@@ -3,7 +3,7 @@ import s from "./ObjCard.module.css"
 import { useTranslation } from "react-i18next";
 
 const ObjCard = ({index, image, active, onItemClick, info}) => {
-	const { t, i18n } = useTranslation()
+	const { t } = useTranslation()
 
 
 	return (
@@ -11,11 +11,15 @@ const ObjCard = ({index, image, active, onItemClick, info}) => {
 			className={active ? cn(s.item, s.active) : s.item}
 			onClick={onItemClick}
 		>
-			<img
-				src={image}
-				alt=""
-				className={s.image}/>
-			<div className={s.info}>{info}</div>
+			<div className={s.imageBlock}>
+				<img
+					src={image}
+					alt=""
+					className={s.image}
+				/>
+			</div>
+			<div className={s.info}>{t(info)}</div>
+			<div className={s.checkMark}>✔</div>
 		</div>
 	)
 }

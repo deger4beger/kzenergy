@@ -1,31 +1,35 @@
 import { useState } from 'react';
-import cn from "classnames"
 import s from "./OneTwo.module.css"
-import { useTranslation } from "react-i18next";
+import { useTheme } from '../../../hooks/useTheme';
 import ObjCard from "./ObjCard/ObjCard"
+import boilerDark from "assets/work/boilerDark.png"
+import boilerWhite from "assets/work/boilerWhite.png"
+import turbineDark from "assets/work/turbineDark.png"
+import turbineWhite from "assets/work/turbineWhite.png"
+import stationDark from "assets/work/stationDark.png"
+import stationWhite from "assets/work/stationWhite.png"
 
 const OneTwo = () => {
-	const { t, i18n } = useTranslation()
+	const [theme] = useTheme()
 	const [selectedObj, setSelectedObj] = useState(null)
+
+
 	const objects = [
-		{image: null, info: "work.obj1"},
-		{image: null, info: "work.obj2"},
-		{image: null, info: "work.obj3"}
+		{image: [turbineDark, turbineWhite], info: "work.obj1"},
+		{image: [stationDark, stationWhite], info: "work.obj2"},
+		{image: [boilerDark, boilerWhite], info: "work.obj3"}
 	]
 
 	return (
 		<>
-			<div className={s.title}>
-
-			</div>
 			<div className={s.objCards}>
 				{objects.map((obj, index) => {
 					return <ObjCard
 						key={index}
-						image={obj.image}
+						image={theme === "dark" ? obj.image[0] : obj.image[1]}
 						info={obj.info}
-						active={null}
-						onItemClick={null}
+						active={index === selectedObj}
+						onItemClick={() => setSelectedObj(index)}
 					/>
 				})}
 			</div>
