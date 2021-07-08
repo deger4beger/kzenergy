@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import s from "./OneTwo.module.css"
+import s from "./FirstSecondGroup.module.css"
 import { useTheme } from '../../../hooks/useTheme';
 import ObjCard from "./ObjCard/ObjCard"
 import boilerDark from "assets/work/boilerDark.png"
@@ -8,8 +8,9 @@ import turbineDark from "assets/work/turbineDark.png"
 import turbineWhite from "assets/work/turbineWhite.png"
 import stationDark from "assets/work/stationDark.png"
 import stationWhite from "assets/work/stationWhite.png"
+import FirstGroupOnly from "./FirstGroupOnly/FirstGroupOnly"
 
-const OneTwo = () => {
+const FirstSecondGroup = () => {
 	const [theme] = useTheme()
 	const [selectedObj, setSelectedObj] = useState(null)
 
@@ -33,9 +34,10 @@ const OneTwo = () => {
 					/>
 				})}
 			</div>
+			<FirstGroupOnly />
 		</>
 	)
 }
 
-export default OneTwo
+export default FirstSecondGroup
 

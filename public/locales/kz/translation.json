@@ -17,7 +17,9 @@
         "confPass": "Paróldi rastaý",
         "role": "Bólimi",
         "name": "Aty-jóni",
-        "secretKey": "Qupıa kilt"
+        "secretKey": "Qupıa kilt",
+        "info1": "Siz jumys isteıtin bólim",
+        "info2": "Kompanıanyń qupıa kilti, ákimshilikten bilińiz"
     },
     "other": {
         "notFound": "404 Bet tabylmady",

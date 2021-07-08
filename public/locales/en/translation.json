@@ -17,7 +17,9 @@
         "confPass": "Confirm password",
         "role": "Department",
         "name": "Full name",
-        "secretKey": "Secret key"
+        "secretKey": "Secret key",
+        "info1": "The department where you working at",
+        "info2": "The company's secret key, find out in the administration"
     },
     "other": {
         "notFound": "404 Not found",

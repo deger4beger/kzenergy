@@ -74,7 +74,7 @@ const Registration = () => {
 					title={t("login.role")}
 					error={error?.role}
 					questionMark={true}
-					questionText={"The department where you working at"}
+					questionText={t("login.info1")}
 					>
 					<SelectReg
 						value={role}
@@ -108,7 +108,7 @@ const Registration = () => {
 					onChange={onSecretKeyChange}
 					error={error?.secretKey}
 					questionMark={true}
-					questionText={"The company's secret key, find out in the administration"}
+					questionText={t("login.info2")}
 				/>
 				<div className={s.globalError}>
 					{auth.error}

@@ -1,5 +1,5 @@
 import { NotFound } from '../../components/NotFound/NotFound';
-import OneTwo from "./OneTwo/OneTwo"
+import FirstSecondGroup from "./FirstSecondGroup/FirstSecondGroup"
 import { withoutAuthRedirect } from '../../hocs/withoutAuthRedirect';
 
 const Work = () => {
@@ -7,7 +7,7 @@ const Work = () => {
 	switch("d") {
 		case "d":
 		case "L":
-			return <OneTwo />
+			return <FirstSecondGroup />
 		default:
 			return <NotFound />
 	}

@@ -1,13 +1,11 @@
 import { ThemeProvider } from "react-switch-theme"
 import { useEffect } from 'react'
-import { useHistory } from "react-router-dom"
 import auth from "./store/authStore"
 import App from "./App"
 import { validateToken } from './helpers/helpers';
 import { observer } from 'mobx-react-lite';
 
 const AppContainer = () => {
-	const history = useHistory()
 
 	useEffect(() => {
 		const myData = validateToken()

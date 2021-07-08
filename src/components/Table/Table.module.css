@@ -1,0 +1,65 @@
+.columns {
+	display: inline-block;
+	position: relative;
+}
+
+.column {
+	display: inline-block;
+	text-align: center;
+}
+
+.upper, .lower {
+	height: 50px;
+}
+
+.upper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-bottom: 1px solid var(--selection);
+	border-left: 1px solid var(--selection);
+	cursor: help;
+
+}
+
+.upper .first {
+	font-size: var(--fsz19);
+	margin-right: 8px;
+}
+
+.upper .second {
+	color: var(--forText);
+	position: relative;
+	top: 1px;
+}
+
+.upper.last {
+	border-right: 1px solid var(--selection);
+}
+
+.lower {
+	font-size: var(--fsz19);
+	padding: 0px 4px 0px 4px;
+	background-color: var(--firstBg);
+	color: var(--color);
+	text-align: center;
+	border-left: 1px solid var(--additional);
+}
+
+.lower.last {
+	border-right: 1px solid var(--additional);
+}
+
+.help {
+	display: none;
+	position: absolute;
+	top: -40px;
+	color: var(--forText);
+	border: 1px solid var(--additional);
+	border-radius: 8px;
+	padding: 2px 8px;
+}
+
+.upper:hover ~ .help {
+	display: block;
+}
