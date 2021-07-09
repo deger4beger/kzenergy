@@ -21,7 +21,7 @@ const App = ({setLanguage, lang}) => {
                 <div className={"mainBlock"}>
                     <Switch>
                         <Route exact path="/">
-                            <Redirect to="/homepage"/>
+                            <Redirect to="/work"/>
                         </Route>
                         <Route path="/homepage" render={() =>
                             <HomePage />}/>

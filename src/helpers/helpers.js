@@ -5,7 +5,7 @@ export const validateToken = () => {
 	if (myData) {
 		const decodedToken = decode(myData.access)
 
-		if (decodedToken.exp * 1000 < new Date().getTime()) return false
+		if (decodedToken.exp * 1000 < new Date().getTime()) return null
 
 		return myData
 	}

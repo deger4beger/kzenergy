@@ -1,9 +1,10 @@
 .wrapper {
-
+	margin-top: 100px;
+	text-align: center;
 }
 
 .preloader {
-	position: absolute;
+	/*position: absolute;
 	top: 47%;
-	left: 47%;
+	left: 47%;*/
 }

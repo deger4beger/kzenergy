@@ -9,10 +9,8 @@ import auth from "../../store/authStore"
 import InputBlock from "../../components/InputBlock/InputBlock"
 import s from "./Login.module.css"
 import { useTranslation } from "react-i18next";
-import { useTheme } from '../../hooks/useTheme';
 
 const Login = () => {
-	const [theme] = useTheme()
 	const { t } = useTranslation()
 
 	const history = useHistory()
@@ -68,7 +66,6 @@ const Login = () => {
 					onClick={onSubmit}
 					isLoading={auth.loading}
 					disabled={false}
-					preloaderWhite={theme === "dark" ? true : false}
 					styles={{
 						padding: "2px 14px",
 						fontSize: "26px",

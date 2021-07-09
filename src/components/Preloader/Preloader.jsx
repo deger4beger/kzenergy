@@ -1,7 +1,7 @@
 import s from "./Preloader.module.css"
-import { useTheme } from '../customHooks/useTheme';
 import preloaderLight from "assets/preloaderLight.svg"
 import preloaderDark from "assets/preloaderDark.svg"
+import { useTheme } from '../../hooks/useTheme';
 
 export function Preloader() {
 	const [theme, setTheme] = useTheme()

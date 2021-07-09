@@ -7,7 +7,7 @@ const Table = ({names, data, helps}) => {
 	return (
 		<div className={s.columns}>
 			{names.map((name, index) => {
-				return <div className={s.column}>
+				return <div className={s.column} key={index}>
 					<div className={(index + 1) === names.length ? cn(s.upper, s.last) : s.upper}>
 						<span className={s.first}>{name[0]},</span>
 						<span className={s.second}>{name[1]}</span>

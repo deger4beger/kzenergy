@@ -5,7 +5,9 @@ class Auth {
 	myData = {
 		id: null,
 		email: null,
-		access: null
+		name: null,
+		access: null,
+		role: null
 	}
 	isAuth = undefined
 	loading = false

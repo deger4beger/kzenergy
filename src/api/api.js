@@ -10,15 +10,15 @@ const instance = axios.create({
 instance.interceptors.request.use((req) => {
 	const myData = validateToken()
 	if (myData) {
-		req.headers.Authorization = `Bearer ${JSON.parse(myData.access)}`
+		req.headers.Authorization = `Bearer ${myData.access}`
 	}
-	// if (myData === null) {
-	// 	auth.logout()
-	// 	return {
-	//     	...req,
-	//     	cancelToken: new CancelToken((cancel) => cancel('Cancel repeated request'))
-	//    	}
-	// }
+	if (myData === null) {
+		auth.logout()
+		return {
+	    	...req,
+	    	cancelToken: new CancelToken((cancel) => cancel('Cancel repeated request'))
+	   	}
+	}
 	return req
 })
 
@@ -29,6 +29,17 @@ export const authApi = {
 	},
 	auth(payload) {
 		return instance.post("user/login/", payload)
+			.then(res => res.data)
+	}
+}
+
+export const workApi = {
+	getObjData(route) {
+		return instance.get(`object/${route}/`)
+			.then(res => res.data)
+	},
+	createObjData(route, data) {
+		return instance.post(`object/${route}/`, data)
 			.then(res => res.data)
 	}
 }

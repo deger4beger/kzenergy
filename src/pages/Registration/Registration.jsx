@@ -10,11 +10,9 @@ import auth from "../../store/authStore"
 import InputBlock from "../../components/InputBlock/InputBlock"
 import SelectReg from "./SelectReg/SelectReg"
 import s from "./Registration.module.css"
-import { useTheme } from '../../hooks/useTheme';
 
 const Registration = () => {
 	const { t } = useTranslation()
-	const [theme] = useTheme()
 	const history = useHistory()
 
 	const {
@@ -119,7 +117,6 @@ const Registration = () => {
 					onClick={onSubmit}
 					isLoading={auth.loading}
 					disabled={false}
-					preloaderWhite={theme === "dark" ? true : false}
 					styles={{
 						padding: "3px 14px",
 						fontSize: "var(--fsz24)",

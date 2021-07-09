@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { observer } from 'mobx-react-lite';
 import s from "./FirstSecondGroup.module.css"
 import { useTheme } from '../../../hooks/useTheme';
 import ObjCard from "./ObjCard/ObjCard"
@@ -9,10 +10,13 @@ import turbineWhite from "assets/work/turbineWhite.png"
 import stationDark from "assets/work/stationDark.png"
 import stationWhite from "assets/work/stationWhite.png"
 import FirstGroupOnly from "./FirstGroupOnly/FirstGroupOnly"
+import work from "../../../store/workStore"
+import { Preloader } from '../../../components/Preloader/Preloader';
 
-const FirstSecondGroup = () => {
+const FirstSecondGroup = ({role}) => {
 	const [theme] = useTheme()
 	const [selectedObj, setSelectedObj] = useState(null)
+	const routes = ["compressor", "powerplant", "boiler"]
 
 
 	const objects = [
@@ -29,15 +33,18 @@ const FirstSecondGroup = () => {
 						key={index}
 						image={theme === "dark" ? obj.image[0] : obj.image[1]}
 						info={obj.info}
-						active={index === selectedObj}
-						onItemClick={() => setSelectedObj(index)}
+						active={routes[index] === selectedObj}
+						onItemClick={() => setSelectedObj(routes[index])}
 					/>
 				})}
 			</div>
-			<FirstGroupOnly />
+			{work.loading && <Preloader />}
+			{selectedObj && (role === "objWorker") && (
+				<FirstGroupOnly object={selectedObj} />
+			)}
 		</>
 	)
 }
 
-export default FirstSecondGroup
+export default observer(FirstSecondGroup)
 
