@@ -25,7 +25,7 @@ const Header = () => {
 
 	const changeLanguage = (language) => {
 		// if (language === "ru") {
-	 //  		document.documentElement.style.setProperty('--mainFont', "Raleway")
+	 //  		document.documentElement.style.setProperty('--mainFont', "Jost")
 	 //  	} else {
 	 //  		document.documentElement.style.setProperty('--mainFont', "Josefin Sans")
 	 //  	}

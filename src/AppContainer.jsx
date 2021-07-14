@@ -18,15 +18,20 @@ const AppContainer = () => {
 
 	const colors = {
 		light: {
-		  	firstBg: "rgb(240, 242, 245)",
-		  	secBg: "#E8E8E8",
+		  	firstBg: "#ececed",
+		  	secBg: "#E3E2E2",
 		  	additional: "rgba(0, 0, 0, 0.2)",
 		  	error: "#E93C3C",
 		  	forText: "#565656FF",
 		 	color: "black",
 		 	main: "#378F57",
 		 	selection: "#8BD4A8",
-		 	forLinks: "#2A8CBF"
+		 	forLinks: "#2A8CBF",
+		 	pollutants: "#90BFE3",
+		 	greenhouse: "#DF8B8B",
+		 	efficiency: "#D4D78D",
+		 	emission: "#C29E50",
+		 	gas: "#12C1C7"
 		},
 		dark: {
 		  	firstBg: "rgb(18, 18, 21)",
@@ -37,7 +42,12 @@ const AppContainer = () => {
 		 	color: "#ececed",
 		 	main: "#47DC7C",
 		 	selection: "#398055",
-		 	forLinks: "#3BA6DD"
+		 	forLinks: "#3BA6DD",
+		 	pollutants: "#90BFE3",
+		 	greenhouse: "#DF8B8B",
+		 	efficiency: "#D4D78D",
+		 	emission: "#C29E50",
+		 	gas: "#12C1C7"
 		}
 	}
 	const activeMode = "dark"

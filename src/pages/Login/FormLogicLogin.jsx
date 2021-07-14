@@ -5,10 +5,12 @@ export const FormLogicLogin = () => {
 
 	const [email, setEmail] = useState("")
 	const [password, setPassword] = useState("")
+	const [dontRememberMe, setDontRememberMe] = useState(false)
 	const [error, setError] = useState({
 		email: null,
 		password: null,
 	})
+
 
 	const onEmailChange = (e) => {
 		setEmail(e.currentTarget.value)
@@ -17,6 +19,9 @@ export const FormLogicLogin = () => {
 	const onPasswordChange = (e) => {
 		setPassword(e.currentTarget.value)
 		checkErrorHelper(email, e.currentTarget.value)
+	}
+	const onDontRememberMeChange = () => {
+		setDontRememberMe(!dontRememberMe)
 	}
 
 	const checkErrorHelper = (email, password) => {
@@ -39,9 +44,9 @@ export const FormLogicLogin = () => {
 	}))}
 
 	return {
-		email, password, error,
+		email, password, error, dontRememberMe,
 		setError,
-		onEmailChange, onPasswordChange,
+		onEmailChange, onPasswordChange, onDontRememberMeChange,
 		errorReset
 	}
 }

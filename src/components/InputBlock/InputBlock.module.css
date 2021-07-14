@@ -1,15 +1,15 @@
 .inputBlock {
 	margin-bottom: 30px;
 	position: relative;
-}
-
-.inputBlock.last {
-	margin-bottom: 40px;
 	display: flex;
 	flex-direction: column;
 }
 
-.inputBlock.last .info {
+.inputBlock.last {
+	margin-bottom: 40px;
+}
+
+.inputBlock .info {
 	align-self: flex-end;
 	margin-top: 3px;
 }

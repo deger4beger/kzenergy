@@ -3,5 +3,6 @@
 	flex-wrap: wrap;
 	justify-content: center;
 	margin-top: 20px;
+	margin-bottom: 65px;
 	border-bottom: 1px solid var(--additional);
 }

@@ -41,6 +41,14 @@ export const workApi = {
 	createObjData(route, data) {
 		return instance.post(`object/${route}/`, data)
 			.then(res => res.data)
+	},
+	getGasData(gasName) {
+		return instance.get(`chemical/gas/?gasName=${gasName}`)
+			.then(res => res.data)
+	},
+	createGasData(data) {
+		return instance.post("chemical/gas/", data)
+			.then(res => res.data)
 	}
 }
 

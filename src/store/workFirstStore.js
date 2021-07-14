@@ -1,7 +1,7 @@
 import { makeAutoObservable, flow } from "mobx"
 import { workApi } from '../api/api';
 
-class Work {
+class WorkFirst {
 
 	workData = null // {obj}
 	loading = false
@@ -36,6 +36,20 @@ class Work {
 		}
 	}
 
+	get initialValues() {
+		let secondInitialValue
+		if (this.workData?.volumeOfInjectedGas) {
+			secondInitialValue = this.workData?.volumeOfInjectedGas
+		}
+		if (this.workData?.generatedElectricity) {
+			secondInitialValue = this.workData?.generatedElectricity
+		}
+		if (this.workData?.steamVolume) {
+			secondInitialValue = this.workData?.steamVolume
+		}
+		return [this.workData?.gasConsumptionVolume, secondInitialValue, this.workData?.workingHours]
+	}
+
 	setWorkData(data) {
 		this.workData = data
 	}
@@ -54,6 +68,6 @@ class Work {
 	}
 }
 
-const store = new Work()
+const store = new WorkFirst()
 
 export default store

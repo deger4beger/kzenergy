@@ -32,11 +32,12 @@ class Auth {
 		}
 	}
 
-	*auth(payload, history) {
+	*auth(payload, history, dontRememberMe) {
 		try {
 			this.loading = true
 			const data = yield authApi.auth(payload)
-			this.setMyData(data)
+			console.log(data)
+			this.setMyData(data, !dontRememberMe, dontRememberMe)
 			history.push("/work")
 			// this.error && this.errorReset()
 			this.loading = false
@@ -65,13 +66,14 @@ class Auth {
 		this.isAuth = false
 	}
 
-	setMyData(data, setToLocalStorage = true) {
+	setMyData(data, setToLocalStorage = true, dontRememberMe=false) {
 		this.myData = {
 			...this.myData,
 			...data
 		}
 		this.isAuth = true
 		setToLocalStorage && localStorage.setItem("access", JSON.stringify(data))
+		dontRememberMe && sessionStorage.setItem("access", JSON.stringify(data))
 		delete this.myData.token
 	}
 

@@ -1,6 +1,5 @@
 .loginButton {
 	color: var(--secBg);
-	font-weight: 500;
 	padding: 2px 18px;
 	border-radius: 8px;
 	border: 1px solid var(--additional);
@@ -38,7 +37,7 @@
 }
 
 .loadingIcon {
-	height: 80%;
+	height: 60%;
 	position: absolute;
 /*	top: 10%;
 	left: 42%;*/

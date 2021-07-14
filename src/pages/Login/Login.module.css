@@ -24,3 +24,17 @@
 	position: absolute;
 	bottom: 44px;
 }
+
+.checkbox {
+	margin-top: 14px;
+	margin-bottom: 40px;
+	display: flex;
+	align-items: center;
+}
+
+.checkboxInfo {
+	margin-left: 6px;
+	position: relative;
+	top: 2px;
+}
+

@@ -47,12 +47,14 @@ body {
 }
 
 html {
-   --mainFont: "Josefin Sans";
-  --fszLogo: 28px;
-  --fsz100: 100px;
-  --fsz38: 38px;
-  --fsz24: 24px;
-  --fsz19: 19px;
+    --mainFont: "Josefin Sans";
+    --fszLogo: 28px;
+    --fsz100: 64px;
+    --fsz38: 38px;
+    --fsz24: 24px;
+    --fsz19: 19px;
+    --fsz18: 18px;
+    --fsz16: 16px;
 }
 
 

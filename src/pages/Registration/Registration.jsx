@@ -31,15 +31,15 @@ const Registration = () => {
 	const onSubmit = () => {
 		if (hasErrorReg(email, password, name, setError)) return
 		if (role === "") {
-			errorReset({role: "You must choose the role"})
+			errorReset({role: "validation.role"})
 			return
 		}
 		if (password !== confPass) {
-			errorReset({confirmPassword: "Password doesn't match"})
+			errorReset({confirmPassword: "validation.confPass"})
 			return
 		}
 		if (secretKey === "") {
-			errorReset({secretKey: "Field is required"})
+			errorReset({secretKey: "validation.required"})
 			return
 		}
 		auth.register({email, password, fullName: name, role, identificationKey: secretKey}, history)

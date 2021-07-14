@@ -22,17 +22,78 @@
         "info2": "The company's secret key, find out in the administration"
     },
     "other": {
-        "notFound": "404 Not found",
+        "notFound": "404 Not found ヽ(°□° )ノ",
         "selectRole": "Select your department",
         "role1": "Facility worker",
-        "role2": "Сhemical laboratory",
+        "role2": "Chemical laboratory",
         "role3": "Mining Department",
-        "role4": "EP department"
+        "role4": "EP department",
+        "tablePlaceholder": "Type value"
     },
     "work": {
         "selectObj": "Select a production facility",
-        "obj1": "Gas turbines of reverse gas injection compressors",
+        "obj1": "Gas turbines of reverse gas injection compressors (GCP-2)",
         "obj2": "Gas turbine power plant",
-        "obj3": "High pressure boilers"
+        "obj3": "High pressure boilers (KPC)",
+        "obj4": "Sweet gas",
+        "button": "Send data to mining department",
+        "title1": "You have successfully sent the data to the mining department",
+        "title2": "The data has already been sent to the mining department",
+        "firstGroup": {
+            "name1": "Vcon",
+            "name1Info": "1000*m^3",
+            "name2": "Vinj",
+            "name2Info": "1000*m^3",
+            "name3": "t",
+            "name3Info": "hours",
+            "name4": "E",
+            "name4Info": "MW*h",
+            "name5": "Vsteam",
+            "name5Info": "tons",
+            "help1": "Gas consumption volume",
+            "help2": "Working hours",
+            "help3": "Generated electricity",
+            "help4": "Volume of injected gas",
+            "help5": "Steam volume"
+        },
+        "secondGroup": {
+            "name1": "N",
+            "name2": "S",
+            "name3": "C",
+            "name4": "ρ",
+            "name5": "k emis. CO2",
+            "name6": "k spec. CH4",
+            "name7": "k spec. N2O",
+            "name8": "Q",
+            "info1": "% weight",
+            "info2": "kg/m^3",
+            "info3": "tC/TJ",
+            "info4": "GJ/t",
+            "help1": "% of nitrogen in the gas",
+            "help2": "% of sulfur in the gas",
+            "help3": "% of carbon in the gas",
+            "help4": "Gas density",
+            "help5": "CO2 emission factor",
+            "help6": "CH4 specific factor",
+            "help7": "N2O specific factor",
+            "help8": "Lower heat of combustion"
+        },
+        "thirdGroup": {
+            "report": "Summary report",
+            "title1": "Sources of emissions",
+            "title2": "Gas compositions",
+            "type1": "Pollutants",
+            "type2": "Greenhouse gases",
+            "type3": "Energy efficiency"
+        }
+    },
+    "validation": {
+        "number": "Must be number",
+        "required": "Field is required",
+        "email": "Incorrect email",
+        "maxLength": "Max. length - 50 symbols",
+        "minLength": "Min. length - 5 symbols",
+        "confPass": "Password doesn't match",
+        "role": "You must choose the role"
     }
 }

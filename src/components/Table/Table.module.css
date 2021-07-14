@@ -1,11 +1,12 @@
 .columns {
 	display: inline-block;
-	position: relative;
 }
 
 .column {
 	display: inline-block;
 	text-align: center;
+	position: relative;
+	margin-bottom: 50px;
 }
 
 .upper, .lower {
@@ -16,10 +17,10 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-bottom: 1px solid var(--selection);
-	border-left: 1px solid var(--selection);
+	border-bottom: 3px solid var(--selection);
+	border-left: 3px solid var(--selection);
 	cursor: help;
-
+	position: relative;
 }
 
 .upper .first {
@@ -34,7 +35,7 @@
 }
 
 .upper.last {
-	border-right: 1px solid var(--selection);
+	border-right: 3px solid var(--selection);
 }
 
 .lower {
@@ -43,11 +44,11 @@
 	background-color: var(--firstBg);
 	color: var(--color);
 	text-align: center;
-	border-left: 1px solid var(--additional);
+	border-left: 3px solid var(--additional);
 }
 
 .lower.last {
-	border-right: 1px solid var(--additional);
+	border-right: 3px solid var(--additional);
 }
 
 .help {
@@ -58,8 +59,29 @@
 	border: 1px solid var(--additional);
 	border-radius: 8px;
 	padding: 2px 8px;
+	color: var(--color);
+}
+
+.error {
+	position: absolute;
+	bottom: -24px;
+	width: 100%;
+	text-align: center;
+	color: var(--error);
+}
+
+.helpIcon {
+	position: absolute;
+	bottom: 0;
+	right: 8px;
+	color: var(--forText);
+	opacity: 0.8;
 }
 
 .upper:hover ~ .help {
 	display: block;
+}
+
+.disabled {
+	pointer-events: none;
 }

@@ -1,7 +1,10 @@
 import decode from "jwt-decode"
 
 export const validateToken = () => {
-	const myData = JSON.parse(localStorage.getItem("access"))
+	let myData = JSON.parse(localStorage.getItem("access"))
+	if (!myData) {
+		myData = JSON.parse(sessionStorage.getItem("access"))
+	}
 	if (myData) {
 		const decodedToken = decode(myData.access)
 

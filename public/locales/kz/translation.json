@@ -22,17 +22,78 @@
         "info2": "Kompanıanyń qupıa kilti, ákimshilikten bilińiz"
     },
     "other": {
-        "notFound": "404 Bet tabylmady",
+        "notFound": "404 Bet tabylmady ヽ(°□° )ノ",
         "selectRole": "Róldi tańdańyz",
         "role1": "Obektidegi qyzmetker",
         "role2": "Hımıalyq zerthana",
         "role3": "Óndirý bólimi",
-        "role4": "QOQ bólimi"
+        "role4": "QOQ bólimi",
+        "tablePlaceholder": "Mándi engizińiz"
     },
     "work": {
         "selectObj": "Óndiris nysanyn tańdańyz",
-        "obj1": "Gazdy keri aıdaý kompresorlarynyń gaz týrbınalary",
+        "obj1": "Gazdy keri aıdaý kompresorlarynyń gaz týrbınalary (GDQ-2)",
         "obj2": "Gaztýrbınalyq energetıkalyq qondyrǵy",
-        "obj3": "Joǵary qysymdy qazandar"
+        "obj3": "Joǵary qysymdy qazandar (QÓK)",
+        "obj4": "Tazartylǵan gaz",
+        "button": "Óndirý bólimine derekterdi jiberý",
+        "title1": "Siz derekterdi óndirý bólimine sátti jiberdińiz",
+        "title2": "Derekter óndirý bólimine jiberildi",
+        "firstGroup": {
+            "name1": "Vtut",
+            "name1Info": "1000*m^3",
+            "name2": "Vjúk",
+            "name2Info": "1000*m^3",
+            "name3": "t",
+            "name3Info": "ýaqyt",
+            "name4": "E",
+            "name4Info": "MW*h",
+            "name5": "Vjup",
+            "name5Info": "tonna",
+            "help1": "Tutynylǵan gaz kólemi",
+            "help2": "Jumys ýaqyty",
+            "help3": "Óndirilgen elektr.",
+            "help4": "Aıdalatyn gaz kólemi",
+            "help5": "Bý kólemi"
+        },
+        "secondGroup": {
+            "name1": "N",
+            "name2": "S",
+            "name3": "C",
+            "name4": "ρ",
+            "name5": "k emıs. CO2",
+            "name6": "k úles CH4",
+            "name7": "k úles N2O",
+            "name8": "Q",
+            "info1": "% massa",
+            "info2": "kg/m^3",
+            "info3": "tC/TDj",
+            "info4": "GDj/t",
+            "help1": "Gazdaǵy azot %",
+            "help2": "Gazdaǵy kúkirt %",
+            "help3": "Gazdaǵy kómirtegi %",
+            "help4": "Gazdyń tyǵyzdyǵy",
+            "help5": "CO2 emısıasynyń faktory",
+            "help6": "CH4 naqty faktory",
+            "help7": "N2O naqty faktory",
+            "help8": "Tómengi janý jylýy"
+        },
+        "thirdGroup": {
+            "report": "Сводный отчет",
+            "title1": "Shyǵaryndylardyń kózderi",
+            "title2": "Gazdardyń quramy",
+            "type1": "Lastaýshy zattar",
+            "type2": "Parnıktik gazdar",
+            "type3": "Energıa tıimdiligi"
+        }
+    },
+    "validation": {
+        "number": "Tıis sany",
+        "required": "Mindetti jol",
+        "email": "Qate email",
+        "maxLength": "Maks. uzyndyǵy - 50 tańba",
+        "minLength": "Mın. uzyndyǵy - 50 tańba",
+        "confPass": "Siz róldi tańdaýyńyz kerek",
+        "role": "Paról sáıkes kelmeıdi"
     }
 }

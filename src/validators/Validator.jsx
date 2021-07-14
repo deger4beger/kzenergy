@@ -4,9 +4,8 @@ export const composeValidators = (...validators) => value =>
   validators.reduce((error, validator) => error || validator(value), undefined)
 
 export const required = value => {
-
 	if (value) return undefined
-	return "Field is required"
+	return "validation.required"
 }
 
 export const maxLenghtCreator = (maxLength) => (value) => {
@@ -21,17 +20,38 @@ export const minLengthCreator = (minLength) => (value) => {
 	return undefined
 }
 
+const MaxLength50 = (value) => {
+	if (!value) return undefined
+	if (value.length > 50) return `validation.maxLength`
+	return undefined
+}
+const MinLength5 = (value) => {
+	if (!value) return undefined
+	if (value.length < 5) return `validation.minLength`
+	return undefined
+}
+
 export const isEmail = value => {
 	if (!value) return undefined
 	if (validator.isEmail(value)) {
 		return undefined
 	}
-	return "Incorrect email"
+	return "validation.email"
 }
 
-const validatorsPass = [minLengthCreator(5), maxLenghtCreator(20), required]
-const validatorsEmail = [minLengthCreator(5), maxLenghtCreator(40), required, isEmail]
-const validatorsName = [minLengthCreator(5), maxLenghtCreator(50), required]
+export const isNumber = value => {
+	if (!value) return undefined
+	if (validator.isInt(value)) {
+		return undefined
+	}
+	return "validation.number"
+}
+
+const validatorsTable = [required, isNumber]
+
+const validatorsPass = [MinLength5, MaxLength50, required]
+const validatorsEmail = [MinLength5, MaxLength50, required, isEmail]
+const validatorsName = [MinLength5, MaxLength50, required]
 
 export const hasErrorReg = (email, password, name, setError) => {
 	let emailError, passwordError, nameError
@@ -94,5 +114,15 @@ export const hasErrorLog = (email, password, setError) => {
 	}
 
 	if (emailError || passwordError) return {emailError, passwordError}
+	return false
+}
+
+export const hasErrorTableValue = (value) => {
+	for (let i of validatorsTable) {
+		if (i(value)) {
+			return i(value)
+			break
+		}
+	}
 	return false
 }

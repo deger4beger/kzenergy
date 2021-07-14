@@ -1,6 +1,7 @@
 import { useEffect } from "react"
 import { useHistory } from "react-router-dom"
 import { observer } from "mobx-react-lite"
+import { useTranslation } from "react-i18next";
 import { MainButton } from '../../components/Button/Button';
 import { hasErrorLog } from '../../validators/Validator';
 import { FormLogicLogin } from './FormLogicLogin';
@@ -8,21 +9,21 @@ import { withAuthRedirect } from '../../hocs/withAuthRedirect';
 import auth from "../../store/authStore"
 import InputBlock from "../../components/InputBlock/InputBlock"
 import s from "./Login.module.css"
-import { useTranslation } from "react-i18next";
+import CustomCheckbox from '../../components/CustomCheckbox';
 
 const Login = () => {
 	const { t } = useTranslation()
 
 	const history = useHistory()
 	const {
-		email, password, error,
+		email, password, error, dontRememberMe,
 		setError,
-		onEmailChange, onPasswordChange
+		onEmailChange, onPasswordChange, onDontRememberMeChange
 	} = FormLogicLogin()
 
 	const onSubmit = () => {
 		if (hasErrorLog(email, password, setError)) return
-		auth.auth({email, password}, history)
+		auth.auth({email, password}, history, dontRememberMe)
 	}
 
 	useEffect(() => {
@@ -47,7 +48,8 @@ const Login = () => {
 					error={error?.email}
 				/>
 				<InputBlock
-					last={true}
+					last={false}
+					noMargin={true}
 					title={t("login.password")}
 					inputType="password"
 					placeholder={t("login.password")}
@@ -58,6 +60,15 @@ const Login = () => {
 					infoLink={t("login.signUp")}
 					linkTo="registration"
 				/>
+				<div className={s.checkbox}>
+					<CustomCheckbox
+						checked={dontRememberMe}
+						onClick={onDontRememberMeChange}
+					/>
+					<div className={s.checkboxInfo}>
+						Don't remember me
+					</div>
+				</div>
 				<div className={s.globalError}>
 					{auth.error}
 				</div>
