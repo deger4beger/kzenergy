@@ -84,7 +84,10 @@
             "title2": "Gas compositions",
             "type1": "Pollutants",
             "type2": "Greenhouse gases",
-            "type3": "Energy efficiency"
+            "type3": "Energy efficiency",
+            "user": "User",
+            "date": "Date",
+            "gasType": "Gas type"
         }
     },
     "validation": {

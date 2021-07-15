@@ -135,7 +135,8 @@ const FirstGroupOnlyLogic = () => {
 	}
 
 	return {
-		data, objData, onSubmit, resetObjData, resetData, errors, resetError
+		data, objData, onSubmit, resetObjData, resetData, errors, resetError,
+		firstObjData, secObjData, thirdObjData
 	}
 }
 

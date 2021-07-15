@@ -3,7 +3,7 @@ import cn from "classnames"
 import s from "./Table.module.css"
 import { useTranslation } from 'react-i18next';
 
-const Table = React.memo(({names, data, helps, disabled, errors}) => {
+const Table = React.memo(({names, data, helps, disabled, errors, colors=[]}) => {
 	const { t } = useTranslation()
 
 	return (
@@ -12,9 +12,14 @@ const Table = React.memo(({names, data, helps, disabled, errors}) => {
 				return <div className={s.column} key={index}>
 					<div className={((index + 1 === names.length) || index === 3) ?
 							cn(s.upper, s.last) : s.upper}>
-						<span className={s.first}>{t(name[0])},</span>
+						<span className={s.first}>{t(name[0])}{name[1] && ","}</span>
 						<span className={s.second}>{t(name[1])}</span>
-						<div className={s.helpIcon}>?</div>
+						{helps[index] && <div className={s.helpIcon}>?</div> }
+						{colors[index] && <div className={s.colors}>
+							{colors[index][0] && <div className={s.color1}><div className={s.innerColor} /></div> }
+							{colors[index][1] && <div className={s.color2}><div className={s.innerColor} /></div> }
+							{colors[index][2] && <div className={s.color3}><div className={s.innerColor} /></div> }
+						</div>}
 					</div>
 					<div className={disabled && s.disabled}>
 						<input
@@ -30,7 +35,7 @@ const Table = React.memo(({names, data, helps, disabled, errors}) => {
 						    }}
 						/>
 					</div>
-					<div className={s.help}>{t(helps[index])}</div>
+					{helps[index] && <div className={s.help}>{t(helps[index])}</div> }
 					<div className={s.error}>{t(errors[index])}</div>
 				</div>
 			})}

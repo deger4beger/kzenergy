@@ -31,7 +31,7 @@ const AppContainer = () => {
 		 	greenhouse: "#DF8B8B",
 		 	efficiency: "#D4D78D",
 		 	emission: "#C29E50",
-		 	gas: "#12C1C7"
+		 	gas: "#0EA8AD"
 		},
 		dark: {
 		  	firstBg: "rgb(18, 18, 21)",

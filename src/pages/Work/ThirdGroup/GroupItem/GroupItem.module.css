@@ -1,12 +1,12 @@
 .wrapper {
 	width: 100%;
 	padding-bottom: 20px;
+	margin-bottom: 20px;
 }
 
 .header {
 	height: 40px;
 	cursor: pointer;
-	font-size: var(--fsz19);
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
@@ -15,7 +15,7 @@
 }
 
 .content {
-	margin: 30px 50px 0;
+	margin: 40px 50px 0;
 	max-height: 400px;
 }
 
@@ -24,7 +24,12 @@
 }
 
 .title {
-	font-size: var(--fsz18);
+	font-size: var(--fsz19);
+}
+
+.title.disabled {
+	color: var(--forText);
+	opacity: 0.8;
 }
 
 .icon {
@@ -39,8 +44,8 @@
 .sign {
 	margin-right: 10px;
 	padding: 4px 4.5px 1px;
-	border: 1px solid var(--selection);
-	color: var(--selection);
+	border: 1px solid var(--main);
+	color: var(--main);
 	border-radius: 8px;
 	font-size: var(--fsz16);
 }

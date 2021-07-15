@@ -49,6 +49,10 @@ export const workApi = {
 	createGasData(data) {
 		return instance.post("chemical/gas/", data)
 			.then(res => res.data)
+	},
+	getReport(data) {
+		return instance.get("mining/")
+			.then(res => res.data)
 	}
 }
 

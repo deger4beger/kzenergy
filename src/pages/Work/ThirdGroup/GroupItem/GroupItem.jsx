@@ -3,7 +3,7 @@ import cn from "classnames"
 import s from "./GroupItem.module.css"
 
 const GroupItem = ({isRecieved, title, children}) => {
-	const [active, setActive] = useState(true)
+	const [active, setActive] = useState(isRecieved)
 
 	return (
 		<div className={s.wrapper}>
@@ -11,11 +11,11 @@ const GroupItem = ({isRecieved, title, children}) => {
 				className={s.header} onClick={() => setActive(!active)}
 
 				>
-				<div className={s.title}>
+				<div className={active ? s.title : cn(s.title, s.disabled)}>
 					<span className={isRecieved ? s.sign : cn(s.sign, s.red)}>
 						{isRecieved ? "✓" : "☩"}
 					</span>
-					{title}:
+					{title}
 				</div>
 				<div className={active ? s.icon : cn(s.icon, s.disabled)}>›</div>
 			</div>

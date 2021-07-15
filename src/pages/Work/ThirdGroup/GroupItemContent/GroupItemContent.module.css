@@ -1,0 +1,21 @@
+.title {
+	font-size: var(--fsz18);
+}
+
+.value {
+	margin-left: 4px;
+	color: var(--error);
+}
+
+.value.active {
+	color: var(--main);
+}
+
+.value.gas {
+	color: var(--gas);
+}
+
+.content {
+	margin-top: 50px;
+	width: 80%;
+}

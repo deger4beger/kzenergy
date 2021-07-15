@@ -85,3 +85,44 @@
 .disabled {
 	pointer-events: none;
 }
+
+.colors {
+	position: absolute;
+	bottom: 2px;
+	left: 2px;
+	display: flex;
+}
+
+.color1 > * {
+	background-color: var(--pollutants);
+}
+
+.color2 > * {
+	background-color: var(--greenhouse);
+}
+
+.color3 > * {
+	background-color: var(--efficiency);
+}
+
+.color1, .color2, .color3 {
+	width: 14px;
+	height: 14px;
+	border-radius: 8px;
+	border: 2px solid var(--additional);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.innerColor {
+	width: 8px;
+	height: 8px;
+	border-radius: 10px;
+}
+
+.color2 {
+	border-left: none;
+	border-right: none;
+	width: 12px;
+}

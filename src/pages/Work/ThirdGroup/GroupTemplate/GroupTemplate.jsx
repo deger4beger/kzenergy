@@ -12,7 +12,7 @@ const GroupTemplate = ({title, mainColor, thirdType=true, children}) => {
 			className={s.wrapper}
 			>
 			<div
-				className={s.container}
+				className={active ? s.container : cn(s.container, s.disabled)}
 				style={active ? {borderColor: mainColor} : null}
 				onClick={() => setActive(!active)}
 			>

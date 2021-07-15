@@ -1,7 +1,7 @@
 import { makeAutoObservable, flow } from "mobx"
 import { workApi } from '../api/api';
 
-class WorkSecond {
+class WorkThird {
 
 	workData = null // {obj}
 	loading = false
@@ -14,10 +14,10 @@ class WorkSecond {
         })
 	}
 
-	*getGasData(gasName) {
+	*getReport() {
 		try {
 			this.loading = true
-			const data = yield workApi.getGasData(gasName)
+			const data = yield workApi.getReport()
 			this.setWorkData(data)
 			this.loading = false
 		} catch (err) {
@@ -25,26 +25,40 @@ class WorkSecond {
 		}
 	}
 
-	*createGasData(payload) {
+	*createFinalReport(payload) {
 		try {
-			this.loadingCreate = true
-			const data = yield workApi.createGasData(payload)
-			this.setWorkData(data)
-			this.loadingCreate = false
+			// this.loadingCreate = true
+			// const data = yield workApi.createGasData(payload)
+			// this.setWorkData(data)
+			// this.loadingCreate = false
 		} catch (err) {
-			this.errorHandler(err)
+			// this.errorHandler(err)
 		}
-	}
-
-	get initialValues() {
-		return [this.workData?.nitrogen, this.workData?.sulfur,
-			this.workData?.carbon,  this.workData?.density,
-			this.workData?.CO2EmissionFactor, this.workData?.CH4SpecificFactor,
-			this.workData?.N2OSpecificFactor, this.workData?.LowerHeatCombustion]
 	}
 
 	setWorkData(data) {
 		this.workData = data
+	}
+
+	get colorsObj() {
+		return [
+			[true, true, true],
+			[false, false, true],
+			[false, false, true]
+		]
+	}
+
+	get colorsLab() {
+		return [
+			[true, false, false],
+			[true, false, false],
+			[true, false, false],
+			[true, true, false],
+			[false, true, false],
+			[false, true, false],
+			[false, true, false],
+			[false, true, false]
+		]
 	}
 
 	errorHandler(err) {
@@ -61,6 +75,6 @@ class WorkSecond {
 	}
 }
 
-const store = new WorkSecond()
+const store = new WorkThird()
 
 export default store

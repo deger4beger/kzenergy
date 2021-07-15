@@ -36,7 +36,6 @@ class Auth {
 		try {
 			this.loading = true
 			const data = yield authApi.auth(payload)
-			console.log(data)
 			this.setMyData(data, !dontRememberMe, dontRememberMe)
 			history.push("/work")
 			// this.error && this.errorReset()

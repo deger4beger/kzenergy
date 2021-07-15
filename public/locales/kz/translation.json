@@ -84,7 +84,10 @@
             "title2": "Gazdardyń quramy",
             "type1": "Lastaýshy zattar",
             "type2": "Parnıktik gazdar",
-            "type3": "Energıa tıimdiligi"
+            "type3": "Energıa tıimdiligi",
+            "user": "Qoldanýshy",
+            "date": "Kúni",
+            "gasType": "Gaz túri"
         }
     },
     "validation": {
