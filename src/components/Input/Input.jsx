@@ -1,6 +1,6 @@
 import s from "./Input.module.css"
 
-const Input = ({inputType, placeholder, value, onChange}) => {
+const Input = ({inputType="text", placeholder, value, onChange}) => {
 
 	return (
 		<input

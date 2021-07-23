@@ -36,6 +36,17 @@ class WorkSecond {
 		}
 	}
 
+	*updateGasData(payload) {
+		try {
+			this.loadingCreate = true
+			const data = yield workApi.updateGasData(payload)
+			this.setWorkData(data)
+			this.loadingCreate = false
+		} catch (err) {
+			this.errorHandler(err)
+		}
+	}
+
 	get initialValues() {
 		return [this.workData?.nitrogen, this.workData?.sulfur,
 			this.workData?.carbon,  this.workData?.density,

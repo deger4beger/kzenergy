@@ -1,36 +1,50 @@
+import React from 'react';
+import { useTranslation } from 'react-i18next';
 import s from "./FirstSecondTemplate.module.css"
 import cn from "classnames"
 import { MainButton } from '../../../../components/Button/Button';
 import Table from '../../../../components/Table/Table';
-import { useTranslation } from 'react-i18next';
-import React from 'react';
+import ModalConfirm from "../../../../components/ModalConfirm/ModalConfirm"
 
-const FirstSecondTemplate = ({isFilledData, isSameUser, fullName,
-	date, objData, data, errors, buttonContent, onButtonClick, isButtonLoading}) => {
+const FirstSecondTemplate = ({isFilledData, isSameUser, fullName, modalActive, setModalActive,
+	date, objData, data, errors, buttonContent, onButtonClick, isButtonLoading,
+	onSubmitModal, fillGostData, isRejectedData, reason}) => {
 	const { t } = useTranslation()
-
 	return (
 		<div className={s.container}>
-			{isFilledData && <div className={s.info}>
-				<div className={!isSameUser ? cn(s.title, s.red) : s.title}>
-					{isSameUser ? (
+			{(isFilledData || isRejectedData) && <div className={s.info}>
+				<div className={isRejectedData ? cn(s.title, s.rejected) : (
+					!isSameUser ? cn(s.title, s.red) : s.title)}>
+					{isRejectedData ? (
+						<span>{t("work.title3")}</span>) :
+						isSameUser ? (
 						<span>{t("work.title1")}</span>) : (
 						<span>{t("work.title2")}</span>)}
 				</div>
 				<div className={s.infoItem}>
 					<span className={s.infoContent}><span className={s.name}>{fullName}</span>
-						{isSameUser && " (You) "}
+						{isSameUser && ` (${t("other.you")}) `}
 						&nbsp;{date} &nbsp;UTC+6
 					</span>
 				</div>
+				{isRejectedData && <div className={s.reason}>
+					<div className={s.reasonTitle}>{t("work.thirdGroup.reason")}:</div>
+					<div className={s.reasonContent}>{reason}</div>
+				</div>}
 			</div>}
-			<div className={!isFilledData ? cn(s.table, s.margin) : s.table}>
+			<div className={s.table}>
 				<Table
 					{...objData}
 					data={data}
 					disabled={isFilledData}
 					errors={errors}
 				/>
+				{fillGostData && <div
+					className={s.gostButton}
+					onClick={isFilledData ? () => void 0 : fillGostData}
+					>
+					{t("work.gostButton")}
+					</div>}
 			</div>
 			<div className={s.button}>
 				<MainButton
@@ -46,6 +60,14 @@ const FirstSecondTemplate = ({isFilledData, isSameUser, fullName,
 					}}
 				/>
 			</div>
+			<ModalConfirm
+				active={modalActive}
+				setActive={setModalActive}
+				info={t("other.modalInfo")}
+				buttonInfo={t("other.modalConfirm")}
+				onSubmitModal={onSubmitModal}
+				bgc={"var(--selection)"}
+			/>
 		</div>
 	)
 }

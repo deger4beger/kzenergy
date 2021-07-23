@@ -39,6 +39,20 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	position: relative;
+}
+
+.connect {
+	position: absolute;
+	bottom: -16px;
+	right: 10px;
+	height: 19px;
+	width: 1px;
+	background-color: var(--additional);
+}
+
+.connect.second {
+	right: 5px;
 }
 
 .signInner {

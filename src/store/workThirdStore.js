@@ -6,6 +6,12 @@ class WorkThird {
 	workData = null // {obj}
 	loading = false
 	loadingCreate = false
+	loadingReject = {
+		compressor: false,
+		powerplant: false,
+		boiler: false,
+		sweetGas: false
+	}
 	error = null
 
 	constructor() {
@@ -19,20 +25,49 @@ class WorkThird {
 			this.loading = true
 			const data = yield workApi.getReport()
 			this.setWorkData(data)
-			this.loading = false
 		} catch (err) {
 			this.errorHandler(err)
+		} finally {
+			this.loading = false
 		}
 	}
 
-	*createFinalReport(payload) {
+	*rejectDataObj(objName, payload) {
 		try {
-			// this.loadingCreate = true
-			// const data = yield workApi.createGasData(payload)
-			// this.setWorkData(data)
-			// this.loadingCreate = false
+			this.loadingReject[objName] = true
+			const data = yield workApi.rejectDataObj(objName, payload)
+			this.setWorkData(data)
 		} catch (err) {
-			// this.errorHandler(err)
+			this.errorHandler(err)
+		} finally {
+			this.loadingReject[objName] = false
+		}
+	}
+
+	*rejectDataChem(gasName, payload) {
+		try {
+			this.loadingReject[gasName] = true
+			const data = yield workApi.rejectDataChem({
+				...payload,
+				gasName
+			})
+			this.setWorkData(data)
+		} catch (err) {
+			this.errorHandler(err)
+		} finally {
+			this.loadingReject[gasName] = false
+		}
+	}
+
+	*confirmReport() {
+		try {
+			this.loadingCreate = true
+			const data = yield workApi.confirmReport()
+			this.setWorkData(data)
+		} catch (err) {
+			this.errorHandler(err)
+		} finally {
+			this.loadingCreate = false
 		}
 	}
 
@@ -62,8 +97,6 @@ class WorkThird {
 	}
 
 	errorHandler(err) {
-		this.loading = false
-		this.loadingCreate = false
 		if (!err.response || !err.response?.data?.error) {
 			this.error = "Server error"
 		} else {

@@ -1,0 +1,23 @@
+.none {
+	margin-top: 250px;
+}
+
+.title {
+	border-bottom: 1px solid var(--additional);
+	margin-bottom: 24px;
+	font-size: var(--fsz32);
+}
+
+.titles {
+	color: var(--main);
+	margin-right: 8px;
+}
+
+.titles.disabled {
+	color: var(--error);
+}
+
+.statusElem {
+	font-size: var(--fsz24);
+	margin-top: 2px;
+}

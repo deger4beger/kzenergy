@@ -7,6 +7,7 @@ const FirstGroupOnlyLogic = () => {
 	const [second, setSecond] = useState("")
 	const [third, setThird] = useState("")
 	const [objData, setObjData] = useState(null)
+	const [modalActive, setModalActive] = useState(false)
 	const [errors, setErrors] = useState({
 		0: null,
 		1: null,
@@ -69,9 +70,9 @@ const FirstGroupOnlyLogic = () => {
 	}
 
 	const resetData = (initialValues=[]) => {
-		setFirst(initialValues[0] ? initialValues[0] : "")
-		setSecond(initialValues[1] ? initialValues[1] : "")
-		setThird(initialValues[2] ? initialValues[2] : "")
+		initialValues[0] && setFirst(initialValues[0])
+		initialValues[1] && setSecond(initialValues[1])
+		initialValues[2] && setThird(initialValues[2])
 	}
 
 	const resetObjData = (object) => {
@@ -96,47 +97,48 @@ const FirstGroupOnlyLogic = () => {
 		}))
 	}
 
-	const onSubmit = (object) => {
+	const onSubmit = () => {
 		let hasError = false
-		if (hasErrorTableValue(first)) {
-			resetError({0: hasErrorTableValue(first)})
-			hasError = true
-		}
-		if (hasErrorTableValue(second)) {
-			resetError({1: hasErrorTableValue(second)})
-			hasError = true
-		}
-		if (hasErrorTableValue(third)) {
-			resetError({2: hasErrorTableValue(third)})
-			hasError = true
+		for (let [index, value] of data.entries()) {
+			if (hasErrorTableValue(value[0])) {
+				resetError({[index]: hasErrorTableValue(value[0])})
+				hasError = true
+			}
 		}
 		if (hasError) return
+		setModalActive(true)
+	}
+
+	const onSubmitModal = (object, update=false) => {
+		let payload
 		if (object === "compressor") {
-			work.createObjData(object, {
+			payload = {
 				gasConsumptionVolume: first,
 				volumeOfInjectedGas: second,
 				workingHours: third
-			})
+			}
 		}
 		if (object === "powerplant") {
-			work.createObjData(object, {
+			payload = {
 				gasConsumptionVolume: first,
 				generatedElectricity: second,
 				workingHours: third
-			})
+			}
 		}
 		if (object === "boiler") {
-			work.createObjData(object, {
+			payload = {
 				gasConsumptionVolume: first,
 				steamVolume: second,
 				workingHours: third
-			})
+			}
 		}
+		update ? work.updateObjData(object, payload) : work.createObjData(object, payload)
+		setModalActive(false)
 	}
 
 	return {
-		data, objData, onSubmit, resetObjData, resetData, errors, resetError,
-		firstObjData, secObjData, thirdObjData
+		data, objData, onSubmit, onSubmitModal, resetObjData, resetData, errors,
+		firstObjData, secObjData, thirdObjData, modalActive, setModalActive
 	}
 }
 

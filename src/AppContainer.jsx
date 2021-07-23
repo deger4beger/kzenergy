@@ -25,23 +25,27 @@ const AppContainer = () => {
 		  	forText: "#565656FF",
 		 	color: "black",
 		 	main: "#378F57",
+		 	mainDark: "#3B7F53",
+		 	forBg: "#8BD4A8",
 		 	selection: "#8BD4A8",
 		 	forLinks: "#2A8CBF",
-		 	pollutants: "#90BFE3",
-		 	greenhouse: "#DF8B8B",
-		 	efficiency: "#D4D78D",
+		 	pollutants: "#67A0CC",
+		 	greenhouse: "#CC6363",
+		 	efficiency: "#AEB253",
 		 	emission: "#C29E50",
 		 	gas: "#0EA8AD"
 		},
 		dark: {
-		  	firstBg: "rgb(18, 18, 21)",
-		  	secBg: "#1C1A22",
-		  	additional: "rgba(255, 255, 255, 0.2)",
-		  	error: "#EB7E7E",
+		  	firstBg: "#141319", //  rgb(18, 18, 21)
+		  	secBg: "#1C1A22", // 1C1A22
+		  	additional: "#373737", // rgba(255, 255, 255, 0.2)
+		  	error: "#DF5555",
 		  	forText: "#CECECEFF",
 		 	color: "#ececed",
-		 	main: "#47DC7C",
-		 	selection: "#398055",
+		 	main: "#71D795", // #47DC7C
+		 	mainDark: "#3B7F53",
+		 	forBg: "#4A7E51", // #457E5E
+		 	selection: "#4C9268", // #4C9268
 		 	forLinks: "#3BA6DD",
 		 	pollutants: "#90BFE3",
 		 	greenhouse: "#DF8B8B",

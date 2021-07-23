@@ -13,16 +13,19 @@ import purifiedGasWhite from "assets/work/purifiedGasWhite.png"
 import purifiedGasDark from "assets/work/purifiedGasDark.png"
 import FirstGroupOnly from "./FirstGroupOnly/FirstGroupOnly"
 import SecondGroupOnly from "./SecondGroupOnly/SecondGroupOnly"
+import auth from "../../../store/authStore"
 import workFirst from "../../../store/workFirstStore"
 import workSecond from "../../../store/workSecondStore"
 import { Preloader } from '../../../components/Preloader/Preloader';
 
 const FirstSecondGroup = ({role}) => {
 	const [theme] = useTheme()
-	const [selectedObj, setSelectedObj] = useState(null)
+	const [selectedObj, setSelectedObj] = useState(
+		auth.myData.role === "chemical" ? "sweetGas" : auth.myData.role
+	)
 	const routesObj = ["compressor", "powerplant", "boiler"]
 	const routesChem = ["sweetGas"]
-
+	const isObjWorker = role === routesObj[0] || role === routesObj[1] || role === routesObj[2]
 
 	const objectsObj = [
 		{image: [turbineDark, turbineWhite], info: "work.obj1"},
@@ -36,13 +39,13 @@ const FirstSecondGroup = ({role}) => {
 	return (
 		<>
 			<div className={s.objCards}>
-				{role === "objWorker" ? objectsObj.map((obj, index) => {
+				{isObjWorker ? objectsObj.map((obj, index) => {
 					return <ObjCard
 						key={index}
 						image={theme === "dark" ? obj.image[0] : obj.image[1]}
 						info={obj.info}
 						active={routesObj[index] === selectedObj}
-						onItemClick={() => setSelectedObj(routesObj[index])}
+						disabled={!(role === routesObj[index])}
 					/>
 				}) : objectsChem.map((obj, index) => {
 					return <ObjCard
@@ -50,15 +53,14 @@ const FirstSecondGroup = ({role}) => {
 						image={theme === "dark" ? obj.image[0] : obj.image[1]}
 						info={obj.info}
 						active={routesChem[index] === selectedObj}
-						onItemClick={() => setSelectedObj(routesChem[index])}
 					/>
 				})}
 			</div>
 			{(workFirst.loading || workSecond.loading) && <Preloader />}
-			{selectedObj && (role === "objWorker") && (
+			{selectedObj && isObjWorker && (
 				<FirstGroupOnly object={selectedObj} />
 			)}
-			{selectedObj && (role === "chemWorker") && (
+			{selectedObj && (role === "chemical") && (
 				<SecondGroupOnly gas={selectedObj} />
 			)}
 		</>

@@ -77,6 +77,23 @@ const Registration = () => {
 					<SelectReg
 						value={role}
 						onChange={onRoleChange}
+						values={[
+							"compressor",
+							"powerplant",
+							"boiler",
+							"chemical",
+							"mining",
+							"EPWorker"
+						]}
+						names={[
+							"work.obj1",
+							"work.obj2",
+							"work.obj3",
+							"other.role1",
+							"other.role2",
+							"other.role3"
+						]}
+						firstName={"other.selectRole"}
 					/>
 				</InputBlock>
 				<InputBlock

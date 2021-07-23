@@ -29,8 +29,8 @@ const Table = React.memo(({names, data, helps, disabled, errors, colors=[]}) => 
 							value={data[index][0]}
 							placeholder={t("other.tablePlaceholder")}
 							onKeyPress={(event) => {
-						        if (!/[0-9]/.test(event.key)) {
-						          	event.preventDefault();
+						        if (!/[0-9.]/.test(event.key)) {
+						          	event.preventDefault()
 						        }
 						    }}
 						/>

@@ -24,11 +24,14 @@
     "other": {
         "notFound": "404 Not found ヽ(°□° )ノ",
         "selectRole": "Select your department",
-        "role1": "Facility worker",
-        "role2": "Chemical laboratory",
-        "role3": "Mining Department",
-        "role4": "EP department",
-        "tablePlaceholder": "Type value"
+        "selectRoleConf": "Select your facility",
+        "role1": "Chemical laboratory",
+        "role2": "Mining Department",
+        "role3": "EP department",
+        "tablePlaceholder": "Type value",
+        "modalInfo": "Are you sure you want to confirm sending the data ?",
+        "modalConfirm": "Confirm",
+        "you": "You"
     },
     "work": {
         "selectObj": "Select a production facility",
@@ -39,6 +42,8 @@
         "button": "Send data to mining department",
         "title1": "You have successfully sent the data to the mining department",
         "title2": "The data has already been sent to the mining department",
+        "title3": "The data was rejected by the mining department",
+        "gostButton": "GOST",
         "firstGroup": {
             "name1": "Vcon",
             "name1Info": "1000*m^3",
@@ -50,6 +55,9 @@
             "name4Info": "MW*h",
             "name5": "Vsteam",
             "name5Info": "tons",
+            "name6Info": "m^3",
+            "name7Info": "MW",
+            "name6": "A",
             "help1": "Gas consumption volume",
             "help2": "Working hours",
             "help3": "Generated electricity",
@@ -85,9 +93,30 @@
             "type1": "Pollutants",
             "type2": "Greenhouse gases",
             "type3": "Energy efficiency",
-            "user": "User",
+            "user": "Employee",
             "date": "Date",
-            "gasType": "Gas type"
+            "gasType": "Gas type",
+            "typeReason": "Type the reason",
+            "reason": "Reason",
+            "reject": "Reject data",
+            "edited": "Edited",
+            "rejected": "Rejected",
+            "signRep": "Sign the report",
+            "signRepInfo": "Are you sure you want to sign the report ?",
+            "signed": "The report is signed",
+            "signedTitle": "Signed",
+            "inProgr": "In progress"
+        },
+        "fourthGroup": {
+            "notSigned": "The report has not been signed yet",
+            "title": "Final report",
+            "signedBy": "Signed by",
+            "formulas": "Formulas for calculations",
+            "selectObj": "Select an object to see the formula",
+            "makeCalc": "Make calculations",
+            "confCalc": "Are you sure you want to make calculations ?",
+            "attention1": "The action is irrevocable",
+            "attention2": "You have unsaved changes in formulas"
         }
     },
     "validation": {

@@ -42,17 +42,46 @@ export const workApi = {
 		return instance.post(`object/${route}/`, data)
 			.then(res => res.data)
 	},
+	updateObjData(route, data) {
+		return instance.put(`object/${route}/`, data)
+			.then(res => res.data)
+	},
 	getGasData(gasName) {
-		return instance.get(`chemical/gas/?gasName=${gasName}`)
+		return instance.get(`chemical/?gasName=${gasName}`)
 			.then(res => res.data)
 	},
 	createGasData(data) {
-		return instance.post("chemical/gas/", data)
+		return instance.post("chemical/", data)
+			.then(res => res.data)
+	},
+	updateGasData(data) {
+		return instance.put("chemical/", data)
 			.then(res => res.data)
 	},
 	getReport(data) {
 		return instance.get("mining/")
 			.then(res => res.data)
+	},
+	rejectDataObj(obj, payload) {
+		return instance.patch(`object/${obj}/`, payload)
+			.then(res => res.data)
+	},
+	rejectDataChem(payload) {
+		return instance.patch("chemical/", payload)
+			.then(res => res.data)
+	},
+	confirmReport() {
+		return instance.patch("mining/")
+			.then(res => res.data)
+	},
+	getFinalReport() {
+		return instance.get("environment/")
+			.then(res => res.data)
+	},
+	updateCoef(coef, value) {
+		return instance.patch("environment/", {
+			[coef]: value
+		}).then(res => res.data)
 	}
 }
 

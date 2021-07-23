@@ -22,6 +22,7 @@ class WorkFirst {
 			this.loading = false
 		} catch (err) {
 			this.errorHandler(err)
+			this.workData = null
 		}
 	}
 
@@ -29,6 +30,17 @@ class WorkFirst {
 		try {
 			this.loadingCreate = true
 			const data = yield workApi.createObjData(route, payload)
+			this.setWorkData(data)
+			this.loadingCreate = false
+		} catch (err) {
+			this.errorHandler(err)
+		}
+	}
+
+	*updateObjData(route, payload) {
+		try {
+			this.loadingCreate = true
+			const data = yield workApi.updateObjData(route, payload)
 			this.setWorkData(data)
 			this.loadingCreate = false
 		} catch (err) {

@@ -18,7 +18,9 @@ const GroupTemplate = ({title, mainColor, thirdType=true, children}) => {
 			>
 				<div className={s.left}>
 					<div className={s.sign}>
-						<div className={s.signInner} style={active ? {backgroundColor: mainColor} : null}/>
+						<div className={s.signInner} style={active ? {backgroundColor: mainColor} : null} />
+						<div className={s.connect} style={active ? {backgroundColor: mainColor} : null} />
+						<div className={cn(s.connect, s.second)} style={active ? {backgroundColor: mainColor} : null} />
 					</div>
 					<div className={s.title}>
 						{t(title)}

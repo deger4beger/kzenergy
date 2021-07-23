@@ -5,7 +5,7 @@ const Footer = () => {
 
 	return (
 		<div className={s.wrapper}>
-			Shoqan, 2021
+			© 2021 · Shoqan
 		</div>
 	)
 }

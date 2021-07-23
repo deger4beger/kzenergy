@@ -1,29 +1,38 @@
 import { useTranslation } from 'react-i18next';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
+import cn from "classnames"
 import s from "./ThirdGroup.module.css"
 import GroupTemplate from "./GroupTemplate/GroupTemplate"
 import GroupItemContent from "./GroupItemContent/GroupItemContent"
 import GroupItem from "./GroupItem/GroupItem"
 import work from "../../../store/workThirdStore"
+import auth from "../../../store/authStore"
 import { Preloader } from '../../../components/Preloader/Preloader';
 import { observer } from 'mobx-react-lite';
 import FirstGroupOnlyLogic from '../FirstSecondGroup/FirstGroupOnly/FirstGroupOnlyLogic';
 import SecondGroupOnlyLogic from '../FirstSecondGroup/SecondGroupOnly/SecondGroupOnlyLogic';
-import Table from '../../../components/Table/Table';
+import Table from '../../../components/Table/Table'
+import { MainButton } from '../../../components/Button/Button';
+import ModalConfirm from '../../../components/ModalConfirm/ModalConfirm';
 
 const ThirdGroup = () => {
+	const [modalActive, setModalActive] = useState(false)
 	const { t } = useTranslation()
 	const { firstObjData, secObjData, thirdObjData } = FirstGroupOnlyLogic()
 	const { objData } = SecondGroupOnlyLogic()
 	const objects = {
 		compressor: ["work.obj1", firstObjData],
 		boiler: ["work.obj3", thirdObjData],
-		powerPlant: ["work.obj2", secObjData]
+		powerplant: ["work.obj2", secObjData]
 	}
 	const gases = {
 		sweetGas: ["work.obj4", objData]
 	}
 
+	const confirmReport = () => {
+		work.confirmReport()
+		setModalActive(!modalActive)
+	}
 
 	useEffect(() => {
 		work.getReport()
@@ -34,10 +43,16 @@ const ThirdGroup = () => {
 	}, [])
 
 	const data = work.workData
+	const confirmData = work.workData?.confirmData
 	return (
 		<div className={s.wrapper}>
 			<div className={s.title}>
 				{t("work.thirdGroup.report")}
+				{data && <span className={confirmData?.isConfirmed ? s.titleInfo : cn(s.titleInfo, s.progr)}>
+					({confirmData?.isConfirmed ? t("work.thirdGroup.signedTitle") : (
+						t("work.thirdGroup.inProgr")
+					)})
+				</span>}
 			</div>
 			{!data ? <Preloader /> : (
 				<>
@@ -46,17 +61,26 @@ const ThirdGroup = () => {
 						mainColor={"var(--emission)"}
 						>
 						{Object.keys(data).map((key, index) => {
-							if (key === "gases") return <div />
-							const {date, id, user, gasComposition, ...rest} = data[key]
+							if (["gases", "confirmData"].includes(key)) return <div />
+							const {date, id, user, gasComposition, refusalData, isEdited, ...rest} = data[key]
 							return <GroupItem
+								key={index}
 								isRecieved={!!date}
 								title={t(objects[key][0])}
-								key={index}
+								currItem={key}
+								rejectLoading={work.loadingReject[key]}
+								status={refusalData?.date ? t("work.thirdGroup.rejected") : (
+									isEdited ? t("work.thirdGroup.edited") : null
+								)}
+								isRejectDisabled={!date || confirmData.isConfirmed}
 								>
 								<GroupItemContent
-									user={user?.fullName}
-									date={date}
-									gasType={gasComposition ? t(gases[gasComposition.gasName][0]) : null}
+									user={user?.fullName ? user?.fullName : refusalData?.user?.fullName}
+									date={date ? date : refusalData?.date}
+									gasType={!date ? null : (
+										gasComposition ? t(gases[gasComposition.gasName][0]) : null
+									)}
+									isSameUser={auth.myData.id === refusalData?.user?.id}
 									>
 									{!!data[key].date &&
 										<Table
@@ -79,15 +103,22 @@ const ThirdGroup = () => {
 						thirdType={false}
 						>
 						{Object.keys(data.gases).map((key, index) => {
-							const {date, id, user, gasName, ...rest} = data.gases[key]
+							const {date, id, user, gasName, refusalData, isEdited, ...rest} = data.gases[key]
 							return <GroupItem
 								isRecieved={!!date}
 								title={t(gases[key][0])}
 								key={index}
+								currItem={key}
+								rejectLoading={work.loadingReject[key]}
+								status={refusalData?.date ? t("work.thirdGroup.rejected") : (
+									isEdited ? t("work.thirdGroup.edited") : null
+								)}
+								isRejectDisabled={!date || confirmData.isConfirmed}
 								>
 								<GroupItemContent
-									user={user?.fullName}
-									date={date}
+									user={user?.fullName ? user?.fullName : refusalData?.user?.fullName}
+									date={date ? date : refusalData?.date}
+									isSameUser={auth.myData.id === refusalData?.user?.id}
 									>
 									{!!data.gases[key].date &&
 										<Table
@@ -104,6 +135,39 @@ const ThirdGroup = () => {
 							</GroupItem>
 						})}
 					</GroupTemplate>
+					<div className={s.confirmBtn}>
+						<MainButton
+							content={t(`work.thirdGroup.${confirmData.isConfirmed ? "signed" : "signRep"}`)}
+							onClick={() => setModalActive(!modalActive)}
+							isLoading={work.loadingCreate}
+							disabled={!confirmData.isConfirmable}
+							styles={{
+								fontSize: "var(--fsz24)",
+								backgroundColor: "var(--mainDark)",
+								width: "280px",
+								height: "50px"
+							}}
+						/>
+						<ModalConfirm
+							active={modalActive}
+							setActive={setModalActive}
+							info={t("work.thirdGroup.signRepInfo")}
+							buttonInfo={t("other.modalConfirm")}
+							onSubmitModal={confirmReport}
+						/>
+						{confirmData.isConfirmed && <div className={s.confirmInfo}>
+							<span>
+								{confirmData.user?.fullName}
+							</span>
+								{(confirmData.user?.id === auth.myData.id) && (
+									<span className={s.sameUser}>({t("other.you")})</span>
+								)}
+							&nbsp;-&nbsp;
+							<span>
+								{confirmData.date}
+							</span>
+						</div>}
+					</div>
 				</>
 			)}
 		</div>

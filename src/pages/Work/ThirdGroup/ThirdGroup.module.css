@@ -3,8 +3,52 @@
 }
 
 .title {
-	font-size: var(--fsz38);
+	font-size: var(--fsz32);
 	text-align: center;
 	margin-top: 20px;
 	border-bottom: 1px solid var(--additional);
+}
+
+.titleInfo {
+	color: var(--main);
+	font-size: var(--fsz19);
+	margin-left: 10px;
+}
+
+.titleInfo.progr {
+	color: var(--emission);
+}
+
+.confirmBtn {
+	border-top: 1px solid var(--additional);
+	margin-top: 20px;
+	padding-top: 40px;
+	padding-bottom: 20px;
+	display: flex;
+	align-items: center;
+	flex-direction: column
+}
+
+.confirmInfo {
+	margin-top: 10px;
+	font-size: var(--fsz19);
+}
+
+.confirmInfo > span:first-child {
+	color: var(--forLinks);
+	cursor: pointer;
+}
+
+.confirmInfo > span:first-child:hover {
+	text-decoration: underline;
+}
+
+.confirmInfo > span:last-child {
+	color: var(--main);
+}
+
+.sameUser {
+	color: var(--color);
+	margin-left: 6px;
+	font-size: var(--fsz18);
 }

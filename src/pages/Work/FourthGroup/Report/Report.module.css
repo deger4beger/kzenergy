@@ -1,0 +1,90 @@
+.wrapper {
+	padding: 40px 0;
+	display: flex;
+	justify-content: center;
+}
+
+.container {
+	width: 79%;
+	height: 900px;
+	background-color: var(--secBg);
+	border: 1px solid var(--additional);
+	border-radius: 8px;
+	padding: 20px 57px 30px;
+	position: relative;
+	position: relative;
+}
+
+.icon {
+	position: absolute;
+	top: 0;
+	right: 0;
+	padding: 11px;
+	border-left: 1px solid var(--additional);
+	border-bottom: 1px solid var(--additional);
+	background-color: var(--firstBg);
+}
+
+.title {
+	text-align: center;
+	font-size: var(--fszLogo);
+	border-bottom: 1px solid var(--additional);
+}
+
+.infoBlock {
+	margin-top: 40px;
+	font-size: var(--fsz19);
+}
+
+.infoItem {
+	margin-top: 14px;
+	color: var(--main);
+}
+
+.infoItem > span {
+	margin-left: 10px;
+	text-decoration: underline;
+	color: var(--color);
+}
+
+.infoItem:first-child > span {
+	color: var(--forLinks);
+	cursor: pointer;
+}
+
+.button {
+	width: 100%;
+	height: 50px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: var(--firstBg);
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fsz21);
+	cursor: pointer;
+	border-top: 1px solid var(--additional);
+}
+
+.button:hover {
+	background-color: var(--forBg);
+}
+
+.modalInfo {
+	padding-bottom: 15px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid var(--additional);
+	font-size: var(--fsz21);
+	text-align: center;
+}
+
+.attention {
+	margin-top: 4px;
+	color: var(--error);
+	font-size: var(--fsz19);
+}
+
+

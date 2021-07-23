@@ -1,0 +1,8 @@
+
+.modalInfo {
+	font-size: var(--fsz24);
+	margin-bottom: 16px;
+	padding-bottom: 6px;
+	border-bottom: 1px solid var(--additional);
+	text-align: center;
+}

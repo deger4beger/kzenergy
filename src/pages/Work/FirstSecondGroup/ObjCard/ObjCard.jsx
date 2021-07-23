@@ -2,14 +2,13 @@ import cn from "classnames"
 import s from "./ObjCard.module.css"
 import { useTranslation } from "react-i18next";
 
-const ObjCard = ({index, image, active, onItemClick, info}) => {
+const ObjCard = ({index, image, active, info, disabled}) => {
 	const { t } = useTranslation()
 
 
 	return (
 		<div
-			className={active ? cn(s.item, s.active) : s.item}
-			onClick={onItemClick}
+			className={disabled ? cn(s.item, s.disabled) : active ? cn(s.item, s.active) : s.item}
 		>
 			<div className={s.imageBlock}>
 				<img

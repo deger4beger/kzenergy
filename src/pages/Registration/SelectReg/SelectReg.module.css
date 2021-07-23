@@ -8,3 +8,7 @@
 	width: 100%;
 	cursor: pointer;
 }
+
+.option {
+	font-size: var(--fsz16);
+}

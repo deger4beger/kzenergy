@@ -11,6 +11,7 @@ const SecondGroupOnlyLogic = () => {
 	const [sixth, setSixth] = useState("")
 	const [seventh, setSeventh] = useState("")
 	const [eighth, setEighth] = useState("")
+	const [modalActive, setModalActive] = useState(false)
 	const [errors, setErrors] = useState({
 		0: null,
 		1: null,
@@ -89,30 +90,15 @@ const SecondGroupOnlyLogic = () => {
 	]
 
 	const resetData = (initialValues=[]) => {
-		setFirst(initialValues[0] ? initialValues[0] : "")
-		setSecond(initialValues[1] ? initialValues[1] : "")
-		setThird(initialValues[2] ? initialValues[2] : "")
-		setFourth(initialValues[3] ? initialValues[3] : "")
-		setFifth(initialValues[4] ? initialValues[4] : "")
-		setSixth(initialValues[5] ? initialValues[5] : "")
-		setSeventh(initialValues[6] ? initialValues[6] : "")
-		setEighth(initialValues[7] ? initialValues[7] : "")
+		initialValues[0] && setFirst(initialValues[0])
+		initialValues[1] && setSecond(initialValues[1])
+		initialValues[2] && setThird(initialValues[2])
+		initialValues[3] && setFourth(initialValues[3])
+		initialValues[4] && setFifth(initialValues[4])
+		initialValues[5] && setSixth(initialValues[5])
+		initialValues[6] && setSeventh(initialValues[6])
+		initialValues[7] && setEighth(initialValues[7])
 	}
-
-	// const resetObjData = (object) => {
-	// 	if (object === "compressor") {
-	// 		setObjData(firstObjData)
-	// 		resetData()
-	// 	}
-	// 	if (object === "powerplant") {
-	// 		setObjData(secObjData)
-	// 		resetData()
-	// 	}
-	// 	if (object === "boiler") {
-	// 		setObjData(thirdObjData)
-	// 		resetData()
-	// 	}
-	// }
 
 	const resetError = (errors) => {
 		setErrors(prev => ({
@@ -121,43 +107,26 @@ const SecondGroupOnlyLogic = () => {
 		}))
 	}
 
-	const onSubmit = (gasName) => {
+	const onSubmit = () => {
 		let hasError = false
-		if (hasErrorTableValue(first)) {
-			resetError({0: hasErrorTableValue(first)})
-			hasError = true
-		}
-		if (hasErrorTableValue(second)) {
-			resetError({1: hasErrorTableValue(second)})
-			hasError = true
-		}
-		if (hasErrorTableValue(third)) {
-			resetError({2: hasErrorTableValue(third)})
-			hasError = true
-		}
-		if (hasErrorTableValue(fourth)) {
-			resetError({3: hasErrorTableValue(fourth)})
-			hasError = true
-		}
-		if (hasErrorTableValue(fifth)) {
-			resetError({4: hasErrorTableValue(fifth)})
-			hasError = true
-		}
-		if (hasErrorTableValue(sixth)) {
-			resetError({5: hasErrorTableValue(sixth)})
-			hasError = true
-		}
-		if (hasErrorTableValue(seventh)) {
-			resetError({6: hasErrorTableValue(seventh)})
-			hasError = true
-		}
-		if (hasErrorTableValue(eighth)) {
-			resetError({7: hasErrorTableValue(eighth)})
-			hasError = true
+		for (let [index, value] of data.entries()) {
+			if (hasErrorTableValue(value[0])) {
+				resetError({[index]: hasErrorTableValue(value[0])})
+				hasError = true
+			}
 		}
 		if (hasError) return
+		setModalActive(true)
+	}
+
+	const fillGostData = () => {
+		resetData([null, null, null, "0.766", "57.96", "4", "1", "45.71"])
+		resetError({3: null, 4: null, 5: null, 6: null, 7:null})
+	}
+
+	const onSubmitModal = (gasName, update=false) => {
 		if (gasName === "sweetGas") {
-			work.createGasData({
+			let payload = {
 				nitrogen: first,
 				sulfur: second,
 				carbon: third,
@@ -167,12 +136,14 @@ const SecondGroupOnlyLogic = () => {
 				N2OSpecificFactor: seventh,
 				LowerHeatCombustion: eighth,
 				gasName
-			})
+			}
+			update ? work.updateGasData(payload) : work.createGasData(payload)
 		}
+		setModalActive(false)
 	}
 
 	return {
-		data, objData, onSubmit, resetData, errors
+		data, objData, onSubmit, resetData, errors, modalActive, setModalActive, onSubmitModal, fillGostData
 	}
 }
 

@@ -6,14 +6,16 @@ import { observer } from 'mobx-react-lite'
 import FirstSecondTemplate from "../FirstSecondTemplate/FirstSecondTemplate"
 
 const FirstGroupOnly = ({object}) => {
-	const { data, onSubmit, errors, objData,
-		resetObjData, resetData, resetError } = FirstGroupOnlyLogic()
-	const isSameUser = auth.myData.fullName === work.workData?.user?.fullName
+	const { data, onSubmit, errors, objData, modalActive, setModalActive, onSubmitModal,
+		resetObjData, resetData } = FirstGroupOnlyLogic()
+	const refusalData = work.workData?.refusalData
 
 	useEffect(() => {
 		work.getObjData(object)
 		resetObjData(object)
-		resetError({0: null, 1: null, 2: null})
+		return () => {
+			work.setWorkData(null)
+		}
 	}, [object])
 
 	useEffect(() => {
@@ -25,15 +27,24 @@ const FirstGroupOnly = ({object}) => {
 	return (
 		<FirstSecondTemplate
 			isFilledData={work.workData.date}
-			isSameUser={isSameUser}
-			fullName={work.workData.user?.fullName}
-			date={work.workData.date?.split(" ").join(", ")}
+			isRejectedData={refusalData?.date}
+			isSameUser={auth.myData.id === work.workData?.user?.id}
+			fullName={work.workData.user ? work.workData.user.fullName : (
+				refusalData?.date ? refusalData?.user.fullName : null
+			)}
+			reason={refusalData?.text}
+			date={work.workData.date ? work.workData.date.split(" ").join(", ") : (
+				refusalData?.date ? refusalData?.date.split(" ").join(", ") : null
+			)}
 			objData={objData}
 			data={data}
 			errors={errors}
 			buttonContent={"work.button"}
-			onButtonClick ={() => onSubmit(object)}
+			onButtonClick={onSubmit}
 			isButtonLoading={work.loadingCreate}
+			modalActive={modalActive}
+			setModalActive={setModalActive}
+			onSubmitModal={() => onSubmitModal(object, refusalData?.date)}
 		/>
 	)
 }

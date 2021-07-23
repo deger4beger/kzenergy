@@ -1,14 +1,15 @@
 .wrapper {
-	margin-top: 50px;
+	margin-top: 30px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	padding-bottom: 80px;
 }
 
 .title {
 	padding: 0px 4px;
 	margin-bottom: 30px;
-	font-size: var(--fsz38);
+	font-size: var(--fsz32);
 	border-bottom: 1px solid var(--additional);
 }
 

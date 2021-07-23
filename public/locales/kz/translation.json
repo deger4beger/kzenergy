@@ -24,11 +24,14 @@
     "other": {
         "notFound": "404 Bet tabylmady ヽ(°□° )ノ",
         "selectRole": "Róldi tańdańyz",
-        "role1": "Obektidegi qyzmetker",
-        "role2": "Hımıalyq zerthana",
-        "role3": "Óndirý bólimi",
-        "role4": "QOQ bólimi",
-        "tablePlaceholder": "Mándi engizińiz"
+        "selectRoleConf": "Nysandy tańdańyz",
+        "role1": "Hımıalyq zerthana",
+        "role2": "Óndirý bólimi",
+        "role3": "QOQ bólimi",
+        "tablePlaceholder": "Mándi engizińiz",
+        "modalInfo": "Siz derekterdi jiberýdi rastaǵyńyz keletinine senimdisiz ?",
+        "modalConfirm": "Rastaý",
+        "you": "Sen"
     },
     "work": {
         "selectObj": "Óndiris nysanyn tańdańyz",
@@ -39,6 +42,8 @@
         "button": "Óndirý bólimine derekterdi jiberý",
         "title1": "Siz derekterdi óndirý bólimine sátti jiberdińiz",
         "title2": "Derekter óndirý bólimine jiberildi",
+        "title3": "Derekterdi óndirý bólimi qabyldamady",
+        "gostButton": "GOST",
         "firstGroup": {
             "name1": "Vtut",
             "name1Info": "1000*m^3",
@@ -50,6 +55,9 @@
             "name4Info": "MW*h",
             "name5": "Vjup",
             "name5Info": "tonna",
+            "name6Info": "m^3",
+            "name7Info": "MV",
+            "name6": "A",
             "help1": "Tutynylǵan gaz kólemi",
             "help2": "Jumys ýaqyty",
             "help3": "Óndirilgen elektr.",
@@ -79,15 +87,36 @@
             "help8": "Tómengi janý jylýy"
         },
         "thirdGroup": {
-            "report": "Сводный отчет",
+            "report": "Jıyntyq esep",
             "title1": "Shyǵaryndylardyń kózderi",
             "title2": "Gazdardyń quramy",
             "type1": "Lastaýshy zattar",
             "type2": "Parnıktik gazdar",
             "type3": "Energıa tıimdiligi",
-            "user": "Qoldanýshy",
+            "user": "Qyzmetker",
             "date": "Kúni",
-            "gasType": "Gaz túri"
+            "gasType": "Gaz túri",
+            "typeReason": "Sebebin engizińiz",
+            "reason": "Sebebi",
+            "reject": "Derekterdi qabyldamaý",
+            "edited": "Óńdelgen",
+            "rejected": "Qabyldanbaǵan",
+            "signRep": "Esepke qol qoıyńyz",
+            "signRepInfo": "Senimdisiz qol qoıýǵa tapsyrady ?",
+            "signed": "Esepke qol qoıyldy",
+            "signedTitle": "Qol qoıyldy",
+            "inProgr": "Prosesinde"
+        },
+        "fourthGroup": {
+            "notSigned": "Esepke áli qol qoıylmaǵan",
+            "title": "Fınaldyq esep",
+            "signedBy": "Qol qoıyldy",
+            "formulas": "Esepteý formýlalary",
+            "selectObj": "Formýlany kórý úshin nysandy tańdańyz",
+            "makeCalc": "Esepteýler jasańyz",
+            "confCalc": "Senimdisiz esepteý ?",
+            "attention1": "Bul áreket qaıtymsyz",
+            "attention2": "Formýlalarda saqtalmaǵan ózgerister bar"
         }
     },
     "validation": {

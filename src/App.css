@@ -49,12 +49,14 @@ body {
 html {
     --mainFont: "Josefin Sans";
     --fszLogo: 28px;
-    --fsz100: 64px;
-    --fsz38: 34px;
+    --fsz64: 64px;
+    --fsz32: 32px;
     --fsz24: 24px;
+    --fsz21: 21px;
     --fsz19: 19px;
     --fsz18: 18px;
     --fsz16: 16px;
+    --fsz15: 15px;
 }
 
 
@@ -96,7 +98,7 @@ html {
 }
 
 .mainBlock {
-  padding-top: 50px;
+  padding-top: 60px;
   width: 70%;
   margin: 0 auto;
 }

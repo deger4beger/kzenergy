@@ -47,7 +47,15 @@ export const isNumber = value => {
 	return "validation.number"
 }
 
-const validatorsTable = [required, isNumber]
+export const isFloat = value => {
+	if (!value) return undefined
+	if (validator.isFloat(value)) {
+		return undefined
+	}
+	return "validation.number"
+}
+
+const validatorsTable = [required, isFloat]
 
 const validatorsPass = [MinLength5, MaxLength50, required]
 const validatorsEmail = [MinLength5, MaxLength50, required, isEmail]
@@ -118,6 +126,7 @@ export const hasErrorLog = (email, password, setError) => {
 }
 
 export const hasErrorTableValue = (value) => {
+	value = String(value)
 	for (let i of validatorsTable) {
 		if (i(value)) {
 			return i(value)

@@ -1,0 +1,240 @@
+.formBlock {
+	margin-top: 30px;
+	font-size: var(--fsz24);
+}
+
+.formBtns {
+	display: flex;
+	margin-top: 20px;
+}
+
+.formBtn {
+	font-size: var(--fsz19);
+	flex-basis: 33.3%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-right: 1px solid;
+	border-bottom: 1px solid;
+	border-color:  var(--additional);
+	padding: 6px 0;
+	cursor: pointer;
+	user-select: none;
+}
+
+.formBtn:last-child {
+	border-right: none;
+}
+
+.sign {
+	width: 20px;
+	height: 20px;
+	border: 2px solid var(--additional);
+	border-radius: 20px;
+	margin-left: 8px;
+	margin-right: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	position: relative;
+}
+
+.signInner {
+	width: 12px;
+	height: 12px;
+	border-radius: 10px;
+}
+
+.formBtn.active:first-child {
+	box-shadow: 0 4px 2px -2px var(--pollutants);
+}
+
+.formBtn.active:first-child .signInner {
+	background-color: var(--pollutants);
+}
+
+.formBtn.active:nth-child(2) .signInner {
+	background-color: var(--greenhouse);
+}
+
+.formBtn.active:last-child  .signInner {
+	background-color: var(--efficiency);
+}
+
+.formBtn.active:nth-child(2) {
+	box-shadow: 0 4px 2px -2px var(--greenhouse);
+}
+
+.formBtn.active:last-child {
+	box-shadow: 0 4px 2px -2px var(--efficiency);
+}
+
+.formsTitles {
+	display: flex;
+	margin-top: 26px;
+}
+
+.formTitle {
+	flex-basis: 33.3%;
+	font-size: var(--fsz16);
+	padding: 0 10px;
+	border-right: 1px solid var(--additional);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding-bottom: 4px;
+	border-bottom: 1px solid var(--additional);
+	text-align: center;
+	cursor: pointer;
+	user-select: none;
+	color: var(--forText);
+}
+
+.titleEl  {
+	margin-right: 8px;
+	font-size: var(--fsz16);
+	border: 2px solid var(--additional);
+	padding: 3px 7.1px 0;
+	position: relative;
+	border-radius: 20px;
+}
+
+.titleEl.active {
+	background-color: var(--forBg);
+}
+
+.formTitle:last-child {
+	border-right: none;
+}
+
+.formsBlock {
+	height: 350px;
+	min-height: 350px;
+	width: 100%;
+	background-color: var(--firstBg);
+	border: 1px solid var(--additional);
+	border-top: none;
+}
+
+.formBlock .title2 {
+	text-align: center;
+}
+
+.form {
+	font-size: var(--fsz21);
+	margin-left: 30px;
+	position: relative;
+}
+
+.form.disabled {
+	display: none;
+}
+
+.form span {
+	font-size: var(--fsz15);
+	color: var(--forText);
+}
+
+.beforeEqual {
+	display: inline-block;
+	width: 124px;
+}
+
+.form div div {
+	display: inline-block;
+}
+
+.form .first {
+	color: var(--pollutants);
+}
+
+.form .second {
+	color: var(--greenhouse);
+}
+
+.form .third {
+	color: var(--efficiency);
+}
+
+.formsBlock > div {
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-evenly;
+}
+
+.equal {
+	font-size: var(--fsz21);
+	float: right;
+	margin-right: 10px;
+}
+
+.ifNone {
+	text-align: center;
+}
+
+.koefBlock {
+	position: relative;
+	display: inline-block;
+	margin-top: 20px;
+}
+
+.koef {
+	font-size: var(--fsz21);
+	padding: 6px;
+	width: 80px;
+	border-radius: 8px;
+	background-color: var(--secBg);
+	border: 1px solid var(--additional);
+	color: var(--color);
+	text-align: center;
+}
+
+.koef.loading {
+	opacity: 0.4;
+	pointer-events: none;
+}
+
+.koefMenu {
+	position: absolute;
+	top: -16px;
+	right: -16px;
+	font-size: 13px;
+	background-color: var(--secBg);
+	border-radius: 20px;
+}
+
+.koefMenu.disabled {
+	pointer-events: none;
+}
+
+.koefMenu > div {
+	line-height: 20px;
+	height: 20px;
+	width: 20px;
+	border: 2px solid var(--additional);
+	border-radius: 20px;
+	color: white;
+	cursor: pointer;
+	text-align: center;
+	opacity: 0.7;
+}
+
+.koefMenu > div:hover {
+	opacity: 1;
+}
+
+.koefMenu > div:first-child {
+	background-color: var(--error);
+	font-size: 12px;
+	margin-right: 1px;
+}
+
+.koefMenu > div:last-child {
+	background-color: var(--forBg);
+}
+
+.close {
+	position: relative;
+	bottom: 1px;
+}

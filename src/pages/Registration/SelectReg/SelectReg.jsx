@@ -1,7 +1,7 @@
 import s from "./SelectReg.module.css"
 import { useTranslation } from "react-i18next";
 
-const SelectReg = ({value, onChange}) => {
+const SelectReg = ({value, onChange, values, names, firstName}) => {
 	const { t } = useTranslation();
 
 	return (
@@ -9,11 +9,10 @@ const SelectReg = ({value, onChange}) => {
 			value={value}
 			onChange={onChange}
 			className={s.select}>
-			<option value="" disabled hidden>{t("other.selectRole")}</option>
-			<option value="objWorker">{t("other.role1")}</option>
-			<option value="chemWorker">{t("other.role2")}</option>
-			<option value="miningWorker">{t("other.role3")}</option>
-			<option value="EPWorker">{t("other.role4")}</option>
+			<option value="" disabled hidden>{t(firstName)}</option>
+			{values.map((key, index) => {
+				return <option className={s.option} value={key} key={index}>{t(names[index])}</option>
+			})}
 		</select>
 	)
 }

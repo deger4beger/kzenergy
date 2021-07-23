@@ -15,7 +15,23 @@
 	color: var(--gas);
 }
 
+.value.user {
+	color: var(--forLinks);
+	cursor: pointer;
+}
+
+.value.user:hover {
+	text-decoration: underline;
+}
+
+.sameUser {
+	color: var(--forText);
+	display: inline-block;
+	margin-left: 4px;
+}
+
 .content {
 	margin-top: 50px;
 	width: 80%;
+	margin-left: 130px;
 }
