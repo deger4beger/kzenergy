@@ -2,6 +2,7 @@ import { Route, Switch, Redirect } from "react-router-dom"
 import { NotFound } from './components/NotFound/NotFound';
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
+import CornerMenu from "./components/CornerMenu/CornerMenu"
 import HomePage from "./pages/Homepage/Homepage"
 import Registration from "./pages/Registration/Registration"
 import Login from "./pages/Login/Login"
@@ -41,6 +42,7 @@ const App = ({setLanguage, lang}) => {
                 </div>
             </div>
             <Footer />
+            <CornerMenu />
         </>
     )
 }

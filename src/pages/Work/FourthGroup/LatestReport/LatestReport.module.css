@@ -1,0 +1,97 @@
+.wrapper {
+	margin-top: 120px;
+	padding-bottom: 140px;
+}
+
+.title {
+	text-align: center;
+	border-bottom: 1px solid var(--additional);
+	font-size: var(--fsz32);
+	position: relative;
+	padding: 0 40px;
+	cursor: pointer;
+}
+
+.title.disabled {
+	color: var(--forText);
+}
+
+.title.disabled .arrow {
+	transform: rotate(90deg);
+}
+
+.title.disabled + .content {
+	display: none;
+}
+
+.circle {
+	width: 32px;
+	height: 32px;
+	border-radius: 26px;
+	border: 3px solid var(--additional);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	position: absolute;
+	background-color: var(--firstBg);
+	bottom: -16px;
+	left: 0;
+}
+
+.circleInner {
+	width: 20px;
+	height: 20px;
+	border-radius: 18px;
+	background-color: var(--pollutants);
+}
+
+.circleInner.disabled {
+	background-color: var(--secBg) !important;
+}
+
+.circle:nth-child(2) {
+	left: 70px;
+}
+
+.circle:nth-child(2) > .circleInner {
+	background-color: var(--greenhouse);
+}
+
+.circle:nth-child(3) {
+	left: 140px;
+}
+
+.circle:nth-child(3) > .circleInner {
+	background-color: var(--efficiency);
+}
+
+.arrow {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	transform: rotate(-90deg);
+}
+
+.content {
+	margin-top: 50px;
+	margin-left: 50px;
+}
+
+.contentInfo {
+	font-size: var(--fsz18);
+	margin-bottom: 4px;
+}
+
+.contentInfo > .left {
+	color: var(--main);
+	margin-right: 6px;
+}
+
+.contentInfo > .name {
+	color: var(--forLinks);
+	cursor: pointer;
+}
+
+.contentInfo > .name:hover {
+	text-decoration: underline;
+}

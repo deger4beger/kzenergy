@@ -1,0 +1,36 @@
+ .wrapper {
+	margin-top: 44px;
+}
+
+.title {
+	border-bottom: 1px solid var(--additional);
+	font-size: var(--fsz19);
+	cursor: pointer;
+	position: relative;
+	padding-left: 8px;
+}
+
+.title.disabled {
+	opacity: 0.6;
+}
+
+.title.disabled .arrow {
+	transform: rotate(90deg);
+}
+
+.title.disabled + .content {
+	display: none;
+}
+
+.arrow {
+	position: absolute;
+	bottom: -7px;
+	right: 2px;
+	transform: rotate(-90deg);
+	font-size: var(--fsz32);
+}
+
+.content {
+	margin-top: 40px;
+	margin-left: 60px;
+}

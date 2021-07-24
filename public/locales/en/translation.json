@@ -31,7 +31,8 @@
         "tablePlaceholder": "Type value",
         "modalInfo": "Are you sure you want to confirm sending the data ?",
         "modalConfirm": "Confirm",
-        "you": "You"
+        "you": "You",
+        "none": "none"
     },
     "work": {
         "selectObj": "Select a production facility",
@@ -116,7 +117,8 @@
             "makeCalc": "Make calculations",
             "confCalc": "Are you sure you want to make calculations ?",
             "attention1": "The action is irrevocable",
-            "attention2": "You have unsaved changes in formulas"
+            "attention2": "You have unsaved changes in formulas",
+            "lastReport": "Latest report"
         }
     },
     "validation": {

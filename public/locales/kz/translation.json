@@ -31,7 +31,8 @@
         "tablePlaceholder": "Mándi engizińiz",
         "modalInfo": "Siz derekterdi jiberýdi rastaǵyńyz keletinine senimdisiz ?",
         "modalConfirm": "Rastaý",
-        "you": "Sen"
+        "you": "Sen",
+        "none": "Joq"
     },
     "work": {
         "selectObj": "Óndiris nysanyn tańdańyz",
@@ -116,7 +117,8 @@
             "makeCalc": "Esepteýler jasańyz",
             "confCalc": "Senimdisiz esepteý ?",
             "attention1": "Bul áreket qaıtymsyz",
-            "attention2": "Formýlalarda saqtalmaǵan ózgerister bar"
+            "attention2": "Formýlalarda saqtalmaǵan ózgerister bar",
+            "lastReport": "Sońǵy esep"
         }
     },
     "validation": {
