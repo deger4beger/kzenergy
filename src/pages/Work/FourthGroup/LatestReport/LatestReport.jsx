@@ -5,9 +5,16 @@ import cn from "classnames"
 import s from "./LatestReport.module.css"
 import ReportItem from "./ReportItem/ReportItem"
 import work from "store/workFourthStore"
+import { MainButton } from '../../../../components/Button/Button';
+import excelIconDark from "assets/work/excelIconDark.png"
+import excelIconLight from "assets/work/excelIconLight.png"
+import excelIconSmallDark from "assets/excelIconSmallDark.png"
+import excelIconSmallLight from "assets/excelIconSmallLight.png"
+import { useTheme } from '../../../../hooks/useTheme'
 
 const LatestReport = ({isActive=false}) => {
 	const { t } = useTranslation()
+	const [theme] = useTheme()
 	const [active, setActive] = useState({0: isActive, 1: isActive, 2: isActive})
 	const [activeMain, setActiveMain] = useState(isActive)
 	const colors = ["var(--pollutants)", "var(--greenhouse)", "var(--efficiency)"]
@@ -37,6 +44,9 @@ const LatestReport = ({isActive=false}) => {
 			[index]: !active[index]
 		}))
 	}
+	const onExcelClick = (e) => {
+		e.stopPropagation()
+	}
 
 	return (
 		<div className={s.wrapper}>
@@ -51,6 +61,19 @@ const LatestReport = ({isActive=false}) => {
 					</div>
 				})}
 				<div className={s.arrow}>»</div>
+				<div className={s.excelButtonSmall}>
+					<MainButton
+						content={"Excel"}
+						onClick={onExcelClick}
+						isLoading={false}
+						disabled={false}
+						icon={theme === "dark" ? excelIconSmallDark : excelIconSmallLight}
+						styles={{
+							color: "var(--main)",
+							width: "100px"
+						}}
+					/>
+				</div>
 			</div>
 			<div className={s.content}>
 				<div className={s.contentInfo}>
@@ -69,7 +92,22 @@ const LatestReport = ({isActive=false}) => {
 					title={t(`work.thirdGroup.type${index+1}`)}
 					data={work.finalData[index]}
 				/>)}
-				<div className={s.excelButton}>Excel</div>
+				<div className={s.excelButton}>
+					<MainButton
+						content={"Excel"}
+						onClick={() => void 0}
+						isLoading={false}
+						disabled={false}
+						icon={theme === "dark" ? excelIconDark : excelIconLight}
+						styles={{
+							fontSize: "var(--fsz24)",
+							backgroundColor: "var(--secBg)",
+							color: "var(--main)",
+							width: "220px",
+							height: "50px"
+						}}
+					/>
+				</div>
 			</div>
 		</div>
 	)

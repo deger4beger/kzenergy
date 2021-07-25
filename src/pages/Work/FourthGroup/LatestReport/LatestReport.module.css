@@ -8,8 +8,9 @@
 	border-bottom: 1px solid var(--additional);
 	font-size: var(--fsz32);
 	position: relative;
-	padding: 0 40px;
+	padding: 0 150px;
 	cursor: pointer;
+	user-select: none;
 }
 
 .title.disabled {
@@ -94,4 +95,16 @@
 
 .contentInfo > .name:hover {
 	text-decoration: underline;
+}
+
+.excelButton {
+	margin-top: 80px;
+	display: flex;
+	justify-content: center;
+}
+
+.excelButtonSmall {
+	position: absolute;
+	bottom: 8px;
+	right: 40px;
 }

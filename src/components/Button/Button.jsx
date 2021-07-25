@@ -13,7 +13,7 @@ export const MainButton = ({content, icon, onClick, isLoading, disabled, styles}
 		    style={styles} >
 			    {icon && (
 			    	<img src={icon}
-			    		className={isLoading ? cn(s.googleIcon, s.loading) : s.googleIcon}
+			    		className={isLoading ? cn(s.icon, s.loading) : s.icon}
 			    		alt="#" />
 			    	)
 			    }

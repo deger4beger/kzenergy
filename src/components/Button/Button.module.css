@@ -5,6 +5,7 @@
 	border: 1px solid var(--additional);
 	color: var(--color);
 	/*transition: 0.2s;*/
+	font-size: var(--fsz16);
 	display: flex;
 	position: relative;
 	justify-content: center;
@@ -35,11 +36,9 @@
 	opacity: 0;
 }
 
-.googleIcon {
-	width: 16px;
-	height: 16px;
-	margin-right: 4px;
-	margin-top: 3px;
+.icon {
+	margin-right: 6px;
+	margin-bottom: 5px;
 }
 
 .loadingIcon {

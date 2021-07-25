@@ -8,6 +8,7 @@
 	cursor: pointer;
 	position: relative;
 	padding-left: 8px;
+	user-select: none;
 }
 
 .title.disabled {
@@ -76,6 +77,8 @@
 	font-size: var(--fsz15);
 	color: var(--forText);
 	margin-left: 4px;
+	position: relative;
+	top: 1px;
 }
 
 .info:before {
