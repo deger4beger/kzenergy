@@ -118,7 +118,8 @@
             "confCalc": "Are you sure you want to make calculations ?",
             "attention1": "The action is irrevocable",
             "attention2": "You have unsaved changes in formulas",
-            "lastReport": "Latest report"
+            "lastReport": "Latest report",
+            "totalEmis": "Total emissions"
         }
     },
     "validation": {

@@ -1,5 +1,5 @@
  .wrapper {
-	margin-top: 44px;
+	margin-top: 60px;
 }
 
 .title {
@@ -31,6 +31,57 @@
 }
 
 .content {
-	margin-top: 40px;
+	margin-top: 50px;
 	margin-left: 60px;
+}
+
+.tableRow {
+	display: flex;
+	justify-content: center;
+	align-items: stretch;
+}
+
+.tableCell {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	flex-basis: 27%;
+	border-right: 1px solid var(--additional);
+	border-bottom: 1px solid var(--additional);
+	padding: 8px 10px 4px;
+}
+
+.tableCell.headCell, .tableCell.first {
+	border-width: 3px;
+}
+
+.tableCell.headCell {
+	font-size: var(--fsz16);
+}
+
+.tableCell {
+	font-size: var(--fsz18);
+}
+
+.tableCell.first {
+	font-size: var(--fsz19);
+}
+
+.tableCell:first-child {
+	flex-basis: 19%;
+}
+
+.info {
+	font-size: var(--fsz15);
+	color: var(--forText);
+	margin-left: 4px;
+}
+
+.info:before {
+	content: "(";
+}
+
+.info:after {
+	content: ")";
 }

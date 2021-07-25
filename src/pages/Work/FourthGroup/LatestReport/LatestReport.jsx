@@ -1,14 +1,17 @@
 import { useState } from 'react'
+import { observer } from 'mobx-react-lite';
+import { useTranslation } from 'react-i18next';
 import cn from "classnames"
 import s from "./LatestReport.module.css"
 import ReportItem from "./ReportItem/ReportItem"
-import { useTranslation } from 'react-i18next';
+import work from "store/workFourthStore"
 
 const LatestReport = ({isActive=false}) => {
 	const { t } = useTranslation()
 	const [active, setActive] = useState({0: isActive, 1: isActive, 2: isActive})
 	const [activeMain, setActiveMain] = useState(isActive)
 	const colors = ["var(--pollutants)", "var(--greenhouse)", "var(--efficiency)"]
+
 
 	const isAtLeastOneActive = () => {
 		for (let value of Object.values(active)) {
@@ -64,10 +67,12 @@ const LatestReport = ({isActive=false}) => {
 					setActive={() => onSetActiveChild(index)}
 					color={el}
 					title={t(`work.thirdGroup.type${index+1}`)}
+					data={work.finalData[index]}
 				/>)}
+				<div className={s.excelButton}>Excel</div>
 			</div>
 		</div>
 	)
 }
 
-export default LatestReport
+export default observer(LatestReport)
