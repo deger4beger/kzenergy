@@ -119,7 +119,8 @@
             "attention1": "Bul áreket qaıtymsyz",
             "attention2": "Formýlalarda saqtalmaǵan ózgerister bar",
             "lastReport": "Sońǵy esep",
-            "totalEmis": "Shyǵaryndylardyń jalpy kólemi"
+            "totalEmis": "Shyǵaryndylardyń jalpy kólemi",
+            "noReports": "Ali birde-bir esepke qol qoıylmaǵan"
         }
     },
     "validation": {

@@ -1,24 +1,28 @@
-import { useState } from 'react'
-import { observer } from 'mobx-react-lite';
+import { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
+import fileSaver from "file-saver"
 import cn from "classnames"
 import s from "./LatestReport.module.css"
 import ReportItem from "./ReportItem/ReportItem"
-import work from "store/workFourthStore"
 import { MainButton } from '../../../../components/Button/Button';
 import excelIconDark from "assets/work/excelIconDark.png"
 import excelIconLight from "assets/work/excelIconLight.png"
 import excelIconSmallDark from "assets/excelIconSmallDark.png"
 import excelIconSmallLight from "assets/excelIconSmallLight.png"
 import { useTheme } from '../../../../hooks/useTheme'
+import { animateScroll as scroll } from "react-scroll"
 
-const LatestReport = ({isActive=false}) => {
+
+const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelUrl}) => {
 	const { t } = useTranslation()
 	const [theme] = useTheme()
 	const [active, setActive] = useState({0: isActive, 1: isActive, 2: isActive})
 	const [activeMain, setActiveMain] = useState(isActive)
 	const colors = ["var(--pollutants)", "var(--greenhouse)", "var(--efficiency)"]
 
+	useEffect(() => {
+		if (isActive) scroll.scrollTo(430)
+	}, [])
 
 	const isAtLeastOneActive = () => {
 		for (let value of Object.values(active)) {
@@ -44,8 +48,12 @@ const LatestReport = ({isActive=false}) => {
 			[index]: !active[index]
 		}))
 	}
-	const onExcelClick = (e) => {
+	const onDownloadExcel = (e) => {
 		e.stopPropagation()
+		fileSaver.saveAs(
+  			excelUrl,
+  			`Report (${date}).xlsx`
+		)
 	}
 
 	return (
@@ -64,7 +72,7 @@ const LatestReport = ({isActive=false}) => {
 				<div className={s.excelButtonSmall}>
 					<MainButton
 						content={"Excel"}
-						onClick={onExcelClick}
+						onClick={onDownloadExcel}
 						isLoading={false}
 						disabled={false}
 						icon={theme === "dark" ? excelIconSmallDark : excelIconSmallLight}
@@ -78,11 +86,14 @@ const LatestReport = ({isActive=false}) => {
 			<div className={s.content}>
 				<div className={s.contentInfo}>
 					<span className={s.left}>{t("work.thirdGroup.user")}:</span>
-					<span className={s.name}>Deger Beger Ecologovich</span>
+					<span className={s.name}>
+						{name}
+						{isSameUser && <span className={s.you}>({t("other.you")})</span>}
+					</span>
 				</div>
 				<div className={s.contentInfo}>
 					<span className={s.left}>{t("work.thirdGroup.date")}:</span>
-					2021-24-21
+					{date}
 				</div>
 				{colors.map((el, index) => <ReportItem
 					key={index}
@@ -90,12 +101,13 @@ const LatestReport = ({isActive=false}) => {
 					setActive={() => onSetActiveChild(index)}
 					color={el}
 					title={t(`work.thirdGroup.type${index+1}`)}
-					data={work.finalData[index]}
+					data={finalData[index]}
+					last={index + 1 === colors.length}
 				/>)}
 				<div className={s.excelButton}>
 					<MainButton
 						content={"Excel"}
-						onClick={() => void 0}
+						onClick={onDownloadExcel}
 						isLoading={false}
 						disabled={false}
 						icon={theme === "dark" ? excelIconDark : excelIconLight}
@@ -113,4 +125,4 @@ const LatestReport = ({isActive=false}) => {
 	)
 }
 
-export default observer(LatestReport)
+export default LatestReport

@@ -21,3 +21,13 @@
 	font-size: var(--fsz24);
 	margin-top: 2px;
 }
+
+.name {
+	color: var(--forLinks);
+	cursor: pointer;
+	margin-right: 10px;
+}
+
+.name:hover {
+	text-decoration: underline;
+}

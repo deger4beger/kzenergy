@@ -1,0 +1,15 @@
+.wrapper {
+	margin-top: 40px;
+	width: 80%;
+	margin: 40px auto;
+}
+
+.menuItems {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: stretch;
+	justify-content: center;
+	border-bottom: 1px solid var(--additional);
+	padding-bottom: 20px;
+	margin-bottom: 40px;
+}

@@ -47,7 +47,7 @@ const Header = () => {
 						</Link>
 					</div>
 					<Link to="/work" className={!auth.isAuth ? cn(s.route, s.disabled) : (
-						url === "work" ? cn(s.route, s.active) : s.route)}>
+						(url === "work" || url === "work/scroll") ? cn(s.route, s.active) : s.route)}>
 						{t("header.route1")}
 					</Link>
 					<Link to="/archive" className={!auth.isAuth ? cn(s.route, s.disabled) : (

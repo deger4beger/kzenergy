@@ -144,6 +144,7 @@ const ThirdGroup = () => {
 							styles={{
 								fontSize: "var(--fsz24)",
 								backgroundColor: "var(--mainDark)",
+								color: "white",
 								width: "280px",
 								height: "50px"
 							}}

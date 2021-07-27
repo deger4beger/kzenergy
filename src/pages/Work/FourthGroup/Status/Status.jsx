@@ -14,7 +14,13 @@ const Status = ({workData}) => {
 					<span className={workData[elems[index]] ? s.titles : cn(s.titles, s.disabled)}>
 						{index+1}) {t(`work.obj${index+1}`)}:
 					</span>
-					{workData[elems[index]] ? workData[elems[index]] : t("other.none")}
+					{workData[elems[index]] ? (
+						<>
+							<span className={s.name}>{workData[elems[index]].fullName}</span>
+							<span className={s.date}>{workData[elems[index]].date}</span>
+						</>
+						) : t("other.none")
+					}
 				</div>
 			})}
 			<div className={s.statusElem}>

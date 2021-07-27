@@ -14,6 +14,7 @@ class WorkFourth {
 		5: false,
 		6: false,
 	}
+	loadingCalc = false
 	error = null
 
 	constructor() {
@@ -46,6 +47,19 @@ class WorkFourth {
 		}
 	}
 
+	*makeCalc(history) {
+		try {
+			this.loadingCalc = true
+			const data = yield workApi.makeCalc()
+			this.setWorkData(data)
+			history.push("work/scroll")
+		} catch (err) {
+			this.errorHandler(err)
+		} finally {
+			this.loadingCalc = false
+		}
+	}
+
 	setWorkData(data) {
 		this.workData = data
 	}
@@ -63,26 +77,29 @@ class WorkFourth {
 	get finalData() {
 		const tons = "work.firstGroup.name5Info"
 		const m = "work.firstGroup.name6Info"
+		const comp = this.workData.archive.compressor
+		const gts = this.workData.archive.powerplant
+		const boil = this.workData.archive.boiler
 		return [
 			[
-				[["NO2", tons], 1, 11, 111],
-				[["NO", tons], 2, 22, 222],
-				[["SO2", tons], 3, 33, 333],
-				[["CO", tons], 4, 44, 444],
-				[null, 10, 100, 1000]
+				[["NO2", tons], comp["NO2"], gts["NO2"], boil["NO2"]],
+				[["NO", tons], comp["NO"], gts["NO"], boil["NO"]],
+				[["SO2", tons], comp["SO2"], gts["SO2"], boil["SO2"]],
+				[["CO", tons], comp["SO2"], gts["SO2"], boil["SO2"]],
+				[null, comp["totalEmis"], gts["totalEmis"], boil["totalEmis"]]
 			],
 			[
-				[["CO2", tons], 1, 11, 111],
-				[["CH4", tons], 2, 22, 222],
-				[["N2O", tons], 3, 33, 333],
-				[null, 10, 100, 1000]
+				[["CO2", tons], comp["CO2"], gts["CO2"], boil["CO2"]],
+				[["CH4", tons], comp["CH4"], gts["CH4"], boil["CH4"]],
+				[["N2O", tons], comp["N2O"], gts["N2O"], boil["N2O"]],
+				[null, comp["totalGrhs"], gts["totalGrhs"], boil["totalGrhs"]]
 			],
 			[
 				[
 					["E"],
-					[5, m, m],
-					[10, m, "work.firstGroup.name7Info"],
-					[15, m, tons]
+					[comp["energy"], m, m],
+					[gts["energy"], m, "work.firstGroup.name7Info"],
+					[boil["energy"], m, tons]
 				]
 			]
 		]

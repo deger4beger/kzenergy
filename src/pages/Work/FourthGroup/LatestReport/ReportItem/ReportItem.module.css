@@ -1,4 +1,4 @@
- .wrapper {
+.wrapper {
 	margin-top: 60px;
 }
 
@@ -20,7 +20,8 @@
 }
 
 .title.disabled + .content {
-	display: none;
+	max-height: 0;
+	transition: max-height 0.20s linear;
 }
 
 .arrow {
@@ -34,12 +35,23 @@
 .content {
 	margin-top: 50px;
 	margin-left: 60px;
+	max-height: 280px;
+	transition: max-height 0.20s linear;
+	overflow: hidden;
+}
+
+.content.last {
+	max-height: 120px;
 }
 
 .tableRow {
 	display: flex;
 	justify-content: center;
 	align-items: stretch;
+}
+
+.tableRow:last-child .tableCell {
+	color: var(--efficiency);
 }
 
 .tableCell {

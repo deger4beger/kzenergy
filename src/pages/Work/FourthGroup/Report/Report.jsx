@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import { useHistory } from "react-router-dom"
 import { useTranslation } from 'react-i18next';
 import s from "./Report.module.css"
 import reportIconDark from "assets/work/reportIconDark.png"
@@ -9,9 +10,12 @@ import FormBlock from "./FormBlock/FormBlock"
 import work from "../../../../store/workFourthStore.js"
 import { MainButton } from '../../../../components/Button/Button';
 import Modal from "../../../../components/Modal/Modal"
+import loadingIconWhite from "assets/loadingIconWhite.svg"
+import loadingIcon from "assets/loadingIcon.svg"
 
 const Report = () => {
 	const { t } = useTranslation()
+	const history = useHistory()
 	const [theme] = useTheme()
 	const [active, setActive] = useState(false)
 	const [firstData, setFirstData] = useState(work.getCoefFirst)
@@ -30,6 +34,10 @@ const Report = () => {
 			}
 		}
 		return isUnsaved
+	}
+	const onConfClick = () => {
+		work.makeCalc(history)
+		setActive(false)
 	}
 
 
@@ -57,7 +65,11 @@ const Report = () => {
 					setSecData={setSecData}
 				/>
 				<div className={s.button} onClick={() => setActive(!active)}>
-					<div>{t("work.fourthGroup.makeCalc")}</div>
+					{!work.loadingCalc && <div>{t("work.fourthGroup.makeCalc")}</div>}
+					{work.loadingCalc && (
+						<img src={theme === "dark" ? loadingIconWhite : loadingIcon}
+			    			alt="#" />
+			    	)}
 				</div>
 				<Modal active={active} setActive={setActive}>
 					<div className={s.modalInfo}>
@@ -73,7 +85,7 @@ const Report = () => {
 					</div>
 					<MainButton
 						content={t("other.modalConfirm")}
-						onClick={() => void 0}
+						onClick={onConfClick}
 						styles={{
 							fontSize: "var(--fsz24)",
 							backgroundColor: "var(--forBg)"

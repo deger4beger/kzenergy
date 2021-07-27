@@ -30,7 +30,7 @@ const App = ({setLanguage, lang}) => {
                             <Registration />}/>
                         <Route path="/login" render={() =>
                             <Login />}/>
-                        <Route path="/work" render={() =>
+                        <Route path="/work/:scroll?" render={() =>
                             <Work />}/>
                         <Route path="/archive" render={() =>
                             <Archive />}/>

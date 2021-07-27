@@ -119,7 +119,8 @@
             "attention1": "The action is irrevocable",
             "attention2": "You have unsaved changes in formulas",
             "lastReport": "Latest report",
-            "totalEmis": "Total emissions"
+            "totalEmis": "Total emissions",
+            "noReports": "No reports have been signed yet"
         }
     },
     "validation": {

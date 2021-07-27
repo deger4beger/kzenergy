@@ -20,7 +20,6 @@ const CornerMenu = React.memo(() => {
 
 	return (
 		<div className={s.wrapper}>
-			{console.log(scrollActive)}
 			{scrollActive && <div
 				className={s.scroll}
 				onClick={() => scroll.scrollToTop({duration: 300})}

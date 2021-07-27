@@ -31,7 +31,7 @@ const AppContainer = () => {
 		 	forLinks: "#2A8CBF",
 		 	pollutants: "#67A0CC",
 		 	greenhouse: "#CC6363",
-		 	efficiency: "#AEB253",
+		 	efficiency: "#9C9F52",
 		 	emission: "#C29E50",
 		 	gas: "#0EA8AD"
 		},

@@ -1,12 +1,14 @@
+import { useParams } from "react-router-dom"
+import { observer } from 'mobx-react-lite';
 import { NotFound } from '../../components/NotFound/NotFound'
 import FirstSecondGroup from "./FirstSecondGroup/FirstSecondGroup"
 import ThirdGroup from "./ThirdGroup/ThirdGroup"
 import FourthGroup from "./FourthGroup/FourthGroup"
 import { withoutAuthRedirect } from '../../hocs/withoutAuthRedirect'
 import auth from "../../store/authStore"
-import { observer } from 'mobx-react-lite';
 
 const Work = () => {
+	const { scroll } = useParams()
 
 	switch(auth.myData.role) {
 		case "compressor":
@@ -17,7 +19,7 @@ const Work = () => {
 		case "mining":
 			return <ThirdGroup />
 		case "EPWorker":
-			return <FourthGroup />
+			return <FourthGroup isActive={!!scroll}/>
 		default:
 			return <NotFound />
 	}

@@ -2,7 +2,7 @@ import cn from "classnames"
 import s from "./ReportItem.module.css"
 import { useTranslation } from 'react-i18next';
 
-const ReportItem = ({active, setActive, color, title, data}) => {
+const ReportItem = ({active, setActive, color, title, data, last}) => {
 	const { t } = useTranslation()
 	const styles = {color: color}
 
@@ -16,7 +16,7 @@ const ReportItem = ({active, setActive, color, title, data}) => {
 				{title}
 				<div className={s.arrow}>›</div>
 			</div>
-			<div className={s.content}>
+			<div className={cn(s.content, {[s.last]: last})}>
 				<div className={cn(s.tableRow, s.tableHead)}>
 					{[...Array(4)].map((el, index) => {
 						return <div

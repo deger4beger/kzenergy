@@ -82,6 +82,10 @@ export const workApi = {
 		return instance.patch("environment/", {
 			[coef]: value
 		}).then(res => res.data)
+	},
+	makeCalc() {
+		return instance.post("environment/")
+			.then(res => res.data)
 	}
 }
 

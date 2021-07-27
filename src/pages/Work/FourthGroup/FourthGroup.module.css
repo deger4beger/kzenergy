@@ -1,0 +1,6 @@
+.noReport {
+	margin-top: 140px;
+	font-size: var(--fsz32);
+	text-align: center;
+	color: var(--emission);
+}

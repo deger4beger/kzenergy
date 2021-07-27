@@ -1,0 +1,79 @@
+.header {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 70px;
+	background-color: var(--secBg);
+	border: 1px solid var(--additional);
+	border-radius: 8px;
+	justify-content: space-between;
+	cursor: pointer;
+	user-select: none;
+}
+
+.header.active .arrow {
+	transform: rotate(-90deg);
+}
+
+.header.active + .content {
+	display: block;
+}
+
+.info {
+	display: flex;
+	flex-direction: column;
+	margin-left: 40px;
+	font-size: var(--fsz18);
+	padding-right: 200px;
+}
+
+.info > div::before {
+	content: "";
+	display: inline-block;
+	margin-right: 6px;
+	border-radius: 8px;
+	border: 1px solid var(--additional);
+	width: 10px;
+	height: 10px;
+	background-color: var(--forBg);
+}
+
+.index {
+	height: 100%;
+	width: 50px;
+	background-color: var(--firstBg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: var(--fsz24);
+	border-top-left-radius: 8px;
+	border-bottom-left-radius: 8px;
+	border-right: 1px solid var(--additional);
+}
+
+.left, .right {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
+
+.arrow {
+	margin-right: 14px;
+	font-size: var(--fsz32);
+	transform: rotate(90deg);
+}
+
+.excelButton {
+	margin-right: 26px;
+}
+
+.content {
+	display: none;
+	background-color: var(--secBg);
+	width: 100%;
+	margin-top: 16px;
+	padding: 40px;
+	border: 1px solid var(--additional);
+	border-bottom-right-radius: 8px;
+	border-bottom-left-radius: 8px;
+}

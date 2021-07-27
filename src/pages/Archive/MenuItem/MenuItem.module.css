@@ -1,0 +1,60 @@
+.menuItem {
+	flex-basis: 32.96%;
+	display: flex;
+	align-items: center;
+	padding: 10px 40px 10px 50px;
+	background-color: var(--secBg);
+	margin-right: 4px;
+	margin-bottom: 4px;
+	border: 1px solid var(--additional);
+	cursor: pointer;
+	height: 66px;
+	position: relative;
+	user-select: none;
+}
+
+.menuItem:last-child, .menuItem:nth-child(3) {
+	margin-right: 0;
+}
+
+.menuItem.disabled {
+	pointer-events: none;
+	opacity: 0.7;
+}
+
+.disabledSign {
+	color: var(--error);
+	font-size: var(--fsz18);
+	position: absolute;
+	right: 8px;
+	bottom: 16px;
+}
+
+.activeSign {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	bottom: 20px;
+	left: 6px;
+	border: 1px solid var(--additional);
+	border-radius: 8px;
+	background-color: var(--firstBg);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.activeSignInner {
+	width: 16px;
+	height: 16px;
+	background-color: var(--secBg);
+	border-radius: 6px;
+}
+
+.activeSignInner.active {
+	background-color: var(--forBg);
+}
+
+.content.active {
+	color: var(--main);
+}
