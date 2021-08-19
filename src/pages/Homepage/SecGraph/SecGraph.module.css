@@ -1,0 +1,23 @@
+.wrapper {
+	padding: 80px 0px 100px;
+	display: flex;
+	flex-direction: column;
+	height: 910px;
+}
+
+.chart {
+	height: 620px;
+}
+
+.settings {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding-bottom: 10px;
+	margin-bottom: 30px;
+	border-bottom: 1px solid var(--additional);
+}
+
+.settings > div {
+	display: flex;
+}

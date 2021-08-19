@@ -22,6 +22,13 @@ instance.interceptors.request.use((req) => {
 	return req
 })
 
+const parseToQueryStr = (params) => {
+	return Object.keys(params)
+		.map(key => params[key] ? `${key}=${params[key]}` : "")
+		.filter(el => el)
+		.join('&')
+}
+
 export const authApi = {
 	register(payload) {
 		return instance.post("user/register/", payload)
@@ -85,6 +92,21 @@ export const workApi = {
 	},
 	makeCalc() {
 		return instance.post("environment/")
+			.then(res => res.data)
+	}
+}
+
+export const archiveApi = {
+	getArchive(group) {
+		return instance.get(`archive/?role=${group}`)
+			.then(res => res.data)
+	}
+}
+
+export const homepageApi = {
+	getFirstGraph(params) {
+		const qs = parseToQueryStr(params)
+		return instance.get(`main/?${qs}`)
 			.then(res => res.data)
 	}
 }

@@ -1,7 +1,7 @@
 .loginButton {
 	color: var(--secBg);
 	padding: 2px 18px;
-	border-radius: 8px;
+	border-radius: 6px;
 	border: 1px solid var(--additional);
 	color: var(--color);
 	/*transition: 0.2s;*/

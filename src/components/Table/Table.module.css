@@ -38,6 +38,17 @@
 	border-right: 3px solid var(--selection);
 }
 
+@keyframes blink {
+  	50% {
+    	background-color: var(--forBg);
+  	}
+}
+
+
+.lower.blink {
+	animation: blink 1s linear;
+}
+
 .lower {
 	font-size: var(--fsz19);
 	padding: 0px 4px 0px 4px;

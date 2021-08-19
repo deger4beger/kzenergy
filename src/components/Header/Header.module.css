@@ -69,6 +69,8 @@
 	font-size: var(--fsz19);
 	position: relative;
 	top: 2px;
+	cursor: pointer;
+	position: relative;
 }
 
 .route.disabled {
@@ -76,10 +78,39 @@
 	pointer-events: none;
 }
 
-.route.active {
+.route.active > span {
 	color: var(--main);
 }
 
-.route:hover {
+.route > span:hover {
 	color: var(--main);
+}
+
+.routeLang {
+	position: absolute;
+	right: -76px;
+	top: -8px;
+	font-size: var(--fsz15);
+	background-color: var(--additional);
+	border-radius: 2px;
+	line-height: 1;
+	opacity: 0.9;
+	padding: 5px 0px 2px;
+}
+
+.routeLang > span {
+	padding: 5px 8px 2px;
+}
+
+.routeLang > span:hover {
+	color: var(--main);
+}
+
+.routeLang > span:first-child {
+	margin-right: 6px;
+	padding-right: 0;
+}
+
+.routeLang > span:last-child {
+	padding-left: 0;
 }

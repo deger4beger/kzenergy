@@ -2,9 +2,29 @@ import cn from "classnames"
 import s from "./ReportItem.module.css"
 import { useTranslation } from 'react-i18next';
 
-const ReportItem = ({active, setActive, color, title, data, last}) => {
+const ReportItem = ({active, setActive, color, title, data, last, percents}) => {
 	const { t } = useTranslation()
 	const styles = {color: color}
+
+	const isMinus = (percent) => {
+		if (percent[0] === "-") {
+			return percent.substr(1)
+		} else {
+			return false
+		}
+	}
+	const isZero = (percent) => {
+		if (percent[0] === "-") {
+			if (percent[1] === "0") {
+				return true
+			}
+		} else {
+			if (percent[0] === "0") {
+				return true
+			}
+		}
+		return false
+	}
 
 	return (
 		<div className={s.wrapper}>
@@ -27,9 +47,10 @@ const ReportItem = ({active, setActive, color, title, data, last}) => {
 						</div>
 					})}
 				</div>
-				{data.map((el, index) => {
-					return <div className={cn(s.tableRow, s.tableHead)} key={index}>
-						{el.map((el, index) => {
+				{data.map((rowData, rowIndex) => {
+					return <div className={cn(s.tableRow, s.tableHead)} key={rowIndex}>
+						{rowData.map((el, index) => {
+							const percent = percents && percents[rowIndex][index-1]
 							return <div
 								className={cn(s.tableCell, {[s.first]: index === 0})}
 								style={index === 0 ? styles : null}
@@ -53,7 +74,21 @@ const ReportItem = ({active, setActive, color, title, data, last}) => {
 											</>
 										)}
 										{el}
-									</>)}
+									</>
+									)}
+									{(index !== 0 && percents) && (
+										<span
+											className={cn(
+												s.percent,
+												{
+													[s.minus]: isMinus(percent),
+													[s.zero]: isZero(percent)
+												})
+											}>
+											<span>{isMinus(percent) ? "-" : "+"}</span>
+											{isMinus(percent) ? isMinus(percent) : percent}%
+										</span>
+									)}
 							</div>
 						})}
 					</div>

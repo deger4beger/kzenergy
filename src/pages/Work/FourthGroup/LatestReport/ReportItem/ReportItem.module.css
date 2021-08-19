@@ -35,7 +35,7 @@
 .content {
 	margin-top: 50px;
 	margin-left: 60px;
-	max-height: 280px;
+	max-height: 310px;
 	transition: max-height 0.20s linear;
 	overflow: hidden;
 }
@@ -83,6 +83,29 @@
 
 .tableCell:first-child {
 	flex-basis: 19%;
+}
+
+.percent {
+	font-size: 13px;
+	color: var(--error);
+	position: relative;
+	bottom: 5px;
+	left: 6px;
+	user-select: none;
+}
+
+.percent.minus {
+	color: var(--main);
+}
+
+.percent.zero {
+	display: none;
+}
+
+.percent > span {
+	display: inline-block;
+	margin-right: 2px;
+	font-size: var(--fsz16);
 }
 
 .info {

@@ -72,7 +72,7 @@ html {
 
 /* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
-    border: 4px solid rgb(0,0,0);
+    border: 4.5px solid rgb(0,0,0);
     background-color: #555555;
     border-radius: 40px;
 }

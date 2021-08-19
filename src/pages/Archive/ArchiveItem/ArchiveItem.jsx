@@ -5,14 +5,20 @@ import s from "./ArchiveItem.module.css"
 import { MainButton } from '../../../components/Button/Button'
 import excelIconSmallDark from "assets/excelIconSmallDark.png"
 import excelIconSmallLight from "assets/excelIconSmallLight.png"
+import { useTranslation } from 'react-i18next'
+import fileSaver from "file-saver"
 
-const ArchiveItem = ({user, date, index, excelUrl, children, isButton=true}) => {
+const ArchiveItem = ({user, date, index, excelUrl, children, isSameUser, gasType, padding=false}) => {
+	const { t } = useTranslation()
 	const [theme] = useTheme()
 	const [active, setActive] = useState(false)
 
 	const onExcelClick = (e) => {
 		e.stopPropagation()
-		return void 0
+		fileSaver.saveAs(
+  			excelUrl,
+  			`Report (${date}).xlsx`
+		)
 	}
 	const onHeaderClick = () => {
 		children && setActive(!active)
@@ -25,18 +31,20 @@ const ArchiveItem = ({user, date, index, excelUrl, children, isButton=true}) => 
 				onClick={onHeaderClick}
 				>
 				<div className={s.left}>
-					<div className={s.index}>1</div>
+					<div className={s.index}>{index}</div>
 					<div className={s.info}>
 						<div className={s.name}>
-							Deger Beger Miningovich
+							<span className={s.nameItem}>{user}</span>
+							{isSameUser && <span className={s.you}>({t("other.you")})</span>}
+							{gasType && <span className={s.gasType}>{t(gasType)}</span>}
 						</div>
 						<div className={s.date}>
-							2020-19-21
+							{date}
 						</div>
 					</div>
 				</div>
 				<div className={s.right}>
-					{isButton && <div className={s.excelButton}>
+					{excelUrl && <div className={s.excelButton}>
 						<MainButton
 							content={"Excel"}
 							onClick={onExcelClick}
@@ -46,14 +54,15 @@ const ArchiveItem = ({user, date, index, excelUrl, children, isButton=true}) => 
 							styles={{
 								color: "var(--main)",
 								width: "120px",
-								height: "40px"
+								height: "40px",
+								backgroundColor: "var(--thirdBg)"
 							}}
 						/>
 					</div>}
 					{children && <div className={s.arrow}>›</div>}
 				</div>
 			</div>
-			<div className={s.content}>
+			<div className={cn(s.content, {[s.padding]: padding})}>
 				{children}
 			</div>
 		</div>

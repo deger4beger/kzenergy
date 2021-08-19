@@ -3,15 +3,15 @@ import cn from "classnames"
 import s from "./Table.module.css"
 import { useTranslation } from 'react-i18next';
 
-const Table = React.memo(({names, data, helps, disabled, errors, colors=[]}) => {
+const Table = React.memo(({names, data, helps, disabled, errors, colors=[], blink}) => {
 	const { t } = useTranslation()
+	const isLast = (index) => (index + 1 === names.length) || index === 3
 
 	return (
 		<div className={s.columns}>
 			{names.map((name, index) => {
 				return <div className={s.column} key={index}>
-					<div className={((index + 1 === names.length) || index === 3) ?
-							cn(s.upper, s.last) : s.upper}>
+					<div className={cn(s.upper, { [s.last]: isLast(index)} )}>
 						<span className={s.first}>{t(name[0])}{name[1] && ","}</span>
 						<span className={s.second}>{t(name[1])}</span>
 						{helps[index] && <div className={s.helpIcon}>?</div> }
@@ -23,8 +23,10 @@ const Table = React.memo(({names, data, helps, disabled, errors, colors=[]}) => 
 					</div>
 					<div className={disabled && s.disabled}>
 						<input
-							className={((index + 1 === names.length) || index === 3) ?
-								cn(s.lower, s.last) : s.lower}
+							className={cn(s.lower, {
+								[s.last]: isLast(index),
+								[s.blink]: index < blink
+							})}
 							onChange={data[index][1]}
 							value={data[index][0]}
 							placeholder={t("other.tablePlaceholder")}

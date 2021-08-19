@@ -1,3 +1,11 @@
+.wrapper {
+	margin-top: 20px;
+}
+
+.wrapper:first-child {
+	margin-top: 40px;
+}
+
 .header {
 	display: flex;
 	align-items: center;
@@ -38,10 +46,32 @@
 	background-color: var(--forBg);
 }
 
+.nameItem {
+	color: var(--forLinks);
+	cursor: pointer;
+}
+
+.nameItem:hover {
+	text-decoration: underline;
+}
+
+.you {
+	margin-left: 6px;
+	color: var(--forText);
+	font-size: var(--fsz16);
+}
+
+.gasType {
+	color: var(--gas);
+	margin-left: 15px;
+	border-left: 2px solid var(--additional);
+	padding-left: 15px;
+}
+
 .index {
 	height: 100%;
 	width: 50px;
-	background-color: var(--firstBg);
+	background-color: var(--secBg);
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -69,11 +99,16 @@
 
 .content {
 	display: none;
-	background-color: var(--secBg);
+	background-color: var(--firstBg);
 	width: 100%;
 	margin-top: 16px;
-	padding: 40px;
-	border: 1px solid var(--additional);
+	padding: 0px 20px 60px;
+	border-bottom: 2px solid var(--additional);
 	border-bottom-right-radius: 8px;
 	border-bottom-left-radius: 8px;
+	text-align: center;
+}
+
+.content.padding {
+	padding-top: 80px;
 }

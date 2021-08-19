@@ -30,7 +30,7 @@
 	bottom: -26px;
 }
 
-.inputBlock.last .error.shifted {
+.inputBlock .error.shifted {
 	bottom: 0px;
 }
 

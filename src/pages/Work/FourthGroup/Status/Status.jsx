@@ -10,7 +10,7 @@ const Status = ({workData}) => {
 		<div className={s.none}>
 			<div className={s.title}>{t("work.fourthGroup.notSigned")} ヽ(°□° )ノ</div>
 			{[...Array(4)].map((el, index) => {
-				return <div className={s.statusElem}>
+				return <div className={s.statusElem} key={index}>
 					<span className={workData[elems[index]] ? s.titles : cn(s.titles, s.disabled)}>
 						{index+1}) {t(`work.obj${index+1}`)}:
 					</span>

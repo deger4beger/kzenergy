@@ -13,6 +13,7 @@ const FirstGroupOnlyLogic = () => {
 		1: null,
 		2: null
 	})
+	const [fileUploaded, setFileUploaded] = useState(Array(3))
 
 	const onFirstChange = (e) => {
 		errors[0] && resetError({0: null})
@@ -138,7 +139,8 @@ const FirstGroupOnlyLogic = () => {
 
 	return {
 		data, objData, onSubmit, onSubmitModal, resetObjData, resetData, errors,
-		firstObjData, secObjData, thirdObjData, modalActive, setModalActive
+		firstObjData, secObjData, thirdObjData, modalActive, setModalActive,
+		fileUploaded, setFileUploaded
 	}
 }
 

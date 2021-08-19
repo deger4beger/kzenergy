@@ -29,7 +29,7 @@ const Header = () => {
 	 //  	} else {
 	 //  		document.documentElement.style.setProperty('--mainFont', "Josefin Sans")
 	 //  	}
-    	i18n.changeLanguage(language);
+    	i18n.changeLanguage(language)
   	}
 
 	return (
@@ -48,15 +48,25 @@ const Header = () => {
 					</div>
 					<Link to="/work" className={!auth.isAuth ? cn(s.route, s.disabled) : (
 						(url === "work" || url === "work/scroll") ? cn(s.route, s.active) : s.route)}>
-						{t("header.route1")}
+						<span>{t("header.route1")}</span>
 					</Link>
 					<Link to="/archive" className={!auth.isAuth ? cn(s.route, s.disabled) : (
 						url === "archive" ? cn(s.route, s.active) : s.route)}>
-						{t("header.route2")}
+						<span>{t("header.route2")}</span>
 					</Link>
-					<Link to="/guide" className={url === "guide" ? cn(s.route, s.active) : s.route}>
-						{t("header.route3")}
-					</Link>
+					<div className={s.route}>
+						<span onClick={()=> window.open("https://vk.com/doc173450504_611736446?hash=44ce01e2c2fe2b8c85&dl=af644f9af0ba268745", "_blank")}>
+							{t("header.route3")}
+						</span>
+						<div className={s.routeLang}>
+							<span onClick={()=> window.open("https://vk.com/doc173450504_611736435?hash=a28678c8695072a103&dl=ac0f95c81b393edd31", "_blank")}>
+								RU
+							</span>
+							<span onClick={()=> window.open("https://vk.com/doc173450504_611736460?hash=7cb9a16583a16e6b94&dl=2c2f065a79c43cec9b", "_blank")}>
+								KZ
+							</span>
+						</div>
+					</div>
 				</div>
 				<div className={s.right}>
 					<div className={s.logBtn}>

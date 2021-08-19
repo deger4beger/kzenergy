@@ -20,7 +20,7 @@ import { Preloader } from '../../../components/Preloader/Preloader';
 
 const FirstSecondGroup = ({role}) => {
 	const [theme] = useTheme()
-	const [selectedObj, setSelectedObj] = useState(
+	const [selectedObj] = useState(
 		auth.myData.role === "chemical" ? "sweetGas" : auth.myData.role
 	)
 	const routesObj = ["compressor", "powerplant", "boiler"]

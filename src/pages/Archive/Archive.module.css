@@ -1,7 +1,8 @@
 .wrapper {
-	margin-top: 40px;
 	width: 80%;
-	margin: 40px auto;
+	margin: 0px auto;
+	padding-top: 60px;
+	padding-bottom: 80px;
 }
 
 .menuItems {
@@ -11,5 +12,11 @@
 	justify-content: center;
 	border-bottom: 1px solid var(--additional);
 	padding-bottom: 20px;
-	margin-bottom: 40px;
+}
+
+.noData {
+	margin-top: 100px;
+	color: var(--efficiency);
+	font-size: var(--fsz24);
+	text-align: center;
 }

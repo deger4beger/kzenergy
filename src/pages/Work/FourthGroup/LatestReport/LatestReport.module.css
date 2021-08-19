@@ -1,5 +1,7 @@
 .wrapper {
-	margin-top: 120px;
+	border-top: 3px solid var(--additional);
+	margin-top: 80px;
+	padding-top: 80px;
 	padding-bottom: 140px;
 }
 
@@ -101,6 +103,7 @@
 	color: var(--color);
 	margin-left: 6px;
 	color: var(--forText);
+	font-size: var(--fsz16);
 }
 
 .excelButton {

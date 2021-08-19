@@ -1,5 +1,6 @@
 import { makeAutoObservable, flow } from "mobx"
 import { workApi } from '../api/api';
+import { getFinalData, getPercents } from './storeHelpers';
 
 class WorkFourth {
 
@@ -75,34 +76,13 @@ class WorkFourth {
 	}
 
 	get finalData() {
-		const tons = "work.firstGroup.name5Info"
-		const m = "work.firstGroup.name6Info"
-		const comp = this.workData.archive.compressor
-		const gts = this.workData.archive.powerplant
-		const boil = this.workData.archive.boiler
-		return [
-			[
-				[["NO2", tons], comp["NO2"], gts["NO2"], boil["NO2"]],
-				[["NO", tons], comp["NO"], gts["NO"], boil["NO"]],
-				[["SO2", tons], comp["SO2"], gts["SO2"], boil["SO2"]],
-				[["CO", tons], comp["SO2"], gts["SO2"], boil["SO2"]],
-				[null, comp["totalEmis"], gts["totalEmis"], boil["totalEmis"]]
-			],
-			[
-				[["CO2", tons], comp["CO2"], gts["CO2"], boil["CO2"]],
-				[["CH4", tons], comp["CH4"], gts["CH4"], boil["CH4"]],
-				[["N2O", tons], comp["N2O"], gts["N2O"], boil["N2O"]],
-				[null, comp["totalGrhs"], gts["totalGrhs"], boil["totalGrhs"]]
-			],
-			[
-				[
-					["E"],
-					[comp["energy"], m, m],
-					[gts["energy"], m, "work.firstGroup.name7Info"],
-					[boil["energy"], m, tons]
-				]
-			]
-		]
+		const response = getFinalData(this.workData.archive)
+		return response
+	}
+
+	get finalPercents() {
+		const response = getPercents(this.workData.archive)
+		return response
 	}
 
 	errorHandler(err) {

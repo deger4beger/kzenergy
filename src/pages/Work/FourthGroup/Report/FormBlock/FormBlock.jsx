@@ -3,11 +3,9 @@ import cn from "classnames"
 import s from "./FormBlock.module.css"
 import { useTranslation } from 'react-i18next'
 import work from "../../../../../store/workFourthStore.js"
-import { useTheme } from '../../../../../hooks/useTheme';
 import { observer } from 'mobx-react-lite';
 
 const FormBlock = ({firstData, setFirstData, secData, setSecData}) => {
-	const [theme] = useTheme()
 	const [active, setActive] = useState(0)
 	const [activeObj, setActiveObj] = useState({0: true, 1: true, 2: true})
 	const { t } = useTranslation()

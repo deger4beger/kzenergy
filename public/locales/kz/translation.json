@@ -45,6 +45,8 @@
         "title2": "Derekter óndirý bólimine jiberildi",
         "title3": "Derekterdi óndirý bólimi qabyldamady",
         "gostButton": "GOST",
+        "modalInfo1": "Mánder bir qatarǵa ornalastyrylýy kerek",
+        "modalInfo2": "Usynylǵan kestedegi mánder sıaqty birdeı tártipte",
         "firstGroup": {
             "name1": "Vtut",
             "name1Info": "1000*m^3",
@@ -63,7 +65,8 @@
             "help2": "Jumys ýaqyty",
             "help3": "Óndirilgen elektr.",
             "help4": "Aıdalatyn gaz kólemi",
-            "help5": "Bý kólemi"
+            "help5": "Bý kólemi",
+            "help6": "Otynnyń úlestik shyǵysy"
         },
         "secondGroup": {
             "name1": "N",
@@ -122,6 +125,18 @@
             "totalEmis": "Shyǵaryndylardyń jalpy kólemi",
             "noReports": "Ali birde-bir esepke qol qoıylmaǵan"
         }
+    },
+    "homepage": {
+        "obj1": "Kompresor",
+        "obj2": "Qazandyq",
+        "obj3": "GES",
+        "option1": "Barlyq esepter",
+        "option2": "Sońǵy esep",
+        "moreStat": "Qosymsha statısıka",
+        "info": "Grafıkterdi qalaı oqý/paıdalaný kerektigin túsinbeısiz be ?"
+    },
+    "archive": {
+        "noData": "Arhıvte jazbalar joq"
     },
     "validation": {
         "number": "Tıis sany",

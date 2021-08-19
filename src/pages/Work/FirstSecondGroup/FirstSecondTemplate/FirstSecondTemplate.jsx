@@ -5,10 +5,11 @@ import cn from "classnames"
 import { MainButton } from '../../../../components/Button/Button';
 import Table from '../../../../components/Table/Table';
 import ModalConfirm from "../../../../components/ModalConfirm/ModalConfirm"
+import UploadExcel from "../UploadExcel/UploadExcel"
 
 const FirstSecondTemplate = ({isFilledData, isSameUser, fullName, modalActive, setModalActive,
 	date, objData, data, errors, buttonContent, onButtonClick, isButtonLoading,
-	onSubmitModal, fillGostData, isRejectedData, reason}) => {
+	onSubmitModal, fillGostData, isRejectedData, reason, setFileUploaded, blink}) => {
 	const { t } = useTranslation()
 	return (
 		<div className={s.container}>
@@ -38,6 +39,7 @@ const FirstSecondTemplate = ({isFilledData, isSameUser, fullName, modalActive, s
 					data={data}
 					disabled={isFilledData}
 					errors={errors}
+					blink={blink}
 				/>
 				{fillGostData && <div
 					className={s.gostButton}
@@ -45,6 +47,12 @@ const FirstSecondTemplate = ({isFilledData, isSameUser, fullName, modalActive, s
 					>
 					{t("work.gostButton")}
 					</div>}
+				<div className={s.excel}>
+					<UploadExcel
+						setFileUploaded={setFileUploaded}
+						disabled={false}
+					/>
+				</div>
 			</div>
 			<div className={s.button}>
 				<MainButton

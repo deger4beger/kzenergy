@@ -20,11 +20,12 @@ const AppContainer = () => {
 		light: {
 		  	firstBg: "#ececed",
 		  	secBg: "#E3E2E2",
+		  	thirdBg: "#DDDCDC",
 		  	additional: "rgba(0, 0, 0, 0.2)",
 		  	error: "#E93C3C",
 		  	forText: "#565656FF",
 		 	color: "black",
-		 	main: "#378F57",
+		 	main: "#387D51",
 		 	mainDark: "#3B7F53",
 		 	forBg: "#8BD4A8",
 		 	selection: "#8BD4A8",
@@ -36,8 +37,9 @@ const AppContainer = () => {
 		 	gas: "#0EA8AD"
 		},
 		dark: {
-		  	firstBg: "#141319", //  rgb(18, 18, 21)
-		  	secBg: "#1C1A22", // 1C1A22
+		  	firstBg: "#16151b", //  rgb(18, 18, 21)
+		  	secBg: "#1c1a22", // 1C1A22 #24222C
+		  	thirdBg: "#1A1820", // #201E28
 		  	additional: "#373737", // rgba(255, 255, 255, 0.2)
 		  	error: "#DF5555",
 		  	forText: "#CECECEFF",

@@ -7,7 +7,8 @@ import FirstSecondTemplate from "../FirstSecondTemplate/FirstSecondTemplate"
 
 const SecondGroupOnly = ({gas}) => {
 	const { data, onSubmit, errors, objData, resetData,
-		modalActive, setModalActive, onSubmitModal, fillGostData } = SecondGroupOnlyLogic()
+		modalActive, setModalActive, onSubmitModal, fillGostData,
+		fileUploaded, setFileUploaded } = SecondGroupOnlyLogic()
 	const refusalData = work.workData?.refusalData
 
 	useEffect(() => {
@@ -20,6 +21,18 @@ const SecondGroupOnly = ({gas}) => {
 	useEffect(() => {
 		resetData(work.initialValues)
 	}, [work.workData])
+
+	useEffect(() => {
+		if (!!fileUploaded[0]) {
+			resetData(fileUploaded)
+		}
+	}, fileUploaded)
+
+	setTimeout(() => {
+		if (fileUploaded[0]) {
+			setFileUploaded(Array(3))
+		}
+	}, 1000)
 
 
 	if (!work.workData || work.loading || !objData) return <div />
@@ -45,6 +58,8 @@ const SecondGroupOnly = ({gas}) => {
 			setModalActive={setModalActive}
 			onSubmitModal={() => onSubmitModal(gas, refusalData?.date)}
 			fillGostData={fillGostData}
+			setFileUploaded={setFileUploaded}
+			blink={fileUploaded.filter(el => el).length}
 		/>
 	)
 }

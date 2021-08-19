@@ -1,0 +1,76 @@
+.wrapper {
+	display: flex;
+	align-items: flex-end;
+}
+
+.wrapper > input {
+	display: none;
+}
+
+.button {
+	opacity: 0.8;
+}
+
+.button:hover {
+	opacity: 1;
+}
+
+.info {
+	opacity: 0.8;
+	line-height: 30px;
+	width: 30px;
+	height: 30px;
+	border: 1px solid var(--additional);
+	border-radius: 6px;
+	margin-left: 10px;
+	user-select: none;
+	cursor: pointer;
+}
+
+.info:hover {
+	opacity: 1;
+}
+
+.modalContent {
+	font-size: var(--fsz18);
+	user-select: none;
+}
+
+.modalInfo > div:first-child {
+	margin-bottom: 6px;
+}
+
+.modalInfo > div:last-child {
+	margin-bottom: 20px;
+}
+
+.goodEx, .badEx {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	margin-top: 10px;
+}
+
+.goodEx > span {
+	color: var(--main);
+	border-color: var(--main);
+}
+
+.badEx > span {
+	color: var(--error);
+	border-color: var(--error);
+}
+
+.modalContent span {
+	margin-left: 20px;
+	line-height: 30px;
+	width: 30px;
+	height: 30px;
+	border-radius: 15px;
+	border: 2px solid;
+	font-weight: 600;
+}
+
+.modalContent img {
+	border: 1px solid var(--additional);
+}

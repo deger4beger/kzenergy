@@ -77,3 +77,9 @@
 	max-width: 70%;
 	margin: 8px auto;
 }
+
+.excel {
+	position: absolute;
+	left: -220px;
+	top: 0px;
+}

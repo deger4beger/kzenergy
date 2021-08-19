@@ -70,7 +70,7 @@
 }
 
 .button:hover {
-	background-color: var(--forBg);
+	color: var(--main);
 }
 
 .modalInfo {

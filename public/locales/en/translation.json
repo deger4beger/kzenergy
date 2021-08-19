@@ -45,6 +45,8 @@
         "title2": "The data has already been sent to the mining department",
         "title3": "The data was rejected by the mining department",
         "gostButton": "GOST",
+        "modalInfo1": "The values must be arranged in a single row",
+        "modalInfo2": "In the same order as the values in the presented table",
         "firstGroup": {
             "name1": "Vcon",
             "name1Info": "1000*m^3",
@@ -63,7 +65,8 @@
             "help2": "Working hours",
             "help3": "Generated electricity",
             "help4": "Volume of injected gas",
-            "help5": "Steam volume"
+            "help5": "Steam volume",
+            "help6": "Specific fuel consumption"
         },
         "secondGroup": {
             "name1": "N",
@@ -122,6 +125,18 @@
             "totalEmis": "Total emissions",
             "noReports": "No reports have been signed yet"
         }
+    },
+    "homepage": {
+        "obj1": "Compressor",
+        "obj2": "GTP",
+        "obj3": "Boiler",
+        "option1": "All reports",
+        "option2": "Last report",
+        "moreStat": "More statistics",
+        "info": "Don't understand how to read / use graphs ?"
+    },
+    "archive": {
+        "noData": "There are no records in the archive"
     },
     "validation": {
         "number": "Must be number",

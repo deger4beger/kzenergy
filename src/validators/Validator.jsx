@@ -130,7 +130,6 @@ export const hasErrorTableValue = (value) => {
 	for (let i of validatorsTable) {
 		if (i(value)) {
 			return i(value)
-			break
 		}
 	}
 	return false

@@ -1,15 +1,16 @@
+import './App.css'
+import { Suspense, lazy } from 'react';
 import { Route, Switch, Redirect } from "react-router-dom"
 import { NotFound } from './components/NotFound/NotFound';
 import Header from "./components/Header/Header"
 import Footer from "./components/Footer/Footer"
 import CornerMenu from "./components/CornerMenu/CornerMenu"
-import HomePage from "./pages/Homepage/Homepage"
-import Registration from "./pages/Registration/Registration"
 import Login from "./pages/Login/Login"
 import Work from "./pages/Work/Work"
-import Archive from "./pages/Archive/Archive"
-import Guide from "./pages/Guide/Guide"
-import './App.css'
+
+const HomePage = lazy(() => import("./pages/Homepage/Homepage"))
+const Registration = lazy(() => import("./pages/Registration/Registration"))
+const Archive = lazy(() => import("./pages/Archive/Archive"))
 
 const App = ({setLanguage, lang}) => {
     return (
@@ -24,20 +25,22 @@ const App = ({setLanguage, lang}) => {
                         <Route exact path="/">
                             <Redirect to="/work"/>
                         </Route>
-                        <Route path="/homepage" render={() =>
-                            <HomePage />}/>
-                        <Route path="/registration" render={() =>
-                            <Registration />}/>
                         <Route path="/login" render={() =>
                             <Login />}/>
                         <Route path="/work/:scroll?" render={() =>
                             <Work />}/>
-                        <Route path="/archive" render={() =>
-                            <Archive />}/>
-                        <Route path="/guide" render={() =>
-                            <Guide />}/>
-                        <Route path="*" render={() =>
-                            <NotFound />}/>
+                        <Suspense fallback={<div className="loading">Loading...</div>}>
+                            <Switch>
+                                <Route path="/homepage" render={() =>
+                                    <HomePage />}/>
+                                <Route path="/registration" render={() =>
+                                    <Registration />}/>
+                                <Route path="/archive" render={() =>
+                                    <Archive />}/>
+                                <Route path="*" render={() =>
+                                    <NotFound />}/>
+                            </Switch>
+                        </Suspense>
                     </Switch>
                 </div>
             </div>

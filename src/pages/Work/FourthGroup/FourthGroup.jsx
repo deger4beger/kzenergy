@@ -28,6 +28,7 @@ const FourthGroup = ({isActive}) => {
 			{work.workData.archive && (
 				<LatestReport
 					finalData={work.finalData}
+					percents={work.finalPercents}
 					date={work.workData.archive.date}
 					name={work.workData.archive.user.fullName}
 					isSameUser={auth.myData.id === work.workData.archive.user.id}

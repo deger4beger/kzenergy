@@ -1,0 +1,64 @@
+.info {
+	position: absolute;
+	top: 800px;
+	width: 100%;
+	left: 0;
+	height: 140px;
+	text-align: center;
+	font-size: var(--fsz32);
+	/*background-color: var(--secBg);*/
+	border-bottom: 1px solid var(--additional);
+	border-top: 1px solid var(--additional);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	cursor: pointer;
+}
+
+.margin {
+	margin-top: 180px;
+}
+
+.down {
+	font-size: var(--fsz64);
+	font-weight: 300;
+	margin-left: 20px;
+	line-height: 1;
+	position: relative;
+	top: -40px;
+}
+
+.down > div {
+	transform: rotate(90deg);
+}
+
+.down > div:first-child {
+	position: absolute;
+	top: 0px;
+}
+
+.down > div:nth-child(2) {
+	position: absolute;
+	top: 8px;
+}
+
+.down > div:last-child {
+	position: absolute;
+	top: 16px;
+}
+
+.tooltip {
+	position: absolute;
+	top: 110px;
+	left: 50%;
+	font-size: var(--fsz18);
+	color: var(--forText);
+}
+
+.tooltipLink {
+	display: inline-block;
+	margin-left: 6px;
+	color: var(--forLinks);
+	text-decoration: underline;
+}

@@ -11,24 +11,22 @@ import excelIconSmallDark from "assets/excelIconSmallDark.png"
 import excelIconSmallLight from "assets/excelIconSmallLight.png"
 import { useTheme } from '../../../../hooks/useTheme'
 import { animateScroll as scroll } from "react-scroll"
+import { colors } from '../../../../store/staticObjects';
 
-
-const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelUrl}) => {
+const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelUrl, percents}) => {
 	const { t } = useTranslation()
 	const [theme] = useTheme()
 	const [active, setActive] = useState({0: isActive, 1: isActive, 2: isActive})
 	const [activeMain, setActiveMain] = useState(isActive)
-	const colors = ["var(--pollutants)", "var(--greenhouse)", "var(--efficiency)"]
 
 	useEffect(() => {
-		if (isActive) scroll.scrollTo(430)
-	}, [])
+		if (isActive) scroll.scrollTo(446)
+	}, [isActive])
 
 	const isAtLeastOneActive = () => {
 		for (let value of Object.values(active)) {
 			if (value) {
 				return true
-				break
 			}
 		}
 		return false
@@ -88,8 +86,8 @@ const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelU
 					<span className={s.left}>{t("work.thirdGroup.user")}:</span>
 					<span className={s.name}>
 						{name}
-						{isSameUser && <span className={s.you}>({t("other.you")})</span>}
 					</span>
+					{isSameUser && <span className={s.you}>({t("other.you")})</span>}
 				</div>
 				<div className={s.contentInfo}>
 					<span className={s.left}>{t("work.thirdGroup.date")}:</span>
@@ -102,6 +100,7 @@ const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelU
 					color={el}
 					title={t(`work.thirdGroup.type${index+1}`)}
 					data={finalData[index]}
+					percents={percents[index]}
 					last={index + 1 === colors.length}
 				/>)}
 				<div className={s.excelButton}>

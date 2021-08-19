@@ -9,16 +9,17 @@ import { useTranslation } from 'react-i18next'
 import OneTwoGroups from "./OneTwoGroups/OneTwoGroups"
 import ThirdGroup from "./ThirdGroup/ThirdGroup"
 import FourthGroup from "./FourthGroup/FourthGroup"
+import archive from "../../store/archiveStore.js"
+import { Preloader } from '../../components/Preloader/Preloader';
+import { groups } from '../../store/staticObjects';
 
 const Archive = () => {
 	const { t } = useTranslation()
 	const [selectedGroup, setSelectedGroup] = useState(auth.myData.role)
-	const groups = ["compressor", "powerplant", "boiler",
-		"chemical", "mining", "EPWorker"]
 
 	useEffect(() => {
-		console.log(selectedGroup)
-		// req
+		archive.getFinalReport(selectedGroup)
+		return () => archive.setWorkData(null)
 	}, [selectedGroup])
 
 	const getComponent = () => {
@@ -28,15 +29,13 @@ const Archive = () => {
 			case "powerplant":
 			case "chemical":
 				return <OneTwoGroups
-
+					group={selectedGroup}
 				/>
 			case "mining":
 				return <ThirdGroup
-
 				/>
 			case "EPWorker":
 				return <FourthGroup
-
 				/>
 			default:
 				return <NotFound />
@@ -44,6 +43,7 @@ const Archive = () => {
 	}
 	const onMenuItemClick = (group) => {
 		if (group === selectedGroup) return
+		archive.setWorkData(null)
 		setSelectedGroup(group)
 	}
 
@@ -57,11 +57,16 @@ const Archive = () => {
 					disabled={[4, 5].includes(groups.indexOf(auth.myData.role)) ? false : (
 						el !== auth.myData.role
 					)}
+					loading={archive.loading && selectedGroup !== groups[index]}
 					onItemClick={() => onMenuItemClick(el)}
 				/>
 			})}
 		</div>
-		{getComponent()}
+		{(!!archive.workData?.length && !!archive.workData) && getComponent()}
+		{(!archive.workData || archive.loading) && <Preloader />}
+		{(archive.workData?.length === 0 && !archive.loading) && (
+			<div className={s.noData}>{t("archive.noData")} ヽ(°□° )ノ</div>
+		)}
 	</div>
 }
 
