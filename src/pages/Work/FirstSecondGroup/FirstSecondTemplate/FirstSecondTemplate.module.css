@@ -14,8 +14,8 @@
 
 .gostButton {
 	position: absolute;
-	top: -72px;
-	right: 0;
+	top: -38px;
+	right: -30px;
 	color: var(--forText);
 	padding: 2px 8px;
 	border-bottom: 1px solid var(--additional);

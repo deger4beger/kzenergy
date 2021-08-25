@@ -9,6 +9,7 @@
 	color: var(--color);
 	z-index: 10;
 	transform-style: preserve-3d;
+	min-width: 1200px;
 }
 
 .container {
@@ -113,4 +114,10 @@
 
 .routeLang > span:last-child {
 	padding-left: 0;
+}
+
+@media(max-width: 1300px) {
+	.container {
+		width: 70%;
+	}
 }

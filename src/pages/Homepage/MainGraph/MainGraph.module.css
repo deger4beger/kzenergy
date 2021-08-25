@@ -123,10 +123,25 @@
 .rightArea {
 	flex-basis: 50%;
 	border-bottom: 2px solid var(--forText);
+	display: flex;
+	justify-content: center;
+	align-items: center;
 }
 
 .chart {
 	height: 100%;
 	padding: 0px 40px 20px;
+	width: 100%;
+}
+
+.noGraph {
+	font-size: var(--fsz32);
+	color: var(--efficiency);
+}
+
+@media(max-width: 1700px) {
+	.wrapper {
+		width: 100%;
+	}
 }
 

@@ -44,12 +44,20 @@ const Registration = () => {
 		}
 		auth.register({email, password, fullName: name, role, identificationKey: secretKey}, history)
 	}
+
+	const onEnterClick = (e) => {
+        if (e.key === "Enter") {
+        	e.preventDefault()
+            onSubmit()
+        }
+    }
+
 	return (
 		<div className={s.wrapper}>
 			<div className={s.title}>
 				{t("login.signUp")}
 			</div>
-			<div className={s.loginForm}>
+			<div className={s.loginForm} onKeyPress={onEnterClick}>
 				<InputBlock
 					last={false}
 					title={t("login.email")}

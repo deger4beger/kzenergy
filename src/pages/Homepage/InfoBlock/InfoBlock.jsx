@@ -14,7 +14,7 @@ const InfoBlock = () => {
 	}
 	const onLinkClick = (e) => {
 		e.stopPropagation()
-		window.open("https://vk.com/doc173450504_611736446?hash=44ce01e2c2fe2b8c85&dl=af644f9af0ba268745", "_blank")
+		window.open("https://vk.com/doc173450504_612526855", "_blank")
 	}
 
 	return (

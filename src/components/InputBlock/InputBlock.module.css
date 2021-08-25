@@ -60,3 +60,7 @@
 .questionMark:hover + .questionText {
 	display: block;
 }
+
+.questionMark:hover ~ .error {
+	display: none;
+}

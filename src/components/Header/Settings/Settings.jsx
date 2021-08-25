@@ -62,7 +62,7 @@ const Settings = ({theme, themeSwitch, setLanguage}) => {
 							</span>
 						</p>
 						<Link className={s.info} to="/about"
-							onClick={() => localMiddleware(()=> window.open("https://vk.com/doc173450504_611736446?hash=44ce01e2c2fe2b8c85&dl=af644f9af0ba268745", "_blank"))}>
+							onClick={() => localMiddleware(()=> window.open("https://vk.com/doc173450504_612526855", "_blank"))}>
 							{t("header.optionInfo")}
 						</Link>
 					</div>

@@ -123,3 +123,12 @@
 .info:after {
 	content: ")";
 }
+
+@media(max-height: 1430px) {
+	.content {
+		max-height: 350px;
+	}
+	.content.last {
+		max-height: 160px;
+	}
+}

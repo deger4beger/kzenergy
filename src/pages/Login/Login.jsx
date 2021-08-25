@@ -26,6 +26,13 @@ const Login = () => {
 		auth.auth({email, password}, history, dontRememberMe)
 	}
 
+	const onEnterClick = (e) => {
+        if (e.key === "Enter") {
+        	e.preventDefault()
+            onSubmit()
+        }
+    }
+
 	useEffect(() => {
 		return () => {
 			auth.errorReset()
@@ -37,7 +44,7 @@ const Login = () => {
 			<div className={s.title}>
 				{t("login.login")}
 			</div>
-			<div className={s.loginForm}>
+			<div className={s.loginForm} onKeyPress={onEnterClick}>
 				<InputBlock
 					last={false}
 					title={t("login.email")}

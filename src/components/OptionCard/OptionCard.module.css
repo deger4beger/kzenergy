@@ -40,3 +40,10 @@
 	height: 12px;
 	border-radius: 7px;
 }
+
+@media(max-width: 1420px) {
+	.option {
+		height: 60px;
+		font-size: var(--fsz15);
+	}
+}

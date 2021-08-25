@@ -44,6 +44,7 @@ body {
   text-rendering: optimizeSpeed;
   line-height: 1.5;
   overflow-x: hidden;
+  min-width: 1200px;
 }
 
 html {
@@ -111,9 +112,9 @@ html {
     background-color: var(--firstBg);
 }
 
-@media(max-width: 996px) {
+@media(max-width: 1200px) {
   .mainBlock {
-    width: 96%;
+    width: 84%;
   }
 }
 

@@ -105,6 +105,7 @@ const MainGraph = () => {
 						{type !== "energy" && <div className={s.chart}>
 							<Doughnut {...store.getChartData(type, obj, theme)} />
 						</div>}
+						{type === "energy" && <div className={s.noGraph}>ヽ(°□° )ノ</div>}
 					</div>
 				</div>
 			) : <Preloader />}

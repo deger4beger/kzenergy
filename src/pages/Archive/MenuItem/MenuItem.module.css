@@ -63,3 +63,20 @@
 .content.active {
 	color: var(--main);
 }
+
+@media(max-width: 1680px) {
+	.menuItem {
+		height: 100px;
+	}
+	.activeSign {
+		bottom: 38px;
+	}
+}
+@media(max-width: 1360px) {
+	.menuItem {
+		height: 140px;
+	}
+	.activeSign {
+		bottom: 58px;
+	}
+}

@@ -54,21 +54,21 @@ class Homepage {
   		}
 		return {
 			data: {
-				labels: this.getGraphOneLabels(type),
+				labels: this.getGraphOneLabels(type, obj),
 			  	datasets: [
 			    	{
 			      		label: '% of elements',
 			      		data: this.getGraphOneData(obj),
 			      		backgroundColor: [
-			      			'rgba(255, 99, 132, 0.2)',
 			      			'rgba(60, 120, 186, 0.2)',
-					        'rgba(54, 162, 235, 0.2)',
+			      			'rgba(46, 139, 87, 0.2)',
+					        'rgba(255, 99, 132, 0.2)',
 					        'rgba(255, 159, 64, 0.2)',
 					    ],
 			      		borderColor: [
-			      			'rgba(255, 99, 132, 1)',
 			      			'rgba(60, 120, 186, 1)',
-			        		'rgba(54, 162, 235, 1)',
+			      			'rgba(46, 139, 87, 1)',
+			      			'rgba(255, 99, 132, 1)',
 			        		'rgba(255, 159, 64, 1)',
 			      		],
 			      		borderWidth: 1
@@ -80,7 +80,8 @@ class Homepage {
 		    	maintainAspectRatio: false,
 		    	plugins: {
 		    		legend: {
-		    			labels: this.getGraphLabels(color)
+		    			labels: this.getGraphLabels(color),
+		    			position: "right"
 		    		},
 		    		tooltip: {
 		    			titleFont: {
@@ -101,11 +102,16 @@ class Homepage {
 		}
 	}
 
-	getGraphOneLabels(type) {
+	getGraphOneLabels(type, obj) {
+		const total = this.workData.graph1[obj].elems.reduce((acc, curr) => acc + curr, 0)
 		if (type === "grhs") {
-			return ["CO2", "CH4", "N2O"]
+			return this.workData.graph1[obj].elems.map((el, index) => {
+				return `${["CO2", "CH4", "N2O"][index]} (${((el / total) * 100).toFixed(1)}%)`
+			})
 		}
-		return ["NO2", "NO", "SO2", "CO"]
+		return this.workData.graph1[obj].elems.map((el, index) => {
+			return `${["NO2", "NO", "SO2", "CO"][index]} (${((el / total) * 100).toFixed(1)}%)`
+		})
 	}
 
 	getGraphOneData(obj) {
@@ -272,7 +278,7 @@ class Homepage {
 	getGraphLabels(color) {
 		return {
 			color: color,
-			padding: 12,
+			padding: 14,
 			font: {
 				size: 16,
         		family: "Josefin Sans"

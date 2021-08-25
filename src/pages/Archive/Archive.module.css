@@ -20,3 +20,9 @@
 	font-size: var(--fsz24);
 	text-align: center;
 }
+
+@media(max-width: 1380px) {
+	.wrapper {
+		width: 100%;
+	}
+}

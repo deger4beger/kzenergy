@@ -24,17 +24,17 @@ const InputBlock = ({last, title, inputType, placeholder, value, onChange,
 			{children && (
 				{...children}
 			)}
-			{error && <div className={info ? cn(s.error, s.shifted) : s.error}>
-				{t(error)}
-			</div>}
-			{info && <div className={s.info}>{info}&nbsp;
-				<Link className={s.infoReg} to={linkTo}>{infoLink}</Link>
-			</div>}
 			{questionMark && <div className={s.questionMark}>
 				?
 			</div>}
 			{questionText && <div className={s.questionText}>
 				{questionText}
+			</div>}
+			{error && <div className={info ? cn(s.error, s.shifted) : s.error}>
+				{t(error)}
+			</div>}
+			{info && <div className={s.info}>{info}&nbsp;
+				<Link className={s.infoReg} to={linkTo}>{infoLink}</Link>
 			</div>}
 		</div>
 	)

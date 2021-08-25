@@ -11,6 +11,7 @@
 
 .upper, .lower {
 	height: 50px;
+	margin-left: -3px;
 }
 
 .upper {
@@ -19,6 +20,7 @@
 	justify-content: center;
 	border-bottom: 3px solid var(--selection);
 	border-left: 3px solid var(--selection);
+	border-right: 3px solid var(--selection);
 	cursor: help;
 	position: relative;
 }
@@ -32,10 +34,6 @@
 	color: var(--forText);
 	position: relative;
 	top: 1px;
-}
-
-.upper.last {
-	border-right: 3px solid var(--selection);
 }
 
 @keyframes blink {
@@ -56,21 +54,18 @@
 	color: var(--color);
 	text-align: center;
 	border-left: 3px solid var(--additional);
-}
-
-.lower.last {
 	border-right: 3px solid var(--additional);
+
 }
 
 .help {
 	display: none;
 	position: absolute;
 	top: -40px;
-	color: var(--forText);
-	border: 1px solid var(--additional);
-	border-radius: 8px;
-	padding: 2px 8px;
-	color: var(--color);
+	border-bottom: 1px solid var(--additional);
+	border-radius: 6px;
+	padding: 2px 6px;
+	white-space: nowrap;
 }
 
 .error {
