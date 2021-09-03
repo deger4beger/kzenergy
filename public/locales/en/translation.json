@@ -16,6 +16,7 @@
         "logInfoGoogle": "Or sign in with Google",
         "confPass": "Confirm password",
         "role": "Department",
+        "phone": "Phone",
         "name": "Full name",
         "secretKey": "Secret key",
         "info1": "The department where you working at",
@@ -28,6 +29,7 @@
         "role1": "Chemical laboratory",
         "role2": "Mining Department",
         "role3": "EP department",
+        "role4": "Admin",
         "tablePlaceholder": "Type value",
         "modalInfo": "Are you sure you want to confirm sending the data ?",
         "modalConfirm": "Confirm",
@@ -134,6 +136,10 @@
         "option2": "Last report",
         "moreStat": "More statistics",
         "info": "Don't understand how to read / use graphs ?"
+    },
+    "cornerMenu": {
+        "edit": "Edit",
+        "users": "Workers"
     },
     "archive": {
         "noData": "There are no records in the archive"

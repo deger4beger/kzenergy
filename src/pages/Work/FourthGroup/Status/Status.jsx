@@ -1,6 +1,7 @@
 import cn from "classnames"
 import { useTranslation } from 'react-i18next';
 import s from "./Status.module.css"
+import usersStore from "../../../../store/usersStore.js"
 
 const Status = ({workData}) => {
 	const { t } = useTranslation()
@@ -16,7 +17,9 @@ const Status = ({workData}) => {
 					</span>
 					{workData[elems[index]] ? (
 						<>
-							<span className={s.name}>{workData[elems[index]].fullName}</span>
+							<span className={s.name} onClick={() => usersStore.getUser(workData[elems[index]].id)}>
+								{workData[elems[index]].fullName}
+							</span>
 							<span className={s.date}>{workData[elems[index]].date}</span>
 						</>
 						) : t("other.none")

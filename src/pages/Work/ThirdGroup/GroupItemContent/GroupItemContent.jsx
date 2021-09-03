@@ -2,13 +2,16 @@ import cn from "classnames"
 import s from "./GroupItemContent.module.css"
 import { useTranslation } from 'react-i18next';
 
-const GroupItemContent = ({user, date, gasType, children, isSameUser}) => {
+const GroupItemContent = ({user, onUserClick, date, gasType, children, isSameUser}) => {
 	const { t } = useTranslation()
 
 	return (
 		<div className={s.wrapper}>
 			<div className={s.title}>
-				{t("work.thirdGroup.user")}: <span className={user ? cn(s.value, s.user) : s.value}>
+				{t("work.thirdGroup.user")}: <span
+					className={user ? cn(s.value, s.user) : s.value}
+					onClick={user ? onUserClick : () => void 0}
+					>
 					{user ? user : t("other.none")}
 				</span>
 				{isSameUser && <div className={s.sameUser}>({t("other.you")})</div>}

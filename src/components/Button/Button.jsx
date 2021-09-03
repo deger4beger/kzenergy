@@ -8,12 +8,12 @@ export const MainButton = ({content, icon, onClick, isLoading, disabled, styles}
 	const [theme] = useTheme()
 	return (
 		<div
-			className={disabled ? cn(s.loginButton, s.disabled) : s.loginButton}
+			className={cn(s.loginButton, {[s.disabled]: disabled, [s.loadingBtn]: isLoading})}
 		    onClick={isLoading ? undefined : disabled ? undefined : onClick}
 		    style={styles} >
 			    {icon && (
 			    	<img src={icon}
-			    		className={isLoading ? cn(s.icon, s.loading) : s.icon}
+			    		className={cn(s.icon, {[s.loading]: isLoading})}
 			    		alt="#" />
 			    	)
 			    }
@@ -23,7 +23,7 @@ export const MainButton = ({content, icon, onClick, isLoading, disabled, styles}
 			    		alt="#" />
 			    	)
 			    }
-			    <div className={isLoading ? cn(s.content, s.loading) : s.content}>
+			    <div className={cn(s.content, {[s.loading]: isLoading})}>
 			    	{content}
 			    </div>
 		</div>

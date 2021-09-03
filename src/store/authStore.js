@@ -1,16 +1,20 @@
 import { makeAutoObservable, flow } from "mobx"
-import { authApi } from '../api/api';
+import { authApi, profileApi } from '../api/api';
 
 class Auth {
 	myData = {
 		id: null,
 		email: null,
-		name: null,
+		fullName: null,
 		access: null,
-		role: null
+		role: null,
+		avatar: null,
+		phone: null
 	}
 	isAuth = undefined
 	loading = false
+	loadingUpdatePhone = false
+	loadingUpdatePhoto = false
 	error = ""
 
 	constructor() {
@@ -25,7 +29,6 @@ class Auth {
 			const data = yield authApi.register(payload)
 			this.setMyData(data)
 			history.push("/work")
-			// this.error && this.errorReset()
 			this.loading = false
 		} catch (err) {
 			this.errorHandler(err)
@@ -38,10 +41,35 @@ class Auth {
 			const data = yield authApi.auth(payload)
 			this.setMyData(data, !dontRememberMe, dontRememberMe)
 			history.push("/work")
-			// this.error && this.errorReset()
 			this.loading = false
 		} catch (err) {
 			this.errorHandler(err)
+		}
+	}
+
+	*changePhone(phone) {
+		try {
+			this.loadingUpdatePhone = true
+			const data = yield profileApi.updatePhone({phone})
+			this.updateMyData(data)
+		} catch (err) {
+			this.errorHandler(err)
+		} finally {
+			this.loadingUpdatePhone = false
+		}
+	}
+
+	*changePhoto(photoFile) {
+		try {
+			this.loadingUpdatePhoto = true
+			const formData = new FormData()
+			formData.append("avatar", photoFile)
+			const data = yield profileApi.updatePhoto(formData)
+			this.updateMyData(data)
+		} catch (err) {
+			this.errorHandler(err)
+		} finally {
+			this.loadingUpdatePhoto = false
 		}
 	}
 
@@ -74,6 +102,14 @@ class Auth {
 		setToLocalStorage && localStorage.setItem("access", JSON.stringify(data))
 		dontRememberMe && sessionStorage.setItem("access", JSON.stringify(data))
 		delete this.myData.token
+	}
+
+	updateMyData(data) {
+		this.myData = {
+			...this.myData,
+			...data
+		}
+		localStorage.setItem("access", JSON.stringify(this.myData))
 	}
 
 	errorReset() {

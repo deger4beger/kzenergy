@@ -16,6 +16,7 @@
         "logInfoGoogle": "Nemese Google eseptik jazbasynan kirińiz",
         "confPass": "Paróldi rastaý",
         "role": "Bólimi",
+        "phone": "Telefon",
         "name": "Aty-jóni",
         "secretKey": "Qupıa kilt",
         "info1": "Siz jumys isteıtin bólim",
@@ -28,6 +29,7 @@
         "role1": "Hımıalyq zerthana",
         "role2": "Óndirý bólimi",
         "role3": "QOQ bólimi",
+        "role4": "Admin",
         "tablePlaceholder": "Mándi engizińiz",
         "modalInfo": "Siz derekterdi jiberýdi rastaǵyńyz keletinine senimdisiz ?",
         "modalConfirm": "Rastaý",
@@ -134,6 +136,10 @@
         "option2": "Sońǵy esep",
         "moreStat": "Qosymsha statısıka",
         "info": "Grafıkterdi qalaı oqý/paıdalaný kerektigin túsinbeısiz be ?"
+    },
+    "cornerMenu": {
+        "edit": "Ózgertý",
+        "users": "Jumysshylar"
     },
     "archive": {
         "noData": "Arhıvte jazbalar joq"

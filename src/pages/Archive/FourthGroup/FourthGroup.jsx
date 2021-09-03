@@ -1,6 +1,7 @@
 import ArchiveItem from "../ArchiveItem/ArchiveItem"
 import archive from "../../../store/archiveStore.js"
 import auth from "../../../store/authStore.js"
+import usersStore from "../../../store/usersStore.js"
 import { observer } from 'mobx-react-lite';
 import ReportItem from '../../Work/FourthGroup/LatestReport/ReportItem/ReportItem';
 import { useState } from 'react';
@@ -27,6 +28,7 @@ const FourthGroup = () => {
 					date={el.date}
 					index={index + 1}
 					isSameUser={auth.myData.id === el.user.id}
+					onUserClick={() => usersStore.getUser(el.user.id)}
 					excelUrl={el.excel}
 					>
 					{colors.map((colorsEl, colorsIndex) => <ReportItem

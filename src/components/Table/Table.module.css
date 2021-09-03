@@ -63,7 +63,6 @@
 	position: absolute;
 	top: -40px;
 	border-bottom: 1px solid var(--additional);
-	border-radius: 6px;
 	padding: 2px 6px;
 	white-space: nowrap;
 }

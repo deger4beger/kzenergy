@@ -1,6 +1,7 @@
 import { observer } from 'mobx-react-lite';
 import archive from "../../../store/archiveStore.js"
 import auth from "../../../store/authStore.js"
+import usersStore from "../../../store/usersStore.js"
 import ArchiveItem from '../ArchiveItem/ArchiveItem';
 import { toJS } from 'mobx';
 
@@ -16,6 +17,7 @@ const ThirdGroup = () => {
 					date={el.date}
 					index={index + 1}
 					isSameUser={auth.myData.id === el.user.id}
+					onUserClick={() => usersStore.getUser(el.user.id)}
 				/>
 			})}
 		</div>

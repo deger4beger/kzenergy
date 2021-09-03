@@ -39,7 +39,7 @@
 }
 
 .title.red {
-	color: var(--error);
+	color: var(--emission);
 }
 
 .title.rejected {

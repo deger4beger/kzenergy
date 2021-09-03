@@ -8,6 +8,7 @@ import reportIconLight from "assets/work/reportIconLight.png"
 import { useTheme } from '../../../../hooks/useTheme';
 import FormBlock from "./FormBlock/FormBlock"
 import work from "../../../../store/workFourthStore.js"
+import usersStore from "../../../../store/usersStore.js"
 import { MainButton } from '../../../../components/Button/Button';
 import Modal from "../../../../components/Modal/Modal"
 import loadingIconWhite from "assets/loadingIconWhite.svg"
@@ -52,7 +53,9 @@ const Report = () => {
 				/>
 				<div className={s.infoBlock}>
 					<div className={s.infoItem}>
-						{t("work.fourthGroup.signedBy")}: <span>{work.workData.user.fullName}</span>
+						{t("work.fourthGroup.signedBy")}: <span onClick={() => usersStore.getUser(work.workData.user.id)}>
+							{work.workData.user.fullName}
+						</span>
 					</div>
 					<div className={s.infoItem}>
 						{t("work.thirdGroup.date")}: <span>{work.workData.date}</span>

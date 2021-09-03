@@ -7,6 +7,7 @@ import GroupItemContent from "./GroupItemContent/GroupItemContent"
 import GroupItem from "./GroupItem/GroupItem"
 import work from "../../../store/workThirdStore"
 import auth from "../../../store/authStore"
+import usersStore from "../../../store/usersStore.js"
 import { Preloader } from '../../../components/Preloader/Preloader';
 import { observer } from 'mobx-react-lite';
 import FirstGroupOnlyLogic from '../FirstSecondGroup/FirstGroupOnly/FirstGroupOnlyLogic';
@@ -76,6 +77,7 @@ const ThirdGroup = () => {
 								>
 								<GroupItemContent
 									user={user?.fullName ? user?.fullName : refusalData?.user?.fullName}
+									onUserClick={() => usersStore.getUser(user?.fullName ? user?.id : refusalData?.user?.id)}
 									date={date ? date : refusalData?.date}
 									gasType={!date ? null : (
 										gasComposition ? t(gases[gasComposition.gasName][0]) : null
@@ -117,6 +119,7 @@ const ThirdGroup = () => {
 								>
 								<GroupItemContent
 									user={user?.fullName ? user?.fullName : refusalData?.user?.fullName}
+									onUserClick={() => usersStore.getUser(user?.fullName ? user?.id : refusalData?.user?.id)}
 									date={date ? date : refusalData?.date}
 									isSameUser={auth.myData.id === refusalData?.user?.id}
 									>
@@ -157,7 +160,7 @@ const ThirdGroup = () => {
 							onSubmitModal={confirmReport}
 						/>
 						{confirmData.isConfirmed && <div className={s.confirmInfo}>
-							<span>
+							<span onClick={() => usersStore.getUser(confirmData.user?.id)}>
 								{confirmData.user?.fullName}
 							</span>
 								{(confirmData.user?.id === auth.myData.id) && (

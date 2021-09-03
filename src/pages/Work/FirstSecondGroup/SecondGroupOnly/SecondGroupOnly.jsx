@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import SecondGroupOnlyLogic from "./SecondGroupOnlyLogic"
 import work from "../../../../store/workSecondStore"
 import auth from "../../../../store/authStore"
+import users from "../../../../store/usersStore.js"
 import { observer } from 'mobx-react-lite'
 import FirstSecondTemplate from "../FirstSecondTemplate/FirstSecondTemplate"
 
@@ -44,6 +45,9 @@ const SecondGroupOnly = ({gas}) => {
 			fullName={work.workData.user ? work.workData.user.fullName : (
 				refusalData?.date ? refusalData?.user.fullName : null
 			)}
+			onUsernameClick={() => users.getUser(work.workData.user ? work.workData.user.id : (
+				refusalData?.date ? refusalData?.user.id : null
+			))}
 			reason={refusalData?.text}
 			date={work.workData.date ? work.workData.date.split(" ").join(", ") : (
 				refusalData?.date ? work.workData.refusalData.date.split(" ").join(", ") : null

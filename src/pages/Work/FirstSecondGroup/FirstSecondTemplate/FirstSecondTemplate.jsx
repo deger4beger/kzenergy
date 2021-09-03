@@ -9,7 +9,7 @@ import UploadExcel from "../UploadExcel/UploadExcel"
 
 const FirstSecondTemplate = ({isFilledData, isSameUser, fullName, modalActive, setModalActive,
 	date, objData, data, errors, buttonContent, onButtonClick, isButtonLoading,
-	onSubmitModal, fillGostData, isRejectedData, reason, setFileUploaded, blink}) => {
+	onSubmitModal, fillGostData, isRejectedData, reason, setFileUploaded, blink, onUsernameClick}) => {
 	const { t } = useTranslation()
 	return (
 		<div className={s.container}>
@@ -23,7 +23,9 @@ const FirstSecondTemplate = ({isFilledData, isSameUser, fullName, modalActive, s
 						<span>{t("work.title2")}</span>)}
 				</div>
 				<div className={s.infoItem}>
-					<span className={s.infoContent}><span className={s.name}>{fullName}</span>
+					<span className={s.infoContent}>
+						<span className={s.name} onClick={onUsernameClick}>{fullName}
+					</span>
 						{isSameUser && ` (${t("other.you")}) `}
 						&nbsp;{date} &nbsp;UTC+6
 					</span>

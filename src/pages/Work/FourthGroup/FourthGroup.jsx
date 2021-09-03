@@ -4,6 +4,7 @@ import s from "./FourthGroup.module.css"
 import Report from "./Report/Report"
 import work from "../../../store/workFourthStore"
 import auth from "../../../store/authStore"
+import usersStore from "../../../store/usersStore"
 import { Preloader } from '../../../components/Preloader/Preloader';
 import Status from "./Status/Status"
 import LatestReport from "./LatestReport/LatestReport"
@@ -24,13 +25,16 @@ const FourthGroup = ({isActive}) => {
 	return (
 		<div className={s.wrapper}>
 			{work.workData.date && <Report /> }
-			{!work.workData.date && <Status workData={work.workData.status} />}
+			{!work.workData.date &&
+				<Status workData={work.workData.status} />
+			}
 			{work.workData.archive && (
 				<LatestReport
 					finalData={work.finalData}
 					percents={work.finalPercents}
 					date={work.workData.archive.date}
 					name={work.workData.archive.user.fullName}
+					onNameClick={() => usersStore.getUser(work.workData.archive.user.id)}
 					isSameUser={auth.myData.id === work.workData.archive.user.id}
 					excelUrl={work.workData.archive.excel}
 					isActive={isActive}

@@ -91,14 +91,11 @@ const SecondGroupOnlyLogic = () => {
 	]
 
 	const resetData = (initialValues=[]) => {
-		initialValues[0] && setFirst(initialValues[0])
-		initialValues[1] && setSecond(initialValues[1])
-		initialValues[2] && setThird(initialValues[2])
-		initialValues[3] && setFourth(initialValues[3])
-		initialValues[4] && setFifth(initialValues[4])
-		initialValues[5] && setSixth(initialValues[5])
-		initialValues[6] && setSeventh(initialValues[6])
-		initialValues[7] && setEighth(initialValues[7])
+		const funcs = [setFirst, setSecond, setThird, setFourth, setFifth, setSixth, setSeventh, setEighth]
+		for (const [index, el] of initialValues.entries()) {
+			funcs[index](el)
+			resetError({[index]: null})
+		}
 	}
 
 	const resetError = (errors) => {

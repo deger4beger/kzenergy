@@ -8,7 +8,8 @@ import excelIconSmallLight from "assets/excelIconSmallLight.png"
 import { useTranslation } from 'react-i18next'
 import fileSaver from "file-saver"
 
-const ArchiveItem = ({user, date, index, excelUrl, children, isSameUser, gasType, padding=false}) => {
+const ArchiveItem = ({user, date, index, excelUrl, children,
+	isSameUser, gasType, padding=false, onUserClick}) => {
 	const { t } = useTranslation()
 	const [theme] = useTheme()
 	const [active, setActive] = useState(false)
@@ -24,6 +25,11 @@ const ArchiveItem = ({user, date, index, excelUrl, children, isSameUser, gasType
 		children && setActive(!active)
 	}
 
+	const onUsernameClick = (e) => {
+		e.stopPropagation()
+		onUserClick()
+	}
+
 	return (
 		<div className={s.wrapper}>
 			<div
@@ -34,7 +40,7 @@ const ArchiveItem = ({user, date, index, excelUrl, children, isSameUser, gasType
 					<div className={s.index}>{index}</div>
 					<div className={s.info}>
 						<div className={s.name}>
-							<span className={s.nameItem}>{user}</span>
+							<span className={s.nameItem} onClick={onUsernameClick}>{user}</span>
 							{isSameUser && <span className={s.you}>({t("other.you")})</span>}
 							{gasType && <span className={s.gasType}>{t(gasType)}</span>}
 						</div>

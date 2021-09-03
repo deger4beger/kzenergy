@@ -111,3 +111,28 @@ export const homepageApi = {
 	}
 }
 
+export const profileApi = {
+	updatePhone(payload) {
+		return instance.patch("user/update/phone/", payload)
+			.then(res => res.data)
+	},
+	updatePhoto(payload) {
+		return instance.patch("user/update/avatar/", payload, {
+			headers: {
+				"Content-Type": "multipart/form-data"
+			}
+		}).then(res => res.data)
+	}
+}
+
+export const usersApi = {
+	getUsers() {
+		return instance.get("user/list/")
+			.then(res => res.data)
+	},
+	getUser(id) {
+		return instance.get(`user/list/${id}/`)
+			.then(res => res.data)
+	}
+}
+

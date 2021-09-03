@@ -71,9 +71,13 @@ const FirstGroupOnlyLogic = () => {
 	}
 
 	const resetData = (initialValues=[]) => {
-		initialValues[0] && setFirst(initialValues[0])
-		initialValues[1] && setSecond(initialValues[1])
-		initialValues[2] && setThird(initialValues[2])
+		const funcs = [setFirst, setSecond, setThird]
+		for (const [index, el] of initialValues.entries()) {
+			if (el) {
+				funcs[index](el)
+				resetError({[index]: null})
+			}
+		}
 	}
 
 	const resetObjData = (object) => {

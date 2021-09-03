@@ -7,6 +7,7 @@ import Footer from "./components/Footer/Footer"
 import CornerMenu from "./components/CornerMenu/CornerMenu"
 import Login from "./pages/Login/Login"
 import Work from "./pages/Work/Work"
+import LeftCornerMenu from './components/LeftCornerMenu/LeftCornerMenu';
 
 const HomePage = lazy(() => import("./pages/Homepage/Homepage"))
 const Registration = lazy(() => import("./pages/Registration/Registration"))
@@ -46,6 +47,7 @@ const App = ({setLanguage, lang}) => {
             </div>
             <Footer />
             <CornerMenu />
+            <LeftCornerMenu />
         </>
     )
 }

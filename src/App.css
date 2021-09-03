@@ -45,6 +45,8 @@ body {
   line-height: 1.5;
   overflow-x: hidden;
   min-width: 1200px;
+  max-width: 1920px;
+  min-height: 100vh;
 }
 
 html {
@@ -67,13 +69,13 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background-color: black;
+    background-color: var(--thirdBg);
     background-clip: content-box;   /* THIS IS IMPORTANT */
 }
 
 /* ползунок скроллбара */
 ::-webkit-scrollbar-thumb {
-    border: 4.5px solid rgb(0,0,0);
+    border: 4.5px solid var(--thirdBg);
     background-color: #555555;
     border-radius: 40px;
 }

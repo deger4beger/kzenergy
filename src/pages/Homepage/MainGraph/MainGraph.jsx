@@ -79,7 +79,6 @@ const MainGraph = () => {
 			</div>
 			{!store.loading[0] ? (
 				<div className={s.graph}>
-					<div className={s.arrow}>></div>
 					<div className={cn(s.dimension, {[s.energy]: type === "energy"})}>
 						({type !== "energy" ? t("work.firstGroup.name5Info") : (
 							t("work.firstGroup.help6")

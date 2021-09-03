@@ -13,14 +13,14 @@ import { useTheme } from '../../../../hooks/useTheme'
 import { animateScroll as scroll } from "react-scroll"
 import { colors } from '../../../../store/staticObjects';
 
-const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelUrl, percents}) => {
+const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelUrl, percents, onNameClick}) => {
 	const { t } = useTranslation()
 	const [theme] = useTheme()
 	const [active, setActive] = useState({0: isActive, 1: isActive, 2: isActive})
 	const [activeMain, setActiveMain] = useState(isActive)
 
 	useEffect(() => {
-		if (isActive) scroll.scrollTo(446)
+		if (isActive) scroll.scrollTo(520)
 	}, [isActive])
 
 	const isAtLeastOneActive = () => {
@@ -84,7 +84,7 @@ const LatestReport = ({isActive=false, finalData, date, name, isSameUser, excelU
 			<div className={s.content}>
 				<div className={s.contentInfo}>
 					<span className={s.left}>{t("work.thirdGroup.user")}:</span>
-					<span className={s.name}>
+					<span className={s.name} onClick={onNameClick}>
 						{name}
 					</span>
 					{isSameUser && <span className={s.you}>({t("other.you")})</span>}

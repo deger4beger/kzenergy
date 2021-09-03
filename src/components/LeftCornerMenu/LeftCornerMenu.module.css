@@ -1,0 +1,136 @@
+.wrapper {
+	position: fixed;
+	top: 60px;
+	left: 0;
+	font-size: 14px;
+	z-index: 5;
+}
+
+.wrapper.disabled {
+	pointer-events: none;
+}
+
+.item {
+	position: relative;
+	line-height: 60px;
+	width: 48px;
+	height: 60px;
+	background-color: var(--secBg);
+	border-right: 1px solid var(--additional);
+	border-bottom: 1px solid var(--additional);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	cursor: pointer;
+	user-select: none;
+	color: var(--forText);
+}
+
+.item:hover {
+	opacity: 0.7;
+}
+
+.item:last-child {
+	border-bottom-right-radius: 6px;
+}
+
+.icon {
+	font-size: 16px;
+	line-height: 1;
+}
+
+.upper {
+	display: flex;
+}
+
+.search {
+	width: 30px;
+	background-color: var(--secBg);
+	border-bottom: 2px solid var(--additional);
+	font-size: var(--fsz21);
+	color: var(--color);
+	width: 100%;
+	padding: 4px 10px;
+	font-weight: 300;
+}
+
+.search:before {
+	content: "🔎︎";
+	margin-right: 6px;
+}
+
+.searchIcon {
+	width: 30px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	border-bottom: 2px solid var(--additional);
+	color: var(--forText);
+	user-select: none;
+}
+
+.lower {
+	margin-top: 30px;
+	height: 300px;
+	overflow-y: auto;
+	margin-left: 10px;
+}
+
+.total {
+	position: absolute;
+	top: 74px;
+	right: 60px;
+	font-size: var(--fsz15);
+	opacity: 0.7;
+	user-select: none;
+	font-weight: 300;
+}
+
+.userItem {
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: flex-end;
+	padding-left: 6px;
+	border-bottom: 1px solid var(--additional);
+	user-select: none;
+	cursor: pointer;
+	color: var(--main);
+	opacity: 1;
+}
+
+.userItem:hover {
+	opacity: 0.7;
+}
+
+.userItem:last-child {
+	border-bottom: none;
+}
+
+.role {
+	font-size: var(--fsz15);
+	margin-left: 6px;
+	color: var(--forText);
+}
+
+.role.admin {
+	color: var(--gas);
+}
+
+.loadingDiv {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 6;
+}
+
+.loadingIcon {
+	padding: 20px;
+	background-color: rgba(0, 0, 0, 0.4);
+	border-radius: 50px;
+}

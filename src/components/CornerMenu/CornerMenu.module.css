@@ -3,6 +3,7 @@
 	bottom: 30px;
 	right: 40px;
 	color: var(--color);
+	z-index: 10;
 }
 
 .scroll {

@@ -32,6 +32,10 @@
 	box-shadow: none;
 }
 
+.loginButton.loadingBtn:hover {
+	box-shadow: none;
+}
+
 .loading {
 	opacity: 0;
 }

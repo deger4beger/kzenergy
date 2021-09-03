@@ -61,10 +61,10 @@ const Settings = ({theme, themeSwitch, setLanguage}) => {
 								RU
 							</span>
 						</p>
-						<Link className={s.info} to="/about"
+						<div className={s.info}
 							onClick={() => localMiddleware(()=> window.open("https://vk.com/doc173450504_612526855", "_blank"))}>
 							{t("header.optionInfo")}
-						</Link>
+						</div>
 					</div>
 				</div>
 			</div>

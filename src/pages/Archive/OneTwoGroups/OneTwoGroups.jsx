@@ -4,6 +4,7 @@ import SecondGroupOnlyLogic from '../../Work/FirstSecondGroup/SecondGroupOnly/Se
 import Table from '../../../components/Table/Table';
 import archive from "../../../store/archiveStore.js"
 import auth from "../../../store/authStore.js"
+import usersStore from "../../../store/usersStore.js"
 import { observer } from 'mobx-react-lite';
 import { toJS } from 'mobx';
 
@@ -32,6 +33,7 @@ const OneTwoGroups = ({group}) => {
 					date={el.date}
 					index={index + 1}
 					isSameUser={auth.myData.id === el.user.id}
+					onUserClick={() => usersStore.getUser(el.user.id)}
 					gasType={group === "chemical" ? "work.obj4" : false}
 					padding={true}
 					>

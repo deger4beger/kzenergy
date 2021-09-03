@@ -82,15 +82,6 @@
 	box-shadow: 0 0 5px 2px var(--forText);
 }
 
-.arrow {
-	position: absolute;
-	left: -6.5px;
-	top: -12px;
-	font-size: var(--fsz21);
-	transform: rotate(-90deg);
-}
-
-
 .dimension {
 	position: absolute;
 	top: -2px;
