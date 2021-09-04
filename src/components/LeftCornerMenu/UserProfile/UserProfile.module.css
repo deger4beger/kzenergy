@@ -141,7 +141,7 @@
 
 .lowerItem {
 	display: flex;
-	align-items: center;
+	align-items: flex-end;
 	flex-wrap: wrap;
 }
 
@@ -220,7 +220,7 @@
 }
 
 .prePhone {
-	padding: 4px 0px 4px 8px;
+	padding-bottom: 4px;
 	border-bottom: 2px solid var(--additional);
 	user-select: none;
 }
