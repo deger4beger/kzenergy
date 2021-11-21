@@ -13,13 +13,10 @@ const HomePage = lazy(() => import("./pages/Homepage/Homepage"))
 const Registration = lazy(() => import("./pages/Registration/Registration"))
 const Archive = lazy(() => import("./pages/Archive/Archive"))
 
-const App = ({setLanguage, lang}) => {
+const App = () => {
     return (
         <>
-            <Header
-                setLanguage={setLanguage}
-                lang={lang}
-            />
+            <Header />
             <div className={"wrapper"}>
                 <div className={"mainBlock"}>
                     <Switch>

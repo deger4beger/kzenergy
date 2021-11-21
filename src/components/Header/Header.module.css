@@ -12,6 +12,10 @@
 	min-width: 1200px;
 }
 
+.wrapper * {
+	transform-style: preserve-3d;
+}
+
 .container {
 	width: 55%;
 	margin: 0 auto;
