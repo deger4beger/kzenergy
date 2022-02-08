@@ -1,6 +1,7 @@
 import s from "./CornerMenu.module.css"
 import React, { useEffect, useState } from 'react';
 import { animateScroll as scroll } from "react-scroll"
+import { useThrottle } from '../../hooks/useThrottle';
 
 const CornerMenu = React.memo(() => {
 	const [scrollActive, setScrollActive] = useState(false)
@@ -10,13 +11,14 @@ const CornerMenu = React.memo(() => {
    		return () => window.removeEventListener("scroll", handleScroll)
 	}, [])
 
-	const handleScroll = () => {
+	const handleScroll = useThrottle(() => {
+		console.log("1")
 		if (window.pageYOffset > 200) {
 			setScrollActive(true)
 		} else {
 			setScrollActive(false)
 		}
-	}
+	}, 1000)
 
 	return (
 		<div className={s.wrapper}>
