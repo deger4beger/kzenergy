@@ -1,6 +1,6 @@
 # STUDENTDIGITALFEST (SDF) - 2021
 
-## First place at the republican competition on the topic "Automation of calculations of emissions of pollutants, greenhouse gases and energy efficiency" for KPO (by Kzenergy)
+## First place at the republican competition on the topic "Automation of calculations of emissions of pollutants, greenhouse gases and energy efficiency" by KPO (sp. by Kzenergy)
 
 ### Frontend part of the project
 
